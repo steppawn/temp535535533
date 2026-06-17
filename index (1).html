@@ -77,9 +77,6 @@
         .progress-bar {
             transition: width 0.3s ease;
         }
-        .floating-cart {
-            box-shadow: 0 18px 40px rgba(17, 17, 17, 0.18);
-        }
     </style>
 </head>
 <body class="antialiased text-brand-dark">
@@ -475,89 +472,81 @@
                 </div>
             </section>
 
-            <section class="grid grid-cols-1 xl:grid-cols-[1.15fr_0.85fr] gap-4 mb-16">
-                <div class="bg-white rounded-[2rem] p-8 soft-ring">
-                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+            <section class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-4 mb-16">
+                <div class="bg-white rounded-[2rem] p-8 md:p-10 soft-ring">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
                         <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Bundle Edits</p>
-                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Complete the look faster</h3>
+                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Featured Ad</p>
+                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Upgrade your everyday setup</h3>
                         </div>
-                        <p class="text-sm text-gray-500 max-w-md">Pre-grouped combinations keep the shopping flow simple and help customers build a room or routine with fewer steps.</p>
+                        <a href="#featured-products" class="text-sm font-semibold hover:text-brand-orange transition-colors">Shop promoted picks</a>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <article class="rounded-[2rem] bg-brand-card p-6">
-                            <div class="flex items-center justify-between mb-10">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Desk Pairing</span>
-                                <i data-lucide="layout-panel-top" class="w-5 h-5 text-brand-dark"></i>
+                    <div class="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-4">
+                        <div class="rounded-[2rem] bg-brand-dark text-white p-8 flex flex-col justify-between min-h-[22rem]">
+                            <div>
+                                <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Sponsored</p>
+                                <h4 class="text-4xl md:text-5xl font-medium tracking-tight leading-tight mb-4">Big savings on home, desk, and daily carry.</h4>
+                                <p class="text-sm md:text-base text-gray-400 max-w-lg">A homepage-style promotional block inspired by marketplace layouts, but kept calmer and cleaner for this design.</p>
                             </div>
-                            <h4 class="text-3xl font-medium tracking-tight mb-3">Workday reset</h4>
-                            <p class="text-sm text-gray-600 mb-6">Air Keyboard, Arc Lamp, and Canvas Tote in one calmer setup.</p>
-                            <div class="flex items-center justify-between">
+                            <div class="flex items-center justify-between gap-4">
                                 <div>
-                                    <p class="text-2xl font-semibold">$171</p>
-                                    <p class="text-xs text-gray-500">Save $20 with the edit</p>
+                                    <p class="text-3xl font-semibold">Up to 40% off</p>
+                                    <p class="text-sm text-gray-400">Selected seasonal essentials</p>
                                 </div>
-                                <button class="bundle-add rounded-full bg-brand-dark px-4 py-3 text-sm font-semibold text-white hover:bg-black transition-colors" data-bundle-items="3" data-bundle-total="171">Add bundle</button>
+                                <a href="#featured-products" class="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-gray-200 transition-colors">
+                                    Explore deals
+                                    <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                                </a>
                             </div>
-                        </article>
-                        <article class="rounded-[2rem] bg-brand-dark text-white p-6">
-                            <div class="flex items-center justify-between mb-10">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Living Combo</span>
-                                <i data-lucide="sofa" class="w-5 h-5 text-brand-orange"></i>
-                            </div>
-                            <h4 class="text-3xl font-medium tracking-tight mb-3">Warm evening set</h4>
-                            <p class="text-sm text-gray-400 mb-6">Mono Chair, Soft Throw, and Fold Speaker for a softer room mood.</p>
-                            <div class="flex items-center justify-between">
+                        </div>
+                        <div class="grid grid-cols-1 gap-4">
+                            <article class="rounded-[2rem] bg-brand-card p-6 min-h-[10.5rem] flex flex-col justify-between">
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Side Ad</span>
+                                    <i data-lucide="monitor" class="w-5 h-5 text-brand-dark"></i>
+                                </div>
                                 <div>
-                                    <p class="text-2xl font-semibold">$349</p>
-                                    <p class="text-xs text-gray-400">Most-loved room edit</p>
+                                    <h4 class="text-3xl font-medium tracking-tight mb-2">Workspace deals</h4>
+                                    <p class="text-sm text-gray-600">Monitors, keyboards, lamps, and compact desk upgrades.</p>
                                 </div>
-                                <button class="bundle-add rounded-full bg-white px-4 py-3 text-sm font-semibold text-brand-dark hover:bg-gray-200 transition-colors" data-bundle-items="3" data-bundle-total="349">Add bundle</button>
-                            </div>
-                        </article>
-                        <article class="rounded-[2rem] bg-white p-6 soft-ring">
-                            <div class="flex items-center justify-between mb-10">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Slow Morning</span>
-                                <i data-lucide="sunrise" class="w-5 h-5 text-brand-orange"></i>
-                            </div>
-                            <h4 class="text-3xl font-medium tracking-tight mb-3">Weekend ritual</h4>
-                            <p class="text-sm text-gray-500 mb-6">Brew Set, Travel Bottle, and Soft Throw for lighter routines.</p>
-                            <div class="flex items-center justify-between">
+                            </article>
+                            <article class="rounded-[2rem] bg-white p-6 soft-ring min-h-[10.5rem] flex flex-col justify-between">
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Side Ad</span>
+                                    <i data-lucide="package-open" class="w-5 h-5 text-brand-orange"></i>
+                                </div>
                                 <div>
-                                    <p class="text-2xl font-semibold">$121</p>
-                                    <p class="text-xs text-gray-400">Easy gift-ready mix</p>
+                                    <h4 class="text-3xl font-medium tracking-tight mb-2">Home refresh picks</h4>
+                                    <p class="text-sm text-gray-500">Simple decor, soft textures, and quick room updates.</p>
                                 </div>
-                                <button class="bundle-add rounded-full bg-brand-dark px-4 py-3 text-sm font-semibold text-white hover:bg-black transition-colors" data-bundle-items="3" data-bundle-total="121">Add bundle</button>
-                            </div>
-                        </article>
+                            </article>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-brand-card rounded-[2rem] p-8">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 mb-4">Saved List</p>
-                    <div class="flex items-end justify-between gap-4 mb-6">
+                    <div class="flex items-center justify-between mb-6">
                         <div>
-                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-2">Keep favorites close</h3>
-                            <p class="text-sm text-gray-600">Heart any product to build a low-pressure shortlist before checkout.</p>
+                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 mb-3">Promo Rail</p>
+                            <h3 class="text-4xl font-medium tracking-tight">Side ads</h3>
                         </div>
-                        <span id="saved-count" class="text-5xl font-semibold leading-none">0</span>
+                        <i data-lucide="badge-percent" class="w-6 h-6 text-brand-orange"></i>
                     </div>
                     <div class="space-y-4">
-                        <div class="bg-white rounded-[1.5rem] p-5 soft-ring">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Wishlist Mode</span>
-                                <i data-lucide="heart-handshake" class="w-5 h-5 text-brand-orange"></i>
-                            </div>
-                            <p class="text-2xl font-semibold tracking-tight mb-2">Simple save behavior</p>
-                            <p class="text-sm text-gray-500">Saved items stay visible in the count so shoppers can browse without rushing purchase decisions.</p>
-                        </div>
-                        <div class="rounded-[1.5rem] border border-white/60 p-5">
-                            <div class="flex items-center justify-between mb-2">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Quick Note</span>
-                                <i data-lucide="sparkles" class="w-5 h-5 text-brand-dark"></i>
-                            </div>
-                            <p class="text-2xl font-semibold tracking-tight mb-2">Designed for mobile too</p>
-                            <p class="text-sm text-gray-600">The page keeps tap targets large, spacing generous, and actions grouped near the bottom on smaller screens.</p>
-                        </div>
+                        <article class="rounded-[1.5rem] bg-white p-5 soft-ring">
+                            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-3">Deal Of The Day</p>
+                            <h4 class="text-2xl font-semibold tracking-tight mb-2">Audio and desk accessories</h4>
+                            <p class="text-sm text-gray-500">Small, expected homepage promo content without introducing extra product-story sections.</p>
+                        </article>
+                        <article class="rounded-[1.5rem] bg-brand-dark p-5 text-white">
+                            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-3">Limited Offer</p>
+                            <h4 class="text-2xl font-semibold tracking-tight mb-2">Fast-moving essentials</h4>
+                            <p class="text-sm text-gray-400">Travel bottles, totes, speakers, and soft home picks this week.</p>
+                        </article>
+                        <article class="rounded-[1.5rem] border border-white/60 p-5">
+                            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Sponsored Brand</p>
+                            <h4 class="text-2xl font-semibold tracking-tight mb-2">Minimal living collection</h4>
+                            <p class="text-sm text-gray-600">A compact rail ad that fits naturally beside the main promoted block.</p>
+                        </article>
                     </div>
                 </div>
             </section>
@@ -609,84 +598,31 @@
                 </div>
             </section>
 
-            <section class="grid grid-cols-1 xl:grid-cols-[0.85fr_1.15fr] gap-4 mb-16">
-                <div class="bg-white rounded-[2rem] p-8 soft-ring">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Shopping Confidence</p>
-                    <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Useful details before checkout</h3>
-                    <div class="space-y-4">
-                        <div class="rounded-[1.5rem] bg-brand-card p-5">
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Returns</span>
-                                <i data-lucide="rotate-ccw" class="w-5 h-5 text-brand-dark"></i>
-                            </div>
-                            <p class="text-2xl font-semibold tracking-tight mb-2">14-day easy return window</p>
-                            <p class="text-sm text-gray-600">A straightforward policy that reduces hesitation without adding interface clutter.</p>
-                        </div>
-                        <div class="rounded-[1.5rem] bg-brand-dark p-5 text-white">
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Pickup</span>
-                                <i data-lucide="map-pinned" class="w-5 h-5 text-brand-orange"></i>
-                            </div>
-                            <p class="text-2xl font-semibold tracking-tight mb-2">Local pickup in under 2 hours</p>
-                            <p class="text-sm text-gray-400">Ideal for same-day needs while keeping the journey lightweight and familiar.</p>
-                        </div>
-                        <div class="rounded-[1.5rem] bg-white p-5 soft-ring">
-                            <div class="flex items-center justify-between mb-3">
-                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Support</span>
-                                <i data-lucide="message-circle-heart" class="w-5 h-5 text-brand-orange"></i>
-                            </div>
-                            <p class="text-2xl font-semibold tracking-tight mb-2">Real help, no maze</p>
-                            <p class="text-sm text-gray-500">Common answers, fast contact options, and fewer dead ends for mobile shoppers.</p>
-                        </div>
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+                <article class="rounded-[2rem] bg-white p-6 soft-ring">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Sponsored</span>
+                        <i data-lucide="radio" class="w-5 h-5 text-brand-orange"></i>
                     </div>
-                </div>
-                <div class="bg-brand-card rounded-[2rem] p-8">
-                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 mb-3">Frequently Asked</p>
-                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Support without friction</h3>
-                        </div>
-                        <p class="text-sm text-gray-600 max-w-md">A few expandable answers make the storefront feel complete without introducing a heavy help center layout.</p>
+                    <h3 class="text-3xl font-medium tracking-tight mb-3">Streaming and sound offers</h3>
+                    <p class="text-sm text-gray-500">Simple ad card placement similar to a marketplace homepage rail.</p>
+                </article>
+                <article class="rounded-[2rem] bg-brand-card p-6">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Ad Section</span>
+                        <i data-lucide="lamp-floor" class="w-5 h-5 text-brand-dark"></i>
                     </div>
-                    <div class="space-y-3">
-                        <article class="faq-item rounded-[1.5rem] bg-white p-5 soft-ring">
-                            <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left" type="button" aria-expanded="false">
-                                <div>
-                                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Orders</p>
-                                    <p class="text-2xl font-semibold tracking-tight">When do orders ship?</p>
-                                </div>
-                                <i data-lucide="plus" class="w-5 h-5 text-brand-orange shrink-0 transition-transform duration-200"></i>
-                            </button>
-                            <div class="faq-panel hidden pt-4 text-sm text-gray-500">
-                                Orders placed before 4 PM are prepared the same day, with next-day dispatch on stocked essentials and timeline updates at checkout.
-                            </div>
-                        </article>
-                        <article class="faq-item rounded-[1.5rem] bg-white p-5 soft-ring">
-                            <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left" type="button" aria-expanded="false">
-                                <div>
-                                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Payments</p>
-                                    <p class="text-2xl font-semibold tracking-tight">Can shoppers use multiple payment options?</p>
-                                </div>
-                                <i data-lucide="plus" class="w-5 h-5 text-brand-orange shrink-0 transition-transform duration-200"></i>
-                            </button>
-                            <div class="faq-panel hidden pt-4 text-sm text-gray-500">
-                                The layout is ready for cards, wallets, and store credit summaries while still keeping the payment step compact and readable.
-                            </div>
-                        </article>
-                        <article class="faq-item rounded-[1.5rem] bg-white p-5 soft-ring">
-                            <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left" type="button" aria-expanded="false">
-                                <div>
-                                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Delivery</p>
-                                    <p class="text-2xl font-semibold tracking-tight">Is mobile checkout still simple for larger carts?</p>
-                                </div>
-                                <i data-lucide="plus" class="w-5 h-5 text-brand-orange shrink-0 transition-transform duration-200"></i>
-                            </button>
-                            <div class="faq-panel hidden pt-4 text-sm text-gray-500">
-                                Yes. The fixed mobile cart summary keeps totals and the checkout action within reach without interrupting browsing on the page.
-                            </div>
-                        </article>
+                    <h3 class="text-3xl font-medium tracking-tight mb-3">Home lighting event</h3>
+                    <p class="text-sm text-gray-600">Promotional content placed between shopping blocks without changing the UI pattern.</p>
+                </article>
+                <article class="rounded-[2rem] bg-brand-dark p-6 text-white">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Top Promo</span>
+                        <i data-lucide="shopping-basket" class="w-5 h-5 text-brand-orange"></i>
                     </div>
-                </div>
+                    <h3 class="text-3xl font-medium tracking-tight mb-3">Daily essentials sale</h3>
+                    <p class="text-sm text-gray-400">A direct ad card for homepage traffic, keeping the presentation basic and expected.</p>
+                </article>
             </section>
 
             <section class="mb-16">
@@ -753,29 +689,15 @@
         </main>
     </div>
 
-    <div id="mobile-cart-bar" class="floating-cart fixed inset-x-4 bottom-4 z-30 hidden md:hidden rounded-full bg-brand-dark px-5 py-4 text-white">
-        <div class="flex items-center justify-between gap-4">
-            <div>
-                <p class="text-xs uppercase tracking-[0.25em] text-gray-400">Cart Summary</p>
-                <p class="text-base font-semibold"><span id="mobile-cart-items">0</span> items · <span id="mobile-cart-total">$0</span></p>
-            </div>
-            <a href="#featured-products" class="shrink-0 rounded-full bg-white px-4 py-3 text-sm font-semibold text-brand-dark">Checkout</a>
-        </div>
-    </div>
-
     <!-- Initialize Lucide Icons -->
     <script>
         lucide.createIcons();
 
         const cartCount = document.getElementById('cart-count');
         const selectedCount = document.getElementById('selected-count');
-        const savedCount = document.getElementById('saved-count');
         const cartSubtotal = document.getElementById('cart-subtotal');
         const freeShippingProgress = document.getElementById('free-shipping-progress');
         const shippingRemaining = document.getElementById('shipping-remaining');
-        const mobileCartBar = document.getElementById('mobile-cart-bar');
-        const mobileCartItems = document.getElementById('mobile-cart-items');
-        const mobileCartTotal = document.getElementById('mobile-cart-total');
         const productCards = document.querySelectorAll('.product-card');
         const productFilters = document.querySelectorAll('.product-filter');
         const saveButtons = document.querySelectorAll('.save-product');
@@ -783,7 +705,6 @@
         const emptyState = document.getElementById('empty-state');
         let cartItems = 0;
         let cartTotal = 0;
-        let savedItems = 0;
         let activeFilter = 'all';
 
         function formatCurrency(value) {
@@ -800,9 +721,6 @@
             cartSubtotal.textContent = formatCurrency(cartTotal);
             freeShippingProgress.style.width = `${progressWidth}%`;
             shippingRemaining.textContent = remaining === 0 ? 'Free shipping unlocked' : `${formatCurrency(remaining)} to unlock`;
-            mobileCartItems.textContent = cartItems;
-            mobileCartTotal.textContent = formatCurrency(cartTotal);
-            mobileCartBar.classList.toggle('hidden', cartItems === 0);
         }
 
         function applyProductVisibility() {
@@ -849,27 +767,6 @@
             });
         });
 
-        document.querySelectorAll('.bundle-add').forEach((button) => {
-            button.addEventListener('click', () => {
-                cartItems += Number(button.dataset.bundleItems || 0);
-                cartTotal += Number(button.dataset.bundleTotal || 0);
-                updateCartUI();
-                button.textContent = 'Bundle added';
-                button.classList.add('bg-brand-orange', 'text-white');
-                button.classList.remove('bg-brand-dark', 'bg-white', 'text-brand-dark');
-                setTimeout(() => {
-                    button.textContent = 'Add bundle';
-                    if (button.closest('article').classList.contains('bg-brand-dark')) {
-                        button.classList.remove('bg-brand-orange', 'text-white');
-                        button.classList.add('bg-white', 'text-brand-dark');
-                    } else {
-                        button.classList.remove('bg-brand-orange');
-                        button.classList.add('bg-brand-dark', 'text-white');
-                    }
-                }, 900);
-            });
-        });
-
         saveButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 const isSaved = button.dataset.saved === 'true';
@@ -877,8 +774,6 @@
                 const icon = button.querySelector('svg');
 
                 button.dataset.saved = String(!isSaved);
-                savedItems += isSaved ? -1 : 1;
-                savedCount.textContent = savedItems;
 
                 if (!isSaved) {
                     button.classList.remove('bg-brand-card', 'bg-white/10');
@@ -909,18 +804,6 @@
 
         searchInput.addEventListener('input', () => {
             applyProductVisibility();
-        });
-
-        document.querySelectorAll('.faq-toggle').forEach((button) => {
-            button.addEventListener('click', () => {
-                const panel = button.nextElementSibling;
-                const expanded = button.getAttribute('aria-expanded') === 'true';
-                const icon = button.querySelector('svg');
-
-                button.setAttribute('aria-expanded', String(!expanded));
-                panel.classList.toggle('hidden', expanded);
-                icon?.classList.toggle('rotate-45', !expanded);
-            });
         });
 
         updateCartUI();
