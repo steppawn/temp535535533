@@ -71,6 +71,15 @@
         .soft-ring {
             box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.06);
         }
+        .progress-track {
+            overflow: hidden;
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        .floating-cart {
+            box-shadow: 0 18px 40px rgba(17, 17, 17, 0.18);
+        }
     </style>
 </head>
 <body class="antialiased text-brand-dark">
@@ -277,14 +286,14 @@
                         <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Featured products</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <button class="px-4 py-2 rounded-full bg-brand-dark text-white text-sm font-medium">All</button>
-                        <button class="px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Popular</button>
-                        <button class="px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">New In</button>
-                        <button class="px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Best Value</button>
+                        <button data-filter="all" class="product-filter px-4 py-2 rounded-full bg-brand-dark text-white text-sm font-medium">All</button>
+                        <button data-filter="popular" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Popular</button>
+                        <button data-filter="new" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">New In</button>
+                        <button data-filter="value" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Best Value</button>
                     </div>
                 </div>
                 <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Arc Lamp" data-price="89">
+                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Arc Lamp" data-price="89" data-tag="popular" data-search="arc lamp home decor ambient lighting living room">
                         <div class="product-image bg-brand-card rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="lamp-desk" class="w-14 h-14 text-brand-dark"></i>
                         </div>
@@ -293,7 +302,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Home Decor</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Arc Lamp</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Arc Lamp">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -306,7 +315,7 @@
                             <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
                         </div>
                     </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Fold Speaker" data-price="129">
+                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Fold Speaker" data-price="129" data-tag="popular" data-search="fold speaker audio portable matte finish living room">
                         <div class="product-image bg-[#dfe5e8] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="speaker" class="w-14 h-14 text-brand-dark"></i>
                         </div>
@@ -315,7 +324,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Audio</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Fold Speaker</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Fold Speaker">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -328,7 +337,7 @@
                             <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
                         </div>
                     </article>
-                    <article class="product-card bg-brand-dark text-white rounded-[2rem] p-5 flex flex-col" data-product="Mono Chair" data-price="219">
+                    <article class="product-card bg-brand-dark text-white rounded-[2rem] p-5 flex flex-col" data-product="Mono Chair" data-price="219" data-tag="popular" data-search="mono chair furniture comfort lounge seating living room">
                         <div class="product-image bg-[#252525] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="armchair" class="w-14 h-14 text-brand-orange"></i>
                         </div>
@@ -337,7 +346,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Furniture</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Mono Chair</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center" aria-label="Save Mono Chair">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -350,7 +359,7 @@
                             <button class="add-to-cart bg-white text-brand-dark px-4 py-3 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">Add to cart</button>
                         </div>
                     </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Travel Bottle" data-price="34">
+                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Travel Bottle" data-price="34" data-tag="value" data-search="travel bottle insulated daily carry commute gym hydration">
                         <div class="product-image bg-[#ece7df] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="thermometer-sun" class="w-14 h-14 text-brand-dark"></i>
                         </div>
@@ -359,7 +368,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Daily Carry</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Travel Bottle</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Travel Bottle">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -372,7 +381,7 @@
                             <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
                         </div>
                     </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Air Keyboard" data-price="74">
+                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Air Keyboard" data-price="74" data-tag="value" data-search="air keyboard tech wireless desk setup productivity office">
                         <div class="product-image bg-[#e8ecef] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="keyboard" class="w-14 h-14 text-brand-dark"></i>
                         </div>
@@ -381,7 +390,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Tech</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Air Keyboard</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Air Keyboard">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -394,7 +403,7 @@
                             <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
                         </div>
                     </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Canvas Tote" data-price="28">
+                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Canvas Tote" data-price="28" data-tag="value" data-search="canvas tote style carry bag neutral everyday">
                         <div class="product-image bg-[#ede3db] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="shopping-bag" class="w-14 h-14 text-brand-dark"></i>
                         </div>
@@ -403,7 +412,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Style</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Canvas Tote</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Canvas Tote">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -416,7 +425,7 @@
                             <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
                         </div>
                     </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Brew Set" data-price="58">
+                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Brew Set" data-price="58" data-tag="new" data-search="brew set kitchen coffee ritual pour over mornings">
                         <div class="product-image bg-[#ebe7e0] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="cup-soda" class="w-14 h-14 text-brand-dark"></i>
                         </div>
@@ -425,7 +434,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Kitchen</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Brew Set</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Brew Set">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -438,7 +447,7 @@
                             <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
                         </div>
                     </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Soft Throw" data-price="46">
+                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Soft Throw" data-price="46" data-tag="new" data-search="soft throw living blanket texture comfort sofa bed">
                         <div class="product-image bg-[#e7e0d8] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
                             <i data-lucide="blend" class="w-14 h-14 text-brand-dark"></i>
                         </div>
@@ -447,7 +456,7 @@
                                 <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Living</p>
                                 <h4 class="text-2xl font-medium tracking-tight">Soft Throw</h4>
                             </div>
-                            <button class="w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center">
+                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Soft Throw">
                                 <i data-lucide="heart" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -463,6 +472,93 @@
                 </div>
                 <div id="empty-state" class="hidden mt-6 rounded-[2rem] bg-white p-6 soft-ring text-sm text-gray-500">
                     No products matched your search. Try another keyword.
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 xl:grid-cols-[1.15fr_0.85fr] gap-4 mb-16">
+                <div class="bg-white rounded-[2rem] p-8 soft-ring">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Bundle Edits</p>
+                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Complete the look faster</h3>
+                        </div>
+                        <p class="text-sm text-gray-500 max-w-md">Pre-grouped combinations keep the shopping flow simple and help customers build a room or routine with fewer steps.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <article class="rounded-[2rem] bg-brand-card p-6">
+                            <div class="flex items-center justify-between mb-10">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Desk Pairing</span>
+                                <i data-lucide="layout-panel-top" class="w-5 h-5 text-brand-dark"></i>
+                            </div>
+                            <h4 class="text-3xl font-medium tracking-tight mb-3">Workday reset</h4>
+                            <p class="text-sm text-gray-600 mb-6">Air Keyboard, Arc Lamp, and Canvas Tote in one calmer setup.</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-2xl font-semibold">$171</p>
+                                    <p class="text-xs text-gray-500">Save $20 with the edit</p>
+                                </div>
+                                <button class="bundle-add rounded-full bg-brand-dark px-4 py-3 text-sm font-semibold text-white hover:bg-black transition-colors" data-bundle-items="3" data-bundle-total="171">Add bundle</button>
+                            </div>
+                        </article>
+                        <article class="rounded-[2rem] bg-brand-dark text-white p-6">
+                            <div class="flex items-center justify-between mb-10">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Living Combo</span>
+                                <i data-lucide="sofa" class="w-5 h-5 text-brand-orange"></i>
+                            </div>
+                            <h4 class="text-3xl font-medium tracking-tight mb-3">Warm evening set</h4>
+                            <p class="text-sm text-gray-400 mb-6">Mono Chair, Soft Throw, and Fold Speaker for a softer room mood.</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-2xl font-semibold">$349</p>
+                                    <p class="text-xs text-gray-400">Most-loved room edit</p>
+                                </div>
+                                <button class="bundle-add rounded-full bg-white px-4 py-3 text-sm font-semibold text-brand-dark hover:bg-gray-200 transition-colors" data-bundle-items="3" data-bundle-total="349">Add bundle</button>
+                            </div>
+                        </article>
+                        <article class="rounded-[2rem] bg-white p-6 soft-ring">
+                            <div class="flex items-center justify-between mb-10">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Slow Morning</span>
+                                <i data-lucide="sunrise" class="w-5 h-5 text-brand-orange"></i>
+                            </div>
+                            <h4 class="text-3xl font-medium tracking-tight mb-3">Weekend ritual</h4>
+                            <p class="text-sm text-gray-500 mb-6">Brew Set, Travel Bottle, and Soft Throw for lighter routines.</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-2xl font-semibold">$121</p>
+                                    <p class="text-xs text-gray-400">Easy gift-ready mix</p>
+                                </div>
+                                <button class="bundle-add rounded-full bg-brand-dark px-4 py-3 text-sm font-semibold text-white hover:bg-black transition-colors" data-bundle-items="3" data-bundle-total="121">Add bundle</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="bg-brand-card rounded-[2rem] p-8">
+                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 mb-4">Saved List</p>
+                    <div class="flex items-end justify-between gap-4 mb-6">
+                        <div>
+                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-2">Keep favorites close</h3>
+                            <p class="text-sm text-gray-600">Heart any product to build a low-pressure shortlist before checkout.</p>
+                        </div>
+                        <span id="saved-count" class="text-5xl font-semibold leading-none">0</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="bg-white rounded-[1.5rem] p-5 soft-ring">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Wishlist Mode</span>
+                                <i data-lucide="heart-handshake" class="w-5 h-5 text-brand-orange"></i>
+                            </div>
+                            <p class="text-2xl font-semibold tracking-tight mb-2">Simple save behavior</p>
+                            <p class="text-sm text-gray-500">Saved items stay visible in the count so shoppers can browse without rushing purchase decisions.</p>
+                        </div>
+                        <div class="rounded-[1.5rem] border border-white/60 p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Quick Note</span>
+                                <i data-lucide="sparkles" class="w-5 h-5 text-brand-dark"></i>
+                            </div>
+                            <p class="text-2xl font-semibold tracking-tight mb-2">Designed for mobile too</p>
+                            <p class="text-sm text-gray-600">The page keeps tap targets large, spacing generous, and actions grouped near the bottom on smaller screens.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -488,6 +584,10 @@
                             <span id="selected-count" class="text-3xl font-semibold">0</span>
                         </div>
                         <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+                            <span class="text-gray-500">Estimated subtotal</span>
+                            <span id="cart-subtotal" class="text-2xl font-semibold">$0</span>
+                        </div>
+                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
                             <span class="text-gray-500">Storewide discount</span>
                             <span class="text-2xl font-semibold text-brand-orange">10%</span>
                         </div>
@@ -496,7 +596,96 @@
                             <span class="text-2xl font-semibold">$150</span>
                         </div>
                     </div>
-                    <p class="text-sm text-gray-500 mt-6">Static storefront demo with quick add-to-cart behavior and live counts.</p>
+                    <div class="mt-6">
+                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
+                            <span>Free shipping progress</span>
+                            <span id="shipping-remaining">$150 to unlock</span>
+                        </div>
+                        <div class="progress-track h-3 rounded-full bg-brand-card">
+                            <div id="free-shipping-progress" class="progress-bar h-full w-0 rounded-full bg-brand-orange"></div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-6">Static storefront demo with quick add-to-cart behavior, live totals, and clear order progress.</p>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 xl:grid-cols-[0.85fr_1.15fr] gap-4 mb-16">
+                <div class="bg-white rounded-[2rem] p-8 soft-ring">
+                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Shopping Confidence</p>
+                    <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Useful details before checkout</h3>
+                    <div class="space-y-4">
+                        <div class="rounded-[1.5rem] bg-brand-card p-5">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Returns</span>
+                                <i data-lucide="rotate-ccw" class="w-5 h-5 text-brand-dark"></i>
+                            </div>
+                            <p class="text-2xl font-semibold tracking-tight mb-2">14-day easy return window</p>
+                            <p class="text-sm text-gray-600">A straightforward policy that reduces hesitation without adding interface clutter.</p>
+                        </div>
+                        <div class="rounded-[1.5rem] bg-brand-dark p-5 text-white">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Pickup</span>
+                                <i data-lucide="map-pinned" class="w-5 h-5 text-brand-orange"></i>
+                            </div>
+                            <p class="text-2xl font-semibold tracking-tight mb-2">Local pickup in under 2 hours</p>
+                            <p class="text-sm text-gray-400">Ideal for same-day needs while keeping the journey lightweight and familiar.</p>
+                        </div>
+                        <div class="rounded-[1.5rem] bg-white p-5 soft-ring">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Support</span>
+                                <i data-lucide="message-circle-heart" class="w-5 h-5 text-brand-orange"></i>
+                            </div>
+                            <p class="text-2xl font-semibold tracking-tight mb-2">Real help, no maze</p>
+                            <p class="text-sm text-gray-500">Common answers, fast contact options, and fewer dead ends for mobile shoppers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-brand-card rounded-[2rem] p-8">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+                        <div>
+                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 mb-3">Frequently Asked</p>
+                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Support without friction</h3>
+                        </div>
+                        <p class="text-sm text-gray-600 max-w-md">A few expandable answers make the storefront feel complete without introducing a heavy help center layout.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <article class="faq-item rounded-[1.5rem] bg-white p-5 soft-ring">
+                            <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left" type="button" aria-expanded="false">
+                                <div>
+                                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Orders</p>
+                                    <p class="text-2xl font-semibold tracking-tight">When do orders ship?</p>
+                                </div>
+                                <i data-lucide="plus" class="w-5 h-5 text-brand-orange shrink-0 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-panel hidden pt-4 text-sm text-gray-500">
+                                Orders placed before 4 PM are prepared the same day, with next-day dispatch on stocked essentials and timeline updates at checkout.
+                            </div>
+                        </article>
+                        <article class="faq-item rounded-[1.5rem] bg-white p-5 soft-ring">
+                            <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left" type="button" aria-expanded="false">
+                                <div>
+                                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Payments</p>
+                                    <p class="text-2xl font-semibold tracking-tight">Can shoppers use multiple payment options?</p>
+                                </div>
+                                <i data-lucide="plus" class="w-5 h-5 text-brand-orange shrink-0 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-panel hidden pt-4 text-sm text-gray-500">
+                                The layout is ready for cards, wallets, and store credit summaries while still keeping the payment step compact and readable.
+                            </div>
+                        </article>
+                        <article class="faq-item rounded-[1.5rem] bg-white p-5 soft-ring">
+                            <button class="faq-toggle w-full flex items-center justify-between gap-4 text-left" type="button" aria-expanded="false">
+                                <div>
+                                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Delivery</p>
+                                    <p class="text-2xl font-semibold tracking-tight">Is mobile checkout still simple for larger carts?</p>
+                                </div>
+                                <i data-lucide="plus" class="w-5 h-5 text-brand-orange shrink-0 transition-transform duration-200"></i>
+                            </button>
+                            <div class="faq-panel hidden pt-4 text-sm text-gray-500">
+                                Yes. The fixed mobile cart summary keeps totals and the checkout action within reach without interrupting browsing on the page.
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </section>
 
@@ -564,28 +753,92 @@
         </main>
     </div>
 
+    <div id="mobile-cart-bar" class="floating-cart fixed inset-x-4 bottom-4 z-30 hidden md:hidden rounded-full bg-brand-dark px-5 py-4 text-white">
+        <div class="flex items-center justify-between gap-4">
+            <div>
+                <p class="text-xs uppercase tracking-[0.25em] text-gray-400">Cart Summary</p>
+                <p class="text-base font-semibold"><span id="mobile-cart-items">0</span> items · <span id="mobile-cart-total">$0</span></p>
+            </div>
+            <a href="#featured-products" class="shrink-0 rounded-full bg-white px-4 py-3 text-sm font-semibold text-brand-dark">Checkout</a>
+        </div>
+    </div>
+
     <!-- Initialize Lucide Icons -->
     <script>
         lucide.createIcons();
 
         const cartCount = document.getElementById('cart-count');
         const selectedCount = document.getElementById('selected-count');
+        const savedCount = document.getElementById('saved-count');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const freeShippingProgress = document.getElementById('free-shipping-progress');
+        const shippingRemaining = document.getElementById('shipping-remaining');
+        const mobileCartBar = document.getElementById('mobile-cart-bar');
+        const mobileCartItems = document.getElementById('mobile-cart-items');
+        const mobileCartTotal = document.getElementById('mobile-cart-total');
         const productCards = document.querySelectorAll('.product-card');
+        const productFilters = document.querySelectorAll('.product-filter');
+        const saveButtons = document.querySelectorAll('.save-product');
         const searchInput = document.querySelector('input[type="text"]');
         const emptyState = document.getElementById('empty-state');
         let cartItems = 0;
+        let cartTotal = 0;
+        let savedItems = 0;
+        let activeFilter = 'all';
+
+        function formatCurrency(value) {
+            return `$${value}`;
+        }
+
+        function updateCartUI() {
+            const threshold = 150;
+            const progressWidth = Math.min((cartTotal / threshold) * 100, 100);
+            const remaining = Math.max(threshold - cartTotal, 0);
+
+            cartCount.textContent = `(${cartItems})`;
+            selectedCount.textContent = cartItems;
+            cartSubtotal.textContent = formatCurrency(cartTotal);
+            freeShippingProgress.style.width = `${progressWidth}%`;
+            shippingRemaining.textContent = remaining === 0 ? 'Free shipping unlocked' : `${formatCurrency(remaining)} to unlock`;
+            mobileCartItems.textContent = cartItems;
+            mobileCartTotal.textContent = formatCurrency(cartTotal);
+            mobileCartBar.classList.toggle('hidden', cartItems === 0);
+        }
+
+        function applyProductVisibility() {
+            const query = searchInput.value.toLowerCase().trim();
+            let visibleProducts = 0;
+
+            productCards.forEach((card) => {
+                const searchTerms = (card.dataset.search || card.dataset.product).toLowerCase();
+                const matchesQuery = query === '' || searchTerms.includes(query);
+                const matchesFilter = activeFilter === 'all' || card.dataset.tag === activeFilter;
+                const matches = matchesQuery && matchesFilter;
+
+                card.style.display = matches ? 'flex' : 'none';
+
+                if (matches) {
+                    visibleProducts += 1;
+                }
+            });
+
+            emptyState.classList.toggle('hidden', visibleProducts !== 0 || (query === '' && activeFilter === 'all'));
+        }
 
         document.querySelectorAll('.add-to-cart').forEach((button) => {
             button.addEventListener('click', () => {
+                const card = button.closest('.product-card');
+                const price = Number(card.dataset.price || 0);
+
                 cartItems += 1;
-                cartCount.textContent = `(${cartItems})`;
-                selectedCount.textContent = cartItems;
+                cartTotal += price;
+                updateCartUI();
                 button.textContent = 'Added';
                 button.classList.add('bg-brand-orange');
                 button.classList.remove('bg-brand-dark', 'bg-white', 'text-brand-dark');
                 setTimeout(() => {
                     button.textContent = 'Add to cart';
-                    if (button.closest('.product-card').classList.contains('bg-brand-dark')) {
+                    if (card.classList.contains('bg-brand-dark')) {
                         button.classList.remove('bg-brand-orange');
                         button.classList.add('bg-white', 'text-brand-dark');
                     } else {
@@ -596,21 +849,82 @@
             });
         });
 
-        searchInput.addEventListener('input', (event) => {
-            const query = event.target.value.toLowerCase().trim();
-            let visibleProducts = 0;
+        document.querySelectorAll('.bundle-add').forEach((button) => {
+            button.addEventListener('click', () => {
+                cartItems += Number(button.dataset.bundleItems || 0);
+                cartTotal += Number(button.dataset.bundleTotal || 0);
+                updateCartUI();
+                button.textContent = 'Bundle added';
+                button.classList.add('bg-brand-orange', 'text-white');
+                button.classList.remove('bg-brand-dark', 'bg-white', 'text-brand-dark');
+                setTimeout(() => {
+                    button.textContent = 'Add bundle';
+                    if (button.closest('article').classList.contains('bg-brand-dark')) {
+                        button.classList.remove('bg-brand-orange', 'text-white');
+                        button.classList.add('bg-white', 'text-brand-dark');
+                    } else {
+                        button.classList.remove('bg-brand-orange');
+                        button.classList.add('bg-brand-dark', 'text-white');
+                    }
+                }, 900);
+            });
+        });
 
-            productCards.forEach((card) => {
-                const name = card.dataset.product.toLowerCase();
-                const matches = name.includes(query);
-                card.style.display = matches ? 'flex' : 'none';
-                if (matches) {
-                    visibleProducts += 1;
+        saveButtons.forEach((button) => {
+            button.addEventListener('click', () => {
+                const isSaved = button.dataset.saved === 'true';
+                const isDarkCard = button.closest('.product-card').classList.contains('bg-brand-dark');
+                const icon = button.querySelector('svg');
+
+                button.dataset.saved = String(!isSaved);
+                savedItems += isSaved ? -1 : 1;
+                savedCount.textContent = savedItems;
+
+                if (!isSaved) {
+                    button.classList.remove('bg-brand-card', 'bg-white/10');
+                    button.classList.add('bg-brand-orange', 'text-white');
+                } else {
+                    button.classList.remove('bg-brand-orange', 'text-white');
+                    button.classList.add(isDarkCard ? 'bg-white/10' : 'bg-brand-card');
+                }
+
+                if (icon) {
+                    icon.setAttribute('fill', isSaved ? 'none' : 'currentColor');
                 }
             });
-
-            emptyState.classList.toggle('hidden', visibleProducts !== 0 || query === '');
         });
+
+        productFilters.forEach((button) => {
+            button.addEventListener('click', () => {
+                activeFilter = button.dataset.filter;
+                productFilters.forEach((filterButton) => {
+                    filterButton.classList.remove('bg-brand-dark', 'text-white');
+                    filterButton.classList.add('bg-white', 'soft-ring');
+                });
+                button.classList.add('bg-brand-dark', 'text-white');
+                button.classList.remove('bg-white', 'soft-ring');
+                applyProductVisibility();
+            });
+        });
+
+        searchInput.addEventListener('input', () => {
+            applyProductVisibility();
+        });
+
+        document.querySelectorAll('.faq-toggle').forEach((button) => {
+            button.addEventListener('click', () => {
+                const panel = button.nextElementSibling;
+                const expanded = button.getAttribute('aria-expanded') === 'true';
+                const icon = button.querySelector('svg');
+
+                button.setAttribute('aria-expanded', String(!expanded));
+                panel.classList.toggle('hidden', expanded);
+                icon?.classList.toggle('rotate-45', !expanded);
+            });
+        });
+
+        updateCartUI();
+        applyProductVisibility();
     </script>
 </body>
 </html>
