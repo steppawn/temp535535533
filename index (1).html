@@ -3,925 +3,653 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Minimal - Clean E-Commerce</title>
-    
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
+    <title>NixtNode Purple Hero</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Tailwind Config for Custom Colors/Fonts -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            orange: '#ea580c',
-                            bg: '#f0f0f0',
-                            card: '#e5e5e5',
-                            dark: '#111111'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
+        :root {
+            color-scheme: dark;
+            --bg: #c7b6ef;
+            --bg-soft: #ddcff8;
+            --ink: #0e0b17;
+            --panel: #09070f;
+            --line: rgba(32, 22, 54, 0.28);
+            --line-soft: rgba(255, 255, 255, 0.14);
+            --accent: #c697ff;
+            --accent-2: #a978ff;
+            --card: #08070d;
+            --copy: rgba(255, 255, 255, 0.8);
+            --copy-muted: rgba(255, 255, 255, 0.58);
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
         body {
-            background-color: #ffffff;
-            /* Creates the thick orange border effect seen in the reference */
-            padding: 1rem;
-            min-height: 100vh;
+            margin: 0;
+            min-height: 100%;
         }
-        .app-container {
-            background-color: #f0f0f0;
-            border-radius: 2rem;
-            min-height: calc(100vh - 2rem);
-            border: 8px solid #ea580c;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
+
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            background:
+                radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0) 28%),
+                repeating-radial-gradient(circle at 50% 28%, transparent 0, transparent 34px, rgba(58, 37, 97, 0.28) 35px, rgba(58, 37, 97, 0.28) 37px),
+                linear-gradient(180deg, #d1c2f2 0%, #c3aff0 100%);
+            color: #fff;
+            padding: 28px;
+            overflow-x: hidden;
         }
-        
-        /* Custom scrollbar for horizontal scrolling */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            inset: -12vmax;
+            pointer-events: none;
+            z-index: 0;
         }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+
+        body::before {
+            background:
+                radial-gradient(circle at 22% 68%, rgba(255, 255, 255, 0.12), transparent 32%),
+                radial-gradient(circle at 82% 18%, rgba(101, 73, 161, 0.18), transparent 30%);
         }
-        .product-card:hover .product-image {
-            transform: scale(1.04);
+
+        body::after {
+            background:
+                linear-gradient(117deg, transparent 0 14%, rgba(34, 16, 67, 0.18) 14.3%, transparent 14.6%),
+                linear-gradient(78deg, transparent 0 79%, rgba(34, 16, 67, 0.18) 79.3%, transparent 79.6%);
+            opacity: 0.55;
         }
-        .soft-ring {
-            box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.06);
-        }
-        .progress-track {
-            overflow: hidden;
-        }
-        .progress-bar {
-            transition: width 0.3s ease;
-        }
-        .marquee-shell {
-            overflow: hidden;
+
+        .page-shell {
             position: relative;
+            z-index: 1;
+            max-width: 1280px;
+            margin: 0 auto;
+            min-height: calc(100vh - 56px);
+            padding: 34px 38px 34px;
+            border-radius: 34px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 48%, rgba(197, 156, 255, 0.92) 0%, rgba(185, 143, 250, 0.82) 17%, rgba(127, 88, 199, 0.44) 36%, rgba(16, 11, 28, 0.96) 78%),
+                linear-gradient(180deg, #140d23 0%, #08070d 100%);
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+                0 26px 70px rgba(20, 10, 40, 0.35);
         }
-        .marquee-shell::before,
-        .marquee-shell::after {
+
+        .page-shell::before,
+        .page-shell::after {
             content: "";
             position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 4rem;
-            z-index: 1;
+            inset: 0;
             pointer-events: none;
         }
-        .marquee-shell::before {
-            left: 0;
-            background: linear-gradient(to right, #f0f0f0, rgba(240, 240, 240, 0));
+
+        .page-shell::before {
+            background:
+                repeating-radial-gradient(circle at 50% 24%, transparent 0, transparent 28px, rgba(231, 213, 255, 0.16) 29px, rgba(231, 213, 255, 0.16) 31px);
+            opacity: 0.9;
         }
-        .marquee-shell::after {
-            right: 0;
-            background: linear-gradient(to left, #f0f0f0, rgba(240, 240, 240, 0));
+
+        .page-shell::after {
+            background:
+                radial-gradient(circle at 32% 67%, rgba(255, 255, 255, 0.9) 0%, rgba(240, 233, 255, 0.82) 20%, rgba(237, 225, 255, 0.26) 44%, rgba(255, 255, 255, 0) 55%),
+                linear-gradient(111deg, transparent 0 18%, rgba(12, 8, 20, 0.35) 18.2%, transparent 18.4%),
+                linear-gradient(80deg, transparent 0 80%, rgba(12, 8, 20, 0.35) 80.2%, transparent 80.4%);
+            mix-blend-mode: screen;
         }
-        .marquee-track {
+
+        .curve,
+        .curve-right {
+            position: absolute;
+            border: 1px solid rgba(16, 10, 28, 0.38);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .curve {
+            width: 1080px;
+            height: 760px;
+            left: -230px;
+            top: 94px;
+            transform: rotate(5deg);
+        }
+
+        .curve-right {
+            width: 430px;
+            height: 980px;
+            right: 170px;
+            top: 10px;
+            transform: rotate(3deg);
+        }
+
+        .topbar,
+        .hero,
+        .stats-row {
+            position: relative;
+            z-index: 2;
+        }
+
+        .topbar {
             display: flex;
-            width: max-content;
-            animation: marquee-scroll 24s linear infinite;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 64px;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 13px;
+            letter-spacing: 0.03em;
         }
-        .marquee-shell:hover .marquee-track {
-            animation-play-state: paused;
+
+        .brand {
+            font-size: 18px;
+            color: #f4f0ff;
+            text-decoration: none;
         }
-        @keyframes marquee-scroll {
-            from {
-                transform: translateX(0);
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .nav a {
+            color: inherit;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav sup {
+            color: var(--copy-muted);
+            margin-left: 4px;
+            font-size: 10px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+            align-items: start;
+            gap: 56px;
+            min-height: 455px;
+            margin-bottom: 132px;
+            padding: 44px 10px 0 10px;
+        }
+
+        .headline-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brace {
+            font-size: 50px;
+            font-weight: 400;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.84);
+            text-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
+            transform: translateY(-14px);
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 690px;
+            color: #070509;
+            font-size: clamp(4.15rem, 6.6vw, 5.95rem);
+            line-height: 0.92;
+            letter-spacing: -0.06em;
+            font-weight: 700;
+        }
+
+        .hero-orbital {
+            position: absolute;
+            left: 290px;
+            top: 318px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 0, 0, 0.56);
+            background: transparent;
+            box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.44);
+        }
+
+        .hero-orbital::before,
+        .hero-orbital::after {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.24);
+        }
+
+        .hero-orbital::after {
+            inset: -6px;
+            transform: rotate(45deg);
+            border-radius: 18px;
+        }
+
+        .side-copy {
+            padding-top: 128px;
+        }
+
+        .side-copy p {
+            margin: 0 0 32px;
+            max-width: 320px;
+            color: rgba(18, 10, 29, 0.82);
+            font-size: 1.02rem;
+            line-height: 1.65;
+        }
+
+        .side-copy .copy-mark {
+            display: inline-block;
+            margin-right: 10px;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 208px;
+            height: 76px;
+            padding: 0 34px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(5, 5, 9, 0.98);
+            color: #f4f1ff;
+            text-decoration: none;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 1rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 0.22fr 0.38fr 0.36fr 0.18fr;
+            gap: 0;
+            align-items: end;
+        }
+
+        .stub,
+        .stat-card,
+        .side-panel {
+            position: relative;
+            min-height: 180px;
+            background: rgba(6, 6, 9, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+
+        .stub {
+            border-radius: 0 0 30px 30px;
+        }
+
+        .stub.left {
+            margin-right: 18px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 30px;
+        }
+
+        .stub.right {
+            margin-left: 18px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 0;
+        }
+
+        .stat-card {
+            border-radius: 28px;
+            padding: 26px 30px 24px;
+        }
+
+        .stat-card.primary {
+            min-height: 180px;
+            transform: translateY(34px);
+        }
+
+        .stat-card.secondary {
+            min-height: 252px;
+            margin: 0 18px;
+            padding-top: 18px;
+        }
+
+        .stat-card::before,
+        .stat-card::after {
+            content: "";
+            position: absolute;
+            top: 72%;
+            width: 34px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(164, 128, 255, 0.96), rgba(235, 228, 255, 0.88));
+        }
+
+        .stat-card.primary::before {
+            right: -46px;
+        }
+
+        .stat-card.secondary::before {
+            left: -46px;
+        }
+
+        .stat-card.secondary::after {
+            right: -46px;
+        }
+
+        .stat-card.primary::after,
+        .stub::before,
+        .side-panel::before {
+            content: "";
+            position: absolute;
+            top: calc(72% - 5px);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #b98cff;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-card.primary::after {
+            right: 76px;
+        }
+
+        .stub.left::before {
+            right: -4px;
+        }
+
+        .side-panel::before {
+            left: -4px;
+        }
+
+        .metric {
+            margin: 0;
+            color: var(--accent);
+            font-size: clamp(4.6rem, 8.4vw, 5.9rem);
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+            font-weight: 700;
+        }
+
+        .label {
+            margin: 12px 0 0;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 1.02rem;
+        }
+
+        .secondary .metric {
+            text-align: center;
+        }
+
+        .secondary .label {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .side-panel {
+            min-height: 180px;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .spark {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            transform: rotate(45deg);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(214, 190, 255, 0.85) 36%, rgba(214, 190, 255, 0) 72%);
+            filter: drop-shadow(0 0 16px rgba(199, 151, 255, 0.35));
+        }
+
+        .spark::before,
+        .spark::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            background: #fff;
+            border-radius: 999px;
+        }
+
+        .spark::before {
+            width: 20px;
+            height: 64px;
+        }
+
+        .spark::after {
+            width: 64px;
+            height: 20px;
+        }
+
+        .badge-strip {
+            position: absolute;
+            left: 58%;
+            bottom: -18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(-10%);
+        }
+
+        .coin,
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.24);
+        }
+
+        .coin {
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at 35% 30%, #faf6ff, #b88aff 62%, #7446d8 100%);
+            color: #14091e;
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .avatar {
+            object-fit: cover;
+            background: radial-gradient(circle at 50% 20%, #f2d2c0, #8d5441 65%, #352121 100%);
+        }
+
+        .avatar.alt {
+            background: radial-gradient(circle at 50% 20%, #ffdede, #ae5c77 62%, #4d2637 100%);
+        }
+
+        .avatar-frame {
+            position: absolute;
+            right: 18px;
+            bottom: -20px;
+            width: 48px;
+            height: 48px;
+            padding: 3px;
+            border-radius: 50%;
+            background: rgba(229, 212, 255, 0.7);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.22);
+        }
+
+        .avatar-frame .avatar {
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-shadow: none;
+        }
+
+        @media (max-width: 1100px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 26px;
+                margin-bottom: 80px;
             }
-            to {
+
+            .side-copy {
+                padding-top: 0;
+                max-width: 460px;
+            }
+
+            .hero-orbital {
+                left: 236px;
+                top: 296px;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+
+            .stub {
+                display: none;
+            }
+
+            .stat-card.primary,
+            .stat-card.secondary,
+            .side-panel {
+                margin: 0;
+                transform: none;
+            }
+
+            .stat-card::before,
+            .stat-card::after,
+            .stat-card.primary::after,
+            .side-panel::before {
+                display: none;
+            }
+
+            .badge-strip {
+                position: static;
+                margin-top: 18px;
+                transform: none;
+            }
+
+            .avatar-frame {
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 14px;
+            }
+
+            .page-shell {
+                min-height: auto;
+                padding: 22px 18px 22px;
+                border-radius: 24px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 28px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                gap: 14px 20px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 22px;
+                margin-bottom: 42px;
+            }
+
+            h1 {
+                font-size: clamp(3rem, 14vw, 4.5rem);
+                max-width: 100%;
+            }
+
+            .brace {
+                font-size: 38px;
+                transform: translateY(-8px);
+            }
+
+            .hero-orbital {
+                left: 50%;
+                top: auto;
+                bottom: -12px;
                 transform: translateX(-50%);
+                width: 54px;
+                height: 54px;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .metric {
+                font-size: clamp(3.4rem, 20vw, 5rem);
             }
         }
     </style>
 </head>
-<body class="antialiased text-brand-dark">
+<body>
+    <main class="page-shell">
+        <div class="curve"></div>
+        <div class="curve-right"></div>
 
-    <div class="app-container p-6 md:p-10">
-        
-        <!-- Header -->
-        <header class="flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
-            <!-- Logo -->
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="bg-brand-dark text-white p-2 rounded-full">
-                    <i data-lucide="shopping-bag" class="w-6 h-6"></i>
-                </div>
-                <span class="font-bold text-xl tracking-tight">ShopMinimal</span>
-            </div>
-
-            <!-- Search -->
-            <div class="flex-1 max-w-xl w-full">
-                <div class="relative group">
-                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-brand-dark transition-colors"></i>
-                    <input type="text" placeholder="Search products, brands, and categories..." 
-                           class="w-full bg-transparent border border-gray-300 rounded-full py-3 pl-12 pr-6 focus:outline-none focus:border-brand-dark focus:ring-1 focus:ring-brand-dark transition-all placeholder:text-gray-400 font-medium">
-                </div>
-            </div>
-
-            <!-- Actions -->
-            <div class="flex items-center gap-6 shrink-0 font-medium">
-                <a href="#" class="hover:text-gray-600 transition-colors">Log In</a>
-                <a href="#featured-products" class="bg-brand-dark text-white px-6 py-3 rounded-full hover:bg-black transition-colors flex items-center gap-2">
-                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                    <span>Cart</span>
-                    <span id="cart-count">(0)</span>
-                </a>
-            </div>
+        <header class="topbar">
+            <a class="brand" href="#">NixtNode</a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#">SERVICES<sup>7</sup></a>
+                <a href="#">TEAM<sup>9</sup></a>
+                <a href="#">NETWORKS WE SUPPORT<sup>35</sup></a>
+            </nav>
         </header>
 
-        <!-- Hero Section -->
-        <main class="flex-1">
-            
-            <!-- Huge typography hero similar to the clock -->
-            <div class="text-center mb-16 relative">
-                <h1 class="text-[15vw] leading-none font-bold tracking-tighter text-brand-dark">
-                    SALE<span class="text-brand-orange">.</span>
-                </h1>
-                <div class="flex justify-between items-end mt-4 px-4 text-sm font-medium text-gray-500">
-                    <p>Current Offers</p>
-                    <div class="text-right">
-                        <p class="flex items-center gap-2 justify-end">
-                            <i data-lucide="zap" class="w-4 h-4 text-brand-orange"></i>
-                            Up to 70% Off
-                        </p>
-                        <p>Ends Monday, Mar 24</p>
-                    </div>
+        <section class="hero">
+            <div>
+                <div class="headline-row">
+                    <span class="brace">}</span>
+                    <h1>NixtNode<br>Is a Premier Web3<br>Infrastructure Provider</h1>
                 </div>
+                <div class="hero-orbital" aria-hidden="true"></div>
             </div>
 
-            <div class="w-full h-px bg-gray-300 mb-12"></div>
+            <div class="side-copy">
+                <p><span class="copy-mark">}</span>Renowned for powering the backbone of blockchain ecosystems with our state-of-the-art validation services, RPC endpoints &amp; IBC relayers</p>
+                <a class="cta" href="#">Get In Touch</a>
+            </div>
+        </section>
 
-            <section class="mb-10">
-                <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
-                    <a href="#" class="shrink-0 rounded-full bg-brand-dark px-5 py-3 text-sm font-semibold text-white">All</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Today&apos;s Deals</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">New Arrivals</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Best Sellers</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Vintage Picks</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Furniture</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Accessories</a>
+        <section class="stats-row" aria-label="Highlights">
+            <div class="stub left" aria-hidden="true"></div>
+
+            <article class="stat-card primary">
+                <p class="metric">192k</p>
+                <p class="label">Assets under management</p>
+            </article>
+
+            <article class="stat-card secondary">
+                <p class="metric">34</p>
+                <p class="label">Unique delegators</p>
+                <div class="badge-strip" aria-hidden="true">
+                    <div class="coin">C</div>
+                    <div class="coin" style="background: radial-gradient(circle at 35% 30%, #f3ecff, #a482ff 60%, #3c236e 100%);">X</div>
+                    <div class="avatar"></div>
+                    <div class="coin" style="background: radial-gradient(circle at 35% 30%, #fff4f6, #f8dce2 35%, #ea5471 78%, #8d1231 100%);">A</div>
                 </div>
-            </section>
+            </article>
 
-            <section class="mb-16">
-                <div class="marquee-shell rounded-[2rem] bg-white soft-ring py-4">
-                    <div class="marquee-track">
-                        <div class="flex items-center gap-4 px-3">
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="shirt" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Vintage Fashion</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="armchair" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Home Decor</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="watch" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Classic Watches</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="headphones" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Audio Drops</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="gem" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Jewelry Finds</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="briefcase-business" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Leather Goods</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="camera" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Camera Archive</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="sparkles" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Weekly Drops</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 px-3" aria-hidden="true">
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="shirt" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Vintage Fashion</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="armchair" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Home Decor</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="watch" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Classic Watches</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="headphones" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Audio Drops</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="gem" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Jewelry Finds</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="briefcase-business" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Leather Goods</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="camera" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Camera Archive</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="sparkles" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Weekly Drops</span>
-                            </div>
-                        </div>
-                    </div>
+            <aside class="side-panel">
+                <div class="spark" aria-hidden="true"></div>
+                <div class="avatar-frame" aria-hidden="true">
+                    <div class="avatar alt"></div>
                 </div>
-            </section>
-
-            <!-- Lower Section: Categories & Products -->
-            <section class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-end mb-16">
-                
-                <!-- Title / Call to action -->
-                <div class="lg:col-span-1">
-                    <h2 class="text-5xl font-medium tracking-tight leading-tight mb-4">
-                        Discover<br>New Arrivals
-                    </h2>
-                    <p class="text-gray-500 text-sm font-medium mb-6">
-                        Life moves fast. Shop the best items,<br>curated just for you.
-                    </p>
-                    <a href="#featured-products" class="flex items-center gap-2 text-sm font-bold hover:text-brand-orange transition-colors">
-                        View All Categories <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                    </a>
-                </div>
-
-                <!-- Cards row -->
-                <div class="lg:col-span-2 flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x">
-                    
-                    <!-- Card 1 -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-card rounded-3xl p-6 hover:bg-gray-300 transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Electronics</span>
-                            <span class="text-xs text-gray-500 uppercase">Tech</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">1.2k+</span>
-                            <i data-lucide="laptop" class="w-5 h-5 text-gray-400 group-hover:text-brand-dark transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 2 -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-card rounded-3xl p-6 hover:bg-gray-300 transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Fashion</span>
-                            <span class="text-xs text-gray-500 uppercase">Apparel</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">850+</span>
-                            <i data-lucide="shirt" class="w-5 h-5 text-gray-400 group-hover:text-brand-dark transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 3 (Active state) -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-dark text-white rounded-3xl p-6 hover:bg-black transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Home & Decor</span>
-                            <span class="text-xs text-gray-400 uppercase">Living</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">Top Picks</span>
-                            <i data-lucide="sofa" class="w-5 h-5 text-brand-orange group-hover:scale-110 transition-transform"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 4 -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-card rounded-3xl p-6 hover:bg-gray-300 transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Books</span>
-                            <span class="text-xs text-gray-500 uppercase">Media</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">300+</span>
-                            <i data-lucide="book-open" class="w-5 h-5 text-gray-400 group-hover:text-brand-dark transition-colors"></i>
-                        </div>
-                    </a>
-
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-                <div class="bg-white rounded-3xl p-6 soft-ring">
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Fast Delivery</span>
-                        <i data-lucide="truck" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <p class="text-2xl font-semibold tracking-tight mb-2">Next-day dispatch</p>
-                    <p class="text-sm text-gray-500">Core essentials arrive quickly without a cluttered checkout flow.</p>
-                </div>
-                <div class="bg-white rounded-3xl p-6 soft-ring">
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Member Perks</span>
-                        <i data-lucide="badge-percent" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <p class="text-2xl font-semibold tracking-tight mb-2">Extra 10% today</p>
-                    <p class="text-sm text-gray-500">Minimal perks, clear savings, and fewer decisions between you and checkout.</p>
-                </div>
-                <div class="bg-brand-dark text-white rounded-3xl p-6">
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Store Promise</span>
-                        <i data-lucide="shield-check" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <p class="text-2xl font-semibold tracking-tight mb-2">Curated, not crowded</p>
-                    <p class="text-sm text-gray-400">A broad catalog with a calmer interface, better spacing, and more confidence while browsing.</p>
-                </div>
-            </section>
-
-            <section class="mb-16">
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Featured Departments</p>
-                        <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Shop by lifestyle</h3>
-                    </div>
-                    <p class="text-sm text-gray-500 max-w-md">The store expands here with more destination sections, but the layout stays calm, roomy, and easy to scan.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-                    <a href="#featured-products" class="rounded-[2rem] bg-white p-6 soft-ring hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Work Setup</span>
-                            <i data-lucide="monitor-smartphone" class="w-5 h-5 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Desk essentials</p>
-                        <p class="text-sm text-gray-500">Lighting, devices, and accessories for focused workspaces.</p>
-                    </a>
-                    <a href="#featured-products" class="rounded-[2rem] bg-brand-card p-6 hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Daily Carry</span>
-                            <i data-lucide="briefcase-business" class="w-5 h-5 text-brand-dark"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Commute picks</p>
-                        <p class="text-sm text-gray-600">Compact gear designed for movement and all-day utility.</p>
-                    </a>
-                    <a href="#featured-products" class="rounded-[2rem] bg-brand-dark text-white p-6 hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Home Mood</span>
-                            <i data-lucide="lamp-floor" class="w-5 h-5 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Warm spaces</p>
-                        <p class="text-sm text-gray-400">Soft textures, clean forms, and subtle accent pieces.</p>
-                    </a>
-                    <a href="#featured-products" class="rounded-[2rem] bg-white p-6 soft-ring hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Weekend Reset</span>
-                            <i data-lucide="coffee" class="w-5 h-5 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Slow living</p>
-                        <p class="text-sm text-gray-500">Coffee tools, books, speakers, and small comfort upgrades.</p>
-                    </a>
-                </div>
-            </section>
-
-            <section id="featured-products" class="mb-16">
-                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Top Picks</p>
-                        <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Featured products</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button data-filter="all" class="product-filter px-4 py-2 rounded-full bg-brand-dark text-white text-sm font-medium">All</button>
-                        <button data-filter="popular" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Popular</button>
-                        <button data-filter="new" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">New In</button>
-                        <button data-filter="value" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Best Value</button>
-                    </div>
-                </div>
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Arc Lamp" data-price="89" data-tag="popular" data-search="arc lamp home decor ambient lighting living room">
-                        <div class="product-image bg-brand-card rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="lamp-desk" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Home Decor</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Arc Lamp</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Arc Lamp">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Soft ambient lighting with a clean silhouette for calmer evening spaces.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$89</p>
-                                <p class="text-xs text-gray-400">Free shipping</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Fold Speaker" data-price="129" data-tag="popular" data-search="fold speaker audio portable matte finish living room">
-                        <div class="product-image bg-[#dfe5e8] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="speaker" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Audio</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Fold Speaker</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Fold Speaker">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Portable sound in a tactile matte finish with punchy room-filling detail.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$129</p>
-                                <p class="text-xs text-gray-400">Popular pick</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-brand-dark text-white rounded-[2rem] p-5 flex flex-col" data-product="Mono Chair" data-price="219" data-tag="popular" data-search="mono chair furniture comfort lounge seating living room">
-                        <div class="product-image bg-[#252525] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="armchair" class="w-14 h-14 text-brand-orange"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Furniture</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Mono Chair</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center" aria-label="Save Mono Chair">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-400 mb-5">Structured comfort with a bold profile that anchors living rooms and studios.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$219</p>
-                                <p class="text-xs text-gray-400">Best seller</p>
-                            </div>
-                            <button class="add-to-cart bg-white text-brand-dark px-4 py-3 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Travel Bottle" data-price="34" data-tag="value" data-search="travel bottle insulated daily carry commute gym hydration">
-                        <div class="product-image bg-[#ece7df] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="thermometer-sun" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Daily Carry</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Travel Bottle</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Travel Bottle">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Double-wall insulated bottle for commutes, gym sessions, and desk days.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$34</p>
-                                <p class="text-xs text-gray-400">Limited stock</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Air Keyboard" data-price="74" data-tag="value" data-search="air keyboard tech wireless desk setup productivity office">
-                        <div class="product-image bg-[#e8ecef] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="keyboard" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Tech</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Air Keyboard</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Air Keyboard">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Low-profile wireless typing with tactile feedback and minimal desk noise.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$74</p>
-                                <p class="text-xs text-gray-400">Office favorite</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Canvas Tote" data-price="28" data-tag="value" data-search="canvas tote style carry bag neutral everyday">
-                        <div class="product-image bg-[#ede3db] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="shopping-bag" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Style</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Canvas Tote</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Canvas Tote">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Everyday carryall with clean lines, sturdy handles, and a soft neutral tone.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$28</p>
-                                <p class="text-xs text-gray-400">Everyday use</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Brew Set" data-price="58" data-tag="new" data-search="brew set kitchen coffee ritual pour over mornings">
-                        <div class="product-image bg-[#ebe7e0] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="cup-soda" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Kitchen</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Brew Set</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Brew Set">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">A compact pour-over starter kit for slower mornings and better coffee rituals.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$58</p>
-                                <p class="text-xs text-gray-400">New arrival</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Soft Throw" data-price="46" data-tag="new" data-search="soft throw living blanket texture comfort sofa bed">
-                        <div class="product-image bg-[#e7e0d8] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="blend" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Living</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Soft Throw</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Soft Throw">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Textured comfort layer designed to soften sofas, beds, and reading corners.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$46</p>
-                                <p class="text-xs text-gray-400">Top rated</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                </div>
-                <div id="empty-state" class="hidden mt-6 rounded-[2rem] bg-white p-6 soft-ring text-sm text-gray-500">
-                    No products matched your search. Try another keyword.
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 xl:grid-cols-[1.25fr_1fr_0.9fr] gap-4 mb-16">
-                <article class="rounded-[2rem] bg-white soft-ring p-8 md:p-10 min-h-[30rem] flex flex-col justify-between">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Featured Ad</p>
-                        <h3 class="text-5xl md:text-6xl font-medium tracking-tight leading-none mb-4">Your everyday picks, delivered with cleaner browsing.</h3>
-                        <p class="text-sm md:text-base text-gray-500 max-w-xl">This follows the large-left promo feel from the uploaded ad layout, but keeps the same restrained color system and rounded cards.</p>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-[1.1fr_0.9fr] gap-4 items-end">
-                        <div class="rounded-[1.75rem] bg-[#dbe7ef] h-56 flex items-center justify-center">
-                            <i data-lucide="package-check" class="w-16 h-16 text-brand-dark"></i>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <div class="inline-flex w-fit items-center gap-2 rounded-full bg-brand-dark px-5 py-3 text-sm font-semibold text-white">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-brand-orange"></i>
-                                Up to 40% off this week
-                            </div>
-                            <a href="#featured-products" class="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring hover:text-brand-orange transition-colors">
-                                Shop promoted picks
-                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                <div class="grid grid-cols-1 gap-4">
-                    <article class="rounded-[2rem] bg-brand-dark text-white p-8 min-h-[14.5rem] flex flex-col justify-between">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-3">Sponsored</p>
-                            <h4 class="text-4xl font-medium tracking-tight mb-3">Gift cards for design lovers</h4>
-                            <p class="text-sm text-gray-400">A compact feature tile inspired by the stacked ad treatment in the reference image.</p>
-                        </div>
-                        <a href="#featured-products" class="text-sm font-semibold text-white/90 hover:text-brand-orange transition-colors">Shop now</a>
-                    </article>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <article class="rounded-[2rem] bg-brand-card p-6 min-h-[14rem] flex flex-col justify-between">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Ad Section</p>
-                                <h4 class="text-3xl font-medium tracking-tight mb-2">Start a fresh setup</h4>
-                                <p class="text-sm text-gray-600">Workstation pieces and daily-use tools in a smaller promo card.</p>
-                            </div>
-                            <i data-lucide="monitor" class="w-10 h-10 text-brand-dark"></i>
-                        </article>
-                        <article class="rounded-[2rem] bg-[#d9e8f2] p-6 min-h-[14rem] flex flex-col justify-between">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Ad Section</p>
-                                <h4 class="text-3xl font-medium tracking-tight mb-2">Free room refresh ideas</h4>
-                                <p class="text-sm text-gray-600">Softer tones and home upgrades presented in an easy ad block.</p>
-                            </div>
-                            <i data-lucide="lamp-floor" class="w-10 h-10 text-brand-dark"></i>
-                        </article>
-                    </div>
-                </div>
-                <article class="rounded-[2rem] bg-white soft-ring p-8 min-h-[30rem] flex flex-col justify-between">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Side Ad</p>
-                        <h4 class="text-4xl font-medium tracking-tight mb-4">Member savings and simple rewards.</h4>
-                        <p class="text-sm text-gray-500">This keeps the tall right-hand ad structure from the uploaded layout, translated into your cleaner visual language.</p>
-                    </div>
-                    <div class="rounded-[1.75rem] bg-brand-dark text-white p-6">
-                        <div class="flex items-center justify-between mb-10">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">ShopMinimal+</span>
-                            <i data-lucide="credit-card" class="w-6 h-6 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Earn more on every curated drop.</p>
-                        <p class="text-sm text-gray-400">Simple rewards, clean checkout, and better savings on repeat orders.</p>
-                    </div>
-                </article>
-            </section>
-
-            <section class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-4 mb-16">
-                <div class="bg-brand-dark text-white rounded-[2rem] p-8 md:p-10">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Season Highlight</p>
-                    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                        <div>
-                            <h3 class="text-5xl md:text-6xl font-medium tracking-tight leading-none mb-4">Quiet luxury for everyday rooms.</h3>
-                            <p class="text-sm md:text-base text-gray-400 max-w-xl">Neutral palettes, bold silhouettes, and tactile pieces that make the storefront feel aspirational without looking noisy.</p>
-                        </div>
-                        <a href="#featured-products" class="inline-flex items-center gap-2 rounded-full bg-white text-brand-dark px-5 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors">
-                            Shop the edit
-                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-[2rem] p-8 soft-ring">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Basket Snapshot</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
-                            <span class="text-gray-500">Items selected</span>
-                            <span id="selected-count" class="text-3xl font-semibold">0</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
-                            <span class="text-gray-500">Estimated subtotal</span>
-                            <span id="cart-subtotal" class="text-2xl font-semibold">$0</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
-                            <span class="text-gray-500">Storewide discount</span>
-                            <span class="text-2xl font-semibold text-brand-orange">10%</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-gray-500">Shipping threshold</span>
-                            <span class="text-2xl font-semibold">$150</span>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                            <span>Free shipping progress</span>
-                            <span id="shipping-remaining">$150 to unlock</span>
-                        </div>
-                        <div class="progress-track h-3 rounded-full bg-brand-card">
-                            <div id="free-shipping-progress" class="progress-bar h-full w-0 rounded-full bg-brand-orange"></div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-6">Static storefront demo with quick add-to-cart behavior, live totals, and clear order progress.</p>
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-                <article class="rounded-[2rem] bg-white p-6 soft-ring">
-                    <div class="flex items-center justify-between mb-8">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Sponsored</span>
-                        <i data-lucide="radio" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <h3 class="text-3xl font-medium tracking-tight mb-3">Streaming and sound offers</h3>
-                    <p class="text-sm text-gray-500">Simple ad card placement similar to a marketplace homepage rail.</p>
-                </article>
-                <article class="rounded-[2rem] bg-brand-card p-6">
-                    <div class="flex items-center justify-between mb-8">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Ad Section</span>
-                        <i data-lucide="lamp-floor" class="w-5 h-5 text-brand-dark"></i>
-                    </div>
-                    <h3 class="text-3xl font-medium tracking-tight mb-3">Home lighting event</h3>
-                    <p class="text-sm text-gray-600">Promotional content placed between shopping blocks without changing the UI pattern.</p>
-                </article>
-                <article class="rounded-[2rem] bg-brand-dark p-6 text-white">
-                    <div class="flex items-center justify-between mb-8">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Top Promo</span>
-                        <i data-lucide="shopping-basket" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <h3 class="text-3xl font-medium tracking-tight mb-3">Daily essentials sale</h3>
-                    <p class="text-sm text-gray-400">A direct ad card for homepage traffic, keeping the presentation basic and expected.</p>
-                </article>
-            </section>
-
-            <section class="mb-16">
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Brands We Curate</p>
-                        <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Trusted labels, simpler presentation</h3>
-                    </div>
-                    <a href="#" class="text-sm font-semibold hover:text-brand-orange transition-colors">See all partners</a>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">NOVA</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Tech</p>
-                    </div>
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">FORMA</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Home</p>
-                    </div>
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">CLOUD</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Living</p>
-                    </div>
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">MODO</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Daily Goods</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-4 mb-12">
-                <div class="bg-white rounded-[2rem] p-8 soft-ring">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Why it works</p>
-                    <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-4">A fuller storefront without the usual noise.</h3>
-                    <p class="text-sm md:text-base text-gray-500">This version adds the depth an e-commerce homepage needs: product density, category discovery, promotional storytelling, and shopping actions, while keeping the same restrained palette, oversized typography, and rounded card rhythm.</p>
-                </div>
-                <div class="bg-brand-card rounded-[2rem] p-8">
-                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 mb-4">Newsletter</p>
-                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-3">Get weekly drops.</h3>
-                            <p class="text-sm text-gray-600 max-w-md">Fresh product edits, limited deals, and calm design inspiration delivered once a week.</p>
-                        </div>
-                        <form class="w-full md:max-w-sm">
-                            <label class="sr-only" for="email">Email address</label>
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <input id="email" type="email" placeholder="Email address" class="w-full rounded-full border border-gray-300 bg-white px-5 py-3 text-sm focus:outline-none focus:border-brand-dark">
-                                <button type="submit" class="rounded-full bg-brand-dark px-5 py-3 text-sm font-semibold text-white hover:bg-black transition-colors">Join</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <footer class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-gray-300 pt-6 text-sm text-gray-500">
-                <p>ShopMinimal Storefront Demo</p>
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="#" class="hover:text-brand-dark transition-colors">Shipping</a>
-                    <a href="#" class="hover:text-brand-dark transition-colors">Returns</a>
-                    <a href="#" class="hover:text-brand-dark transition-colors">Support</a>
-                </div>
-            </footer>
-
-        </main>
-    </div>
-
-    <!-- Initialize Lucide Icons -->
-    <script>
-        lucide.createIcons();
-
-        const cartCount = document.getElementById('cart-count');
-        const selectedCount = document.getElementById('selected-count');
-        const cartSubtotal = document.getElementById('cart-subtotal');
-        const freeShippingProgress = document.getElementById('free-shipping-progress');
-        const shippingRemaining = document.getElementById('shipping-remaining');
-        const productCards = document.querySelectorAll('.product-card');
-        const productFilters = document.querySelectorAll('.product-filter');
-        const saveButtons = document.querySelectorAll('.save-product');
-        const searchInput = document.querySelector('input[type="text"]');
-        const emptyState = document.getElementById('empty-state');
-        let cartItems = 0;
-        let cartTotal = 0;
-        let activeFilter = 'all';
-
-        function formatCurrency(value) {
-            return `$${value}`;
-        }
-
-        function updateCartUI() {
-            const threshold = 150;
-            const progressWidth = Math.min((cartTotal / threshold) * 100, 100);
-            const remaining = Math.max(threshold - cartTotal, 0);
-
-            cartCount.textContent = `(${cartItems})`;
-            selectedCount.textContent = cartItems;
-            cartSubtotal.textContent = formatCurrency(cartTotal);
-            freeShippingProgress.style.width = `${progressWidth}%`;
-            shippingRemaining.textContent = remaining === 0 ? 'Free shipping unlocked' : `${formatCurrency(remaining)} to unlock`;
-        }
-
-        function applyProductVisibility() {
-            const query = searchInput.value.toLowerCase().trim();
-            let visibleProducts = 0;
-
-            productCards.forEach((card) => {
-                const searchTerms = (card.dataset.search || card.dataset.product).toLowerCase();
-                const matchesQuery = query === '' || searchTerms.includes(query);
-                const matchesFilter = activeFilter === 'all' || card.dataset.tag === activeFilter;
-                const matches = matchesQuery && matchesFilter;
-
-                card.style.display = matches ? 'flex' : 'none';
-
-                if (matches) {
-                    visibleProducts += 1;
-                }
-            });
-
-            emptyState.classList.toggle('hidden', visibleProducts !== 0 || (query === '' && activeFilter === 'all'));
-        }
-
-        document.querySelectorAll('.add-to-cart').forEach((button) => {
-            button.addEventListener('click', () => {
-                const card = button.closest('.product-card');
-                const price = Number(card.dataset.price || 0);
-
-                cartItems += 1;
-                cartTotal += price;
-                updateCartUI();
-                button.textContent = 'Added';
-                button.classList.add('bg-brand-orange');
-                button.classList.remove('bg-brand-dark', 'bg-white', 'text-brand-dark');
-                setTimeout(() => {
-                    button.textContent = 'Add to cart';
-                    if (card.classList.contains('bg-brand-dark')) {
-                        button.classList.remove('bg-brand-orange');
-                        button.classList.add('bg-white', 'text-brand-dark');
-                    } else {
-                        button.classList.remove('bg-brand-orange');
-                        button.classList.add('bg-brand-dark');
-                    }
-                }, 900);
-            });
-        });
-
-        saveButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const isSaved = button.dataset.saved === 'true';
-                const isDarkCard = button.closest('.product-card').classList.contains('bg-brand-dark');
-                const icon = button.querySelector('svg');
-
-                button.dataset.saved = String(!isSaved);
-
-                if (!isSaved) {
-                    button.classList.remove('bg-brand-card', 'bg-white/10');
-                    button.classList.add('bg-brand-orange', 'text-white');
-                } else {
-                    button.classList.remove('bg-brand-orange', 'text-white');
-                    button.classList.add(isDarkCard ? 'bg-white/10' : 'bg-brand-card');
-                }
-
-                if (icon) {
-                    icon.setAttribute('fill', isSaved ? 'none' : 'currentColor');
-                }
-            });
-        });
-
-        productFilters.forEach((button) => {
-            button.addEventListener('click', () => {
-                activeFilter = button.dataset.filter;
-                productFilters.forEach((filterButton) => {
-                    filterButton.classList.remove('bg-brand-dark', 'text-white');
-                    filterButton.classList.add('bg-white', 'soft-ring');
-                });
-                button.classList.add('bg-brand-dark', 'text-white');
-                button.classList.remove('bg-white', 'soft-ring');
-                applyProductVisibility();
-            });
-        });
-
-        searchInput.addEventListener('input', () => {
-            applyProductVisibility();
-        });
-
-        updateCartUI();
-        applyProductVisibility();
-    </script>
+            </aside>
+        </section>
+    </main>
 </body>
 </html>
