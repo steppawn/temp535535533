@@ -1,927 +1,983 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Minimal - Clean E-Commerce</title>
-    
-    <!-- Tailwind CSS via CDN -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackobrite | AI-Powered Cloud Infrastructure</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050816'/%3E%3Ctext x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%237CFFB2'%3ESB%3C/text%3E%3C/svg%3E"
+    />
+    <meta
+      name="description"
+      content="Stackobrite is an AI-powered cloud platform that lets teams describe infrastructure in natural language and deploy with approval-driven automation."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Tailwind Config for Custom Colors/Fonts -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            orange: '#ea580c',
-                            bg: '#f0f0f0',
-                            card: '#e5e5e5',
-                            dark: '#111111'
-                        }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#050816",
+              panel: "#0b1120",
+              muted: "#94a3b8",
+              line: "rgba(148, 163, 184, 0.14)",
+              accent: "#7CFFB2",
+              accentSoft: "rgba(124, 255, 178, 0.16)",
+              accentStrong: "#5ef0a2",
+            },
+            fontFamily: {
+              display: ["Outfit", "sans-serif"],
+              mono: ["IBM Plex Mono", "monospace"],
+            },
+            boxShadow: {
+              glow: "0 0 0 1px rgba(124,255,178,0.15), 0 30px 80px rgba(5,8,22,0.45)",
+              soft: "0 16px 40px rgba(2, 6, 23, 0.28)",
+            },
+            backgroundImage: {
+              mesh:
+                "radial-gradient(circle at top left, rgba(124,255,178,0.18), transparent 30%), radial-gradient(circle at top right, rgba(56,189,248,0.14), transparent 28%), linear-gradient(180deg, rgba(15,23,42,0.96), rgba(5,8,22,1))",
+            },
+          },
+        },
+      };
     </script>
-
     <style>
-        html {
-            scroll-behavior: smooth;
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background:
+          radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.24), transparent 18%),
+          radial-gradient(circle at 100% 10%, rgba(255, 255, 255, 0.16), transparent 16%),
+          #ebe8e1;
+      }
+
+      .hero-surface {
+        background: #efede7;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      }
+
+      .hero-divider {
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+
+      .page-surface {
+        background: rgba(255, 255, 255, 0.28);
+        color: #020617;
+        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.05);
+        backdrop-filter: blur(8px);
+      }
+
+      .page-divider {
+        border-color: rgba(15, 23, 42, 0.08);
+      }
+
+      .soft-tile {
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        background: rgba(255, 255, 255, 0.34);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+      }
+
+      .orbit-line {
+        position: absolute;
+        border: 1px solid rgba(15, 23, 42, 0.16);
+        border-radius: 9999px;
+        pointer-events: none;
+      }
+
+      .platform-showcase {
+        background:
+          radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.08) 46%),
+          linear-gradient(180deg, rgba(10, 10, 10, 0.96), rgba(58, 58, 58, 0.18) 34%, rgba(255, 255, 255, 0.3) 100%);
+      }
+
+      .float-a {
+        transform: translateY(-18px);
+      }
+
+      .float-b {
+        transform: translateY(22px);
+      }
+
+      .float-c {
+        transform: translateY(-10px);
+      }
+
+      .section-overlap {
+        margin-top: -1.5rem;
+      }
+
+      .mega-kicker {
+        letter-spacing: -0.08em;
+      }
+
+      @media (max-width: 1023px) {
+        .float-a,
+        .float-b,
+        .float-c,
+        .section-overlap {
+          transform: none;
+          margin-top: 0;
         }
-        body {
-            background-color: #ffffff;
-            /* Creates the thick orange border effect seen in the reference */
-            padding: 1rem;
-            min-height: 100vh;
-        }
-        .app-container {
-            background-color: #f0f0f0;
-            border-radius: 2rem;
-            min-height: calc(100vh - 2rem);
-            border: 8px solid #ea580c;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        
-        /* Custom scrollbar for horizontal scrolling */
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .product-card:hover .product-image {
-            transform: scale(1.04);
-        }
-        .soft-ring {
-            box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.06);
-        }
-        .progress-track {
-            overflow: hidden;
-        }
-        .progress-bar {
-            transition: width 0.3s ease;
-        }
-        .marquee-shell {
-            overflow: hidden;
-            position: relative;
-        }
-        .marquee-shell::before,
-        .marquee-shell::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 4rem;
-            z-index: 1;
-            pointer-events: none;
-        }
-        .marquee-shell::before {
-            left: 0;
-            background: linear-gradient(to right, #f0f0f0, rgba(240, 240, 240, 0));
-        }
-        .marquee-shell::after {
-            right: 0;
-            background: linear-gradient(to left, #f0f0f0, rgba(240, 240, 240, 0));
-        }
-        .marquee-track {
-            display: flex;
-            width: max-content;
-            animation: marquee-scroll 24s linear infinite;
-        }
-        .marquee-shell:hover .marquee-track {
-            animation-play-state: paused;
-        }
-        @keyframes marquee-scroll {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-50%);
-            }
-        }
+      }
+
+      .grid-fade {
+        background-image:
+          linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent);
+      }
+
+      .noise::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.04;
+        background-image:
+          linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%);
+        background-size: 3px 3px;
+      }
     </style>
-</head>
-<body class="antialiased text-brand-dark">
+  </head>
+  <body class="font-display text-white antialiased">
+    <div class="relative isolate overflow-hidden">
+      <div class="grid-fade absolute inset-x-0 top-[820px] h-[680px] opacity-40"></div>
+      <div class="absolute inset-x-0 top-[820px] h-px bg-black/5"></div>
 
-    <div class="app-container p-6 md:p-10">
-        
-        <!-- Header -->
-        <header class="flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
-            <!-- Logo -->
-            <div class="flex items-center gap-3 shrink-0">
-                <div class="bg-brand-dark text-white p-2 rounded-full">
-                    <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+      <header class="hidden relative z-10">
+        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
+          <a href="#top" class="flex items-center gap-3">
+            <span class="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white text-ink shadow-soft">
+              <span class="text-sm font-bold tracking-[0.22em]">SB</span>
+            </span>
+            <div>
+              <p class="text-sm font-semibold tracking-[0.22em] text-white/60">SB</p>
+              <p class="text-lg font-semibold leading-none">Stackobrite</p>
+            </div>
+          </a>
+
+          <nav class="hidden items-center gap-8 text-sm text-white/70 lg:flex">
+            <a href="#platform" class="transition hover:text-white">Platform</a>
+            <a href="#workflow" class="transition hover:text-white">How it works</a>
+            <a href="#pricing" class="transition hover:text-white">Pricing</a>
+            <a href="#docs" class="transition hover:text-white">Docs</a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a
+              href="#"
+              class="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-white/20 hover:text-white"
+            >
+              Log in
+            </a>
+            <a
+              href="#apply"
+              class="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-accentStrong"
+            >
+              Apply now
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <main id="top" class="relative z-10">
+        <section class="px-4 pb-16 pt-4 sm:px-6 lg:px-8 lg:pb-20 lg:pt-6">
+          <div class="mx-auto max-w-7xl">
+            <div class="hero-surface overflow-hidden rounded-[2rem] text-slate-950 lg:rounded-[2.25rem]">
+              <div class="px-5 py-5 sm:px-8 sm:py-7 lg:px-10 lg:py-9">
+                <div class="flex flex-wrap items-center justify-between gap-4 text-[15px]">
+                  <a href="#top" class="flex items-center gap-3">
+                    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-black text-xs font-semibold tracking-[0.18em] text-white">
+                      SB
+                    </span>
+                    <span class="text-base font-medium tracking-[-0.02em] text-black">Stackobrite</span>
+                  </a>
+
+                  <div class="hidden min-w-[180px] items-center justify-center gap-2 rounded-full text-sm text-black/45 lg:flex">
+                    <span class="text-base">⌕</span>
+                    <span>Search</span>
+                  </div>
+
+                  <div class="flex items-center gap-3 text-sm">
+                    <a href="#" class="px-3 py-2 text-black/75 transition hover:text-black">Log In</a>
+                    <a href="#apply" class="rounded-full bg-black px-5 py-3 font-medium text-white transition hover:bg-black/90">
+                      Get the App
+                    </a>
+                  </div>
                 </div>
-                <span class="font-bold text-xl tracking-tight">ShopMinimal</span>
+
+                <div class="mt-7 lg:mt-10">
+                  <div class="overflow-hidden">
+                    <div class="text-center font-display text-[4.4rem] font-semibold leading-none tracking-[-0.12em] text-black sm:text-[6.6rem] md:text-[8.5rem] lg:text-[11rem] xl:text-[14rem]">
+                      05:24:12
+                    </div>
+                  </div>
+
+                  <div class="mt-4 grid gap-4 text-sm text-black/55 lg:grid-cols-[1fr_1.1fr_0.7fr] lg:items-end">
+                    <div>
+                      <p>Current</p>
+                    </div>
+                    <div class="justify-self-start lg:justify-self-center">
+                      <p class="font-medium text-black/75">Apply window · 07:12 - 17:17 (10h 06m)</p>
+                      <p class="mt-1">Monday, Mar 24 2026</p>
+                    </div>
+                    <div class="justify-self-start lg:justify-self-end">
+                      <div class="inline-flex rounded-full bg-white/70 p-1 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.05)]">
+                        <button
+                          type="button"
+                          data-plan="free"
+                          class="plan-toggle rounded-full px-4 py-2 text-sm font-medium transition"
+                        >
+                          Free
+                        </button>
+                        <button
+                          type="button"
+                          data-plan="pro"
+                          class="plan-toggle rounded-full px-4 py-2 text-sm font-medium transition"
+                        >
+                          Pro
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-divider border-t"></div>
+
+              <div class="px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-9">
+                <div class="grid gap-8 lg:grid-cols-[1.15fr_0.8fr_0.72fr] lg:items-start">
+                  <div class="float-a">
+                    <h1 class="mega-kicker max-w-xl text-4xl font-medium leading-[1.04] text-black sm:text-5xl lg:text-[4.4rem]">
+                      Cloud,
+                      <br />
+                      without drift.
+                    </h1>
+                  </div>
+                  <div class="pt-8 text-base leading-7 text-black/45 lg:pt-14">
+                    <p>Life moves fast. Deploy with approval, track cost in real time, and keep your infrastructure healthy without operational guesswork.</p>
+                  </div>
+                  <div class="pt-2 text-left text-[15px] text-black/70 lg:pt-24 lg:text-right">
+                    <a href="#platform" class="inline-flex items-center gap-2 transition hover:text-black">
+                      Browse Platform
+                      <span class="text-lg leading-none">⊕</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="mt-10 grid gap-4 lg:grid-cols-[0.92fr_0.92fr_1.2fr_0.96fr]">
+                  <article class="soft-tile float-a rounded-[1.4rem] px-5 py-4">
+                    <div class="flex items-center justify-between text-[15px] text-black/70">
+                      <p>Compute</p>
+                      <p>EC2</p>
+                    </div>
+                    <div class="mt-10 flex items-end justify-between gap-3">
+                      <p class="text-5xl font-medium tracking-[-0.08em] text-black">64</p>
+                      <p class="pb-2 text-sm text-black/45">Healthy</p>
+                    </div>
+                  </article>
+                  <article class="soft-tile float-b rounded-[1.4rem] px-5 py-4">
+                    <div class="flex items-center justify-between text-[15px] text-black/70">
+                      <p>Database</p>
+                      <p>RDS</p>
+                    </div>
+                    <div class="mt-10 flex items-end justify-between gap-3">
+                      <p id="monthly-cost" class="text-5xl font-medium tracking-[-0.08em] text-black">$142</p>
+                      <p class="pb-2 text-sm text-black/45">Monthly</p>
+                    </div>
+                  </article>
+                  <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)]">
+                    <div class="flex items-center justify-between text-[15px] text-white/72">
+                      <p>Approvals</p>
+                      <p>Live</p>
+                    </div>
+                    <div class="mt-14 flex items-end justify-between gap-3">
+                      <p class="text-6xl font-medium tracking-[-0.08em]">12</p>
+                      <p class="pb-2 text-sm text-white/55">Today</p>
+                    </div>
+                  </article>
+                  <article class="soft-tile float-c rounded-[1.4rem] px-5 py-4">
+                    <div class="flex items-center justify-between text-[15px] text-black/70">
+                      <p>Savings</p>
+                      <p>AI Ops</p>
+                    </div>
+                    <div class="mt-10 flex items-end justify-between gap-3">
+                      <p id="savings-rate" class="text-5xl font-medium tracking-[-0.08em] text-black">+20%</p>
+                      <p class="pb-2 text-sm text-black/45">Optimized</p>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-overlap px-4 py-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto grid max-w-7xl gap-10 rounded-[2rem] px-5 py-10 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-12">
+            <div class="relative">
+              <p class="text-sm uppercase tracking-[0.28em] text-black/45">Team</p>
+              <h2 class="mega-kicker mt-5 max-w-sm text-4xl font-medium leading-[0.96] text-black sm:text-5xl">
+                People,
+                <br />
+                patterns,
+                <br />
+                approvals.
+              </h2>
+              <p class="mt-8 max-w-xs text-sm leading-7 text-black/55">
+                Human specialists and reusable deploy patterns sit in the same visual system, so the section feels curated rather than merely listed.
+              </p>
+              <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm text-black/65 transition hover:text-black">
+                See all
+                <span class="text-lg">⊕</span>
+              </a>
             </div>
 
-            <!-- Search -->
-            <div class="flex-1 max-w-xl w-full">
-                <div class="relative group">
-                    <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-brand-dark transition-colors"></i>
-                    <input type="text" placeholder="Search products, brands, and categories..." 
-                           class="w-full bg-transparent border border-gray-300 rounded-full py-3 pl-12 pr-6 focus:outline-none focus:border-brand-dark focus:ring-1 focus:ring-brand-dark transition-all placeholder:text-gray-400 font-medium">
+            <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+              <div id="team-grid" class="grid gap-4 md:grid-cols-2 lg:block lg:space-y-4"></div>
+              <div>
+                <div class="mb-8 flex items-center justify-between">
+                  <h2 class="text-sm uppercase tracking-[0.28em] text-black/45">Quick Deploy</h2>
+                  <a href="#" class="text-sm text-black/55 transition hover:text-black">See all</a>
                 </div>
+                <div id="deploy-grid" class="space-y-4"></div>
+              </div>
             </div>
+          </div>
+        </section>
 
-            <!-- Actions -->
-            <div class="flex items-center gap-6 shrink-0 font-medium">
-                <a href="#" class="hover:text-gray-600 transition-colors">Log In</a>
-                <a href="#featured-products" class="bg-brand-dark text-white px-6 py-3 rounded-full hover:bg-black transition-colors flex items-center gap-2">
-                    <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-                    <span>Cart</span>
-                    <span id="cart-count">(0)</span>
+        <section class="px-4 py-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div class="max-w-2xl">
+                <p class="text-sm uppercase tracking-[0.26em] text-black/45">Unlock Premium Features</p>
+                <h2 class="mt-4 text-3xl font-semibold tracking-[-0.04em] text-black sm:text-4xl">
+                  Get access to exclusive benefits and expand your infrastructure capabilities.
+                </h2>
+              </div>
+              <a
+                href="#pricing"
+                class="inline-flex w-fit items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/90"
+              >
+                Upgrade now
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="platform" class="px-4 py-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div class="platform-showcase relative overflow-hidden rounded-[2rem] px-5 py-6 text-black sm:px-8 lg:px-8 lg:pb-28 lg:pt-8">
+              <div class="orbit-line left-[-16%] top-[20%] h-[470px] w-[92%] lg:h-[640px] lg:w-[86%]"></div>
+              <div class="orbit-line right-[8%] top-[-18%] h-[640px] w-[340px] lg:h-[860px] lg:w-[460px]"></div>
+              <div class="orbit-line left-[28%] top-[52%] h-[220px] w-[220px] lg:h-[280px] lg:w-[280px]"></div>
+
+              <div class="relative z-10 flex flex-wrap items-center justify-between gap-4 text-[11px] font-medium uppercase tracking-[0.18em] text-white/72">
+                <p>Platform</p>
+                <div class="flex flex-wrap items-center gap-4 lg:gap-6">
+                  <span>Agent</span>
+                  <span>Approval</span>
+                  <span>Cost</span>
+                  <span>Drift</span>
+                </div>
+              </div>
+
+              <div class="relative z-10 mt-10 grid gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:items-center">
+                <div class="max-w-3xl">
+                  <p class="text-5xl leading-none text-black/65 lg:text-6xl">}</p>
+                  <h2 class="mega-kicker mt-2 max-w-2xl text-5xl font-medium leading-[0.92] text-black sm:text-6xl lg:text-[5.3rem]">
+                    Stackobrite
+                    <br />
+                    Is a Premier Cloud
+                    <br />
+                    Infrastructure
+                    <br />
+                    Platform
+                  </h2>
+                </div>
+
+                <div class="lg:pl-6">
+                  <p class="max-w-sm text-sm leading-7 text-black/68">
+                    Renowned for powering approval-led cloud operations with natural-language planning, human oversight, drift controls, and cost-aware deployment workflows.
+                  </p>
+                  <a
+                    href="#apply"
+                    class="mt-8 inline-flex rounded-full bg-black px-8 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-black/90"
+                  >
+                    Get in touch
+                  </a>
+                </div>
+              </div>
+
+              <div class="relative z-10 mt-12 grid gap-4 lg:grid-cols-[0.32fr_0.44fr_0.42fr_0.26fr] lg:items-end">
+                <div class="hidden h-[132px] rounded-[1.6rem] bg-black lg:block"></div>
+                <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)]">
+                  <p class="text-6xl font-medium tracking-[-0.08em] lg:text-[5.5rem]">192k</p>
+                  <p class="mt-3 text-sm text-white/62">Terraform actions under management</p>
+                </article>
+                <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)] lg:-mb-5">
+                  <p class="text-6xl font-medium tracking-[-0.08em] lg:text-[5.5rem]">34</p>
+                  <p class="mt-3 text-sm text-white/62">Policy checks in every critical deployment path</p>
+                </article>
+                <div class="hidden h-[148px] rounded-[1.6rem] bg-black lg:block"></div>
+              </div>
+            </div>
+            <div id="feature-grid" class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr]"></div>
+          </div>
+        </section>
+
+        <section class="px-4 py-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+              <div class="float-a">
+                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Browse Resources</p>
+                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
+                  Explore
+                  <br />
+                  by category
+                </h2>
+                <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm text-black/65 transition hover:text-black">
+                  View all
+                  <span class="text-lg">⊕</span>
                 </a>
+              </div>
+              <div id="resource-grid" class="grid gap-4 md:grid-cols-2 xl:grid-cols-4"></div>
             </div>
-        </header>
+          </div>
+        </section>
 
-        <!-- Hero Section -->
-        <main class="flex-1">
-            
-            <!-- Huge typography hero similar to the clock -->
-            <div class="text-center mb-16 relative">
-                <h1 class="text-[15vw] leading-none font-bold tracking-tighter text-brand-dark">
-                    SALE<span class="text-brand-orange">.</span>
-                </h1>
-                <div class="flex justify-between items-end mt-4 px-4 text-sm font-medium text-gray-500">
-                    <p>Current Offers</p>
-                    <div class="text-right">
-                        <p class="flex items-center gap-2 justify-end">
-                            <i data-lucide="zap" class="w-4 h-4 text-brand-orange"></i>
-                            Up to 70% Off
-                        </p>
-                        <p>Ends Monday, Mar 24</p>
-                    </div>
+        <section id="workflow" class="px-4 py-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div class="max-w-3xl">
+                <p class="text-sm uppercase tracking-[0.28em] text-black/45">How it works</p>
+                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
+                  Three moves
+                  <br />
+                  to deploy
+                </h2>
+              </div>
+              <p class="max-w-md text-sm leading-7 text-black/55">
+                The cards are intentionally staggered to create a left-to-right sense of progression instead of a neutral even row.
+              </p>
+            </div>
+            <div id="steps-grid" class="grid gap-4 lg:grid-cols-3"></div>
+          </div>
+        </section>
+
+        <section id="pricing" class="px-4 py-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div class="mb-12 grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
+              <div>
+                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Pricing</p>
+                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
+                  Simple,
+                  <br />
+                  but staged.
+                </h2>
+              </div>
+              <p class="max-w-xl text-sm leading-7 text-black/56">
+                Pricing now uses one dominant anchor plan with two quieter companions so the page has a more designed reading order.
+              </p>
+            </div>
+            <div id="pricing-grid" class="grid gap-4 lg:grid-cols-[0.88fr_1.12fr_0.88fr]"></div>
+          </div>
+        </section>
+
+        <section class="px-4 py-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
+              <div>
+                <p class="text-sm uppercase tracking-[0.28em] text-black/45">FAQ</p>
+                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
+                  Friction,
+                  <br />
+                  resolved.
+                </h2>
+              </div>
+              <div id="faq-list" class="rounded-[2rem] border border-black/8 bg-white/18 p-3"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="apply" class="px-4 pb-6 pt-3 sm:px-6 lg:px-8">
+          <div class="page-surface mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
+            <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+              <div class="float-a">
+                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Your infrastructure, managed by AI.</p>
+                <h2 class="mega-kicker mt-4 max-w-2xl text-4xl font-medium text-black sm:text-5xl">
+                  Start your
+                  <br />
+                  application
+                </h2>
+              </div>
+              <div class="soft-tile rounded-[1.8rem] p-6 lg:justify-self-end">
+                <p class="max-w-md text-sm leading-7 text-black/55">
+                  Final call-to-action now feels like a designed panel inside the canvas, not just another generic footer CTA block.
+                </p>
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href="#"
+                    class="rounded-full border border-black/10 px-5 py-3 text-sm font-medium text-black/70 transition hover:border-black/20 hover:text-black"
+                  >
+                    Documentation
+                  </a>
+                  <a
+                    href="#"
+                    class="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/90"
+                  >
+                    Apply now
+                  </a>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer id="docs" class="px-4 pb-8 pt-3 sm:px-6 lg:px-8">
+        <div class="page-surface mx-auto max-w-7xl rounded-[2rem]">
+          <div class="grid gap-12 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_0.72fr] lg:px-10">
+            <div class="max-w-md">
+              <div class="flex items-center gap-3">
+                <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-white">
+                  <span class="text-sm font-bold tracking-[0.22em]">SB</span>
+                </span>
+                <div>
+                  <p class="text-lg font-semibold text-black">Stackobrite</p>
+                  <p class="text-sm text-black/55">AI-powered cloud infrastructure for modern teams.</p>
+                </div>
+              </div>
+              <p class="mt-8 text-sm text-black/45">
+                © 2026 Stackobrite. All rights reserved.
+              </p>
             </div>
 
-            <div class="w-full h-px bg-gray-300 mb-12"></div>
-
-            <section class="mb-10">
-                <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
-                    <a href="#" class="shrink-0 rounded-full bg-brand-dark px-5 py-3 text-sm font-semibold text-white">All</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Today&apos;s Deals</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">New Arrivals</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Best Sellers</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Vintage Picks</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Furniture</a>
-                    <a href="#" class="shrink-0 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring">Accessories</a>
+            <div class="grid gap-8 sm:grid-cols-3">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Product</p>
+                <div class="mt-4 space-y-3 text-sm text-black/65">
+                  <a href="#platform" class="block transition hover:text-black">Platform</a>
+                  <a href="#" class="block transition hover:text-black">AI Agent</a>
+                  <a href="#pricing" class="block transition hover:text-black">Pricing</a>
+                  <a href="#" class="block transition hover:text-black">Changelog</a>
                 </div>
-            </section>
-
-            <section class="mb-16">
-                <div class="marquee-shell rounded-[2rem] bg-white soft-ring py-4">
-                    <div class="marquee-track">
-                        <div class="flex items-center gap-4 px-3">
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="shirt" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Vintage Fashion</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="armchair" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Home Decor</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="watch" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Classic Watches</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="headphones" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Audio Drops</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="gem" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Jewelry Finds</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="briefcase-business" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Leather Goods</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="camera" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Camera Archive</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="sparkles" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Weekly Drops</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 px-3" aria-hidden="true">
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="shirt" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Vintage Fashion</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="armchair" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Home Decor</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="watch" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Classic Watches</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="headphones" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Audio Drops</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="gem" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Jewelry Finds</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="briefcase-business" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Leather Goods</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-brand-card px-5 py-3 min-w-[12rem]">
-                                <i data-lucide="camera" class="w-5 h-5 text-brand-dark"></i>
-                                <span class="text-sm font-semibold">Camera Archive</span>
-                            </div>
-                            <div class="flex items-center gap-3 rounded-full bg-white px-5 py-3 min-w-[12rem] soft-ring">
-                                <i data-lucide="sparkles" class="w-5 h-5 text-brand-orange"></i>
-                                <span class="text-sm font-semibold">Weekly Drops</span>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Resources</p>
+                <div class="mt-4 space-y-3 text-sm text-black/65">
+                  <a href="#" class="block transition hover:text-black">Documentation</a>
+                  <a href="#" class="block transition hover:text-black">API Reference</a>
+                  <a href="#" class="block transition hover:text-black">Terraform Modules</a>
+                  <a href="#" class="block transition hover:text-black">Blog</a>
                 </div>
-            </section>
-
-            <!-- Lower Section: Categories & Products -->
-            <section class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-end mb-16">
-                
-                <!-- Title / Call to action -->
-                <div class="lg:col-span-1">
-                    <h2 class="text-5xl font-medium tracking-tight leading-tight mb-4">
-                        Discover<br>New Arrivals
-                    </h2>
-                    <p class="text-gray-500 text-sm font-medium mb-6">
-                        Life moves fast. Shop the best items,<br>curated just for you.
-                    </p>
-                    <a href="#featured-products" class="flex items-center gap-2 text-sm font-bold hover:text-brand-orange transition-colors">
-                        View All Categories <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                    </a>
+              </div>
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Company</p>
+                <div class="mt-4 space-y-3 text-sm text-black/65">
+                  <a href="#" class="block transition hover:text-black">About</a>
+                  <a href="#" class="block transition hover:text-black">Careers</a>
+                  <a href="#" class="block transition hover:text-black">Security</a>
+                  <a href="#" class="block transition hover:text-black">Privacy</a>
                 </div>
-
-                <!-- Cards row -->
-                <div class="lg:col-span-2 flex gap-4 overflow-x-auto hide-scrollbar pb-4 snap-x">
-                    
-                    <!-- Card 1 -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-card rounded-3xl p-6 hover:bg-gray-300 transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Electronics</span>
-                            <span class="text-xs text-gray-500 uppercase">Tech</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">1.2k+</span>
-                            <i data-lucide="laptop" class="w-5 h-5 text-gray-400 group-hover:text-brand-dark transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 2 -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-card rounded-3xl p-6 hover:bg-gray-300 transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Fashion</span>
-                            <span class="text-xs text-gray-500 uppercase">Apparel</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">850+</span>
-                            <i data-lucide="shirt" class="w-5 h-5 text-gray-400 group-hover:text-brand-dark transition-colors"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 3 (Active state) -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-dark text-white rounded-3xl p-6 hover:bg-black transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Home & Decor</span>
-                            <span class="text-xs text-gray-400 uppercase">Living</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">Top Picks</span>
-                            <i data-lucide="sofa" class="w-5 h-5 text-brand-orange group-hover:scale-110 transition-transform"></i>
-                        </div>
-                    </a>
-
-                    <!-- Card 4 -->
-                    <a href="#" class="block shrink-0 w-64 bg-brand-card rounded-3xl p-6 hover:bg-gray-300 transition-colors snap-start relative overflow-hidden group">
-                        <div class="flex justify-between items-start mb-12">
-                            <span class="font-medium">Books</span>
-                            <span class="text-xs text-gray-500 uppercase">Media</span>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <span class="text-3xl font-medium">300+</span>
-                            <i data-lucide="book-open" class="w-5 h-5 text-gray-400 group-hover:text-brand-dark transition-colors"></i>
-                        </div>
-                    </a>
-
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-                <div class="bg-white rounded-3xl p-6 soft-ring">
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Fast Delivery</span>
-                        <i data-lucide="truck" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <p class="text-2xl font-semibold tracking-tight mb-2">Next-day dispatch</p>
-                    <p class="text-sm text-gray-500">Core essentials arrive quickly without a cluttered checkout flow.</p>
-                </div>
-                <div class="bg-white rounded-3xl p-6 soft-ring">
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Member Perks</span>
-                        <i data-lucide="badge-percent" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <p class="text-2xl font-semibold tracking-tight mb-2">Extra 10% today</p>
-                    <p class="text-sm text-gray-500">Minimal perks, clear savings, and fewer decisions between you and checkout.</p>
-                </div>
-                <div class="bg-brand-dark text-white rounded-3xl p-6">
-                    <div class="flex items-center justify-between mb-5">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Store Promise</span>
-                        <i data-lucide="shield-check" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <p class="text-2xl font-semibold tracking-tight mb-2">Curated, not crowded</p>
-                    <p class="text-sm text-gray-400">A broad catalog with a calmer interface, better spacing, and more confidence while browsing.</p>
-                </div>
-            </section>
-
-            <section class="mb-16">
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Featured Departments</p>
-                        <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Shop by lifestyle</h3>
-                    </div>
-                    <p class="text-sm text-gray-500 max-w-md">The store expands here with more destination sections, but the layout stays calm, roomy, and easy to scan.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-                    <a href="#featured-products" class="rounded-[2rem] bg-white p-6 soft-ring hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Work Setup</span>
-                            <i data-lucide="monitor-smartphone" class="w-5 h-5 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Desk essentials</p>
-                        <p class="text-sm text-gray-500">Lighting, devices, and accessories for focused workspaces.</p>
-                    </a>
-                    <a href="#featured-products" class="rounded-[2rem] bg-brand-card p-6 hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Daily Carry</span>
-                            <i data-lucide="briefcase-business" class="w-5 h-5 text-brand-dark"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Commute picks</p>
-                        <p class="text-sm text-gray-600">Compact gear designed for movement and all-day utility.</p>
-                    </a>
-                    <a href="#featured-products" class="rounded-[2rem] bg-brand-dark text-white p-6 hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Home Mood</span>
-                            <i data-lucide="lamp-floor" class="w-5 h-5 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Warm spaces</p>
-                        <p class="text-sm text-gray-400">Soft textures, clean forms, and subtle accent pieces.</p>
-                    </a>
-                    <a href="#featured-products" class="rounded-[2rem] bg-white p-6 soft-ring hover:-translate-y-1 transition-all">
-                        <div class="flex items-center justify-between mb-12">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Weekend Reset</span>
-                            <i data-lucide="coffee" class="w-5 h-5 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Slow living</p>
-                        <p class="text-sm text-gray-500">Coffee tools, books, speakers, and small comfort upgrades.</p>
-                    </a>
-                </div>
-            </section>
-
-            <section id="featured-products" class="mb-16">
-                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Top Picks</p>
-                        <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Featured products</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <button data-filter="all" class="product-filter px-4 py-2 rounded-full bg-brand-dark text-white text-sm font-medium">All</button>
-                        <button data-filter="popular" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Popular</button>
-                        <button data-filter="new" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">New In</button>
-                        <button data-filter="value" class="product-filter px-4 py-2 rounded-full bg-white text-sm font-medium soft-ring">Best Value</button>
-                    </div>
-                </div>
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Arc Lamp" data-price="89" data-tag="popular" data-search="arc lamp home decor ambient lighting living room">
-                        <div class="product-image bg-brand-card rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="lamp-desk" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Home Decor</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Arc Lamp</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Arc Lamp">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Soft ambient lighting with a clean silhouette for calmer evening spaces.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$89</p>
-                                <p class="text-xs text-gray-400">Free shipping</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Fold Speaker" data-price="129" data-tag="popular" data-search="fold speaker audio portable matte finish living room">
-                        <div class="product-image bg-[#dfe5e8] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="speaker" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Audio</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Fold Speaker</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Fold Speaker">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Portable sound in a tactile matte finish with punchy room-filling detail.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$129</p>
-                                <p class="text-xs text-gray-400">Popular pick</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-brand-dark text-white rounded-[2rem] p-5 flex flex-col" data-product="Mono Chair" data-price="219" data-tag="popular" data-search="mono chair furniture comfort lounge seating living room">
-                        <div class="product-image bg-[#252525] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="armchair" class="w-14 h-14 text-brand-orange"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Furniture</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Mono Chair</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center" aria-label="Save Mono Chair">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-400 mb-5">Structured comfort with a bold profile that anchors living rooms and studios.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$219</p>
-                                <p class="text-xs text-gray-400">Best seller</p>
-                            </div>
-                            <button class="add-to-cart bg-white text-brand-dark px-4 py-3 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Travel Bottle" data-price="34" data-tag="value" data-search="travel bottle insulated daily carry commute gym hydration">
-                        <div class="product-image bg-[#ece7df] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="thermometer-sun" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Daily Carry</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Travel Bottle</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Travel Bottle">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Double-wall insulated bottle for commutes, gym sessions, and desk days.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$34</p>
-                                <p class="text-xs text-gray-400">Limited stock</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Air Keyboard" data-price="74" data-tag="value" data-search="air keyboard tech wireless desk setup productivity office">
-                        <div class="product-image bg-[#e8ecef] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="keyboard" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Tech</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Air Keyboard</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Air Keyboard">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Low-profile wireless typing with tactile feedback and minimal desk noise.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$74</p>
-                                <p class="text-xs text-gray-400">Office favorite</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Canvas Tote" data-price="28" data-tag="value" data-search="canvas tote style carry bag neutral everyday">
-                        <div class="product-image bg-[#ede3db] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="shopping-bag" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Style</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Canvas Tote</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Canvas Tote">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Everyday carryall with clean lines, sturdy handles, and a soft neutral tone.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$28</p>
-                                <p class="text-xs text-gray-400">Everyday use</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Brew Set" data-price="58" data-tag="new" data-search="brew set kitchen coffee ritual pour over mornings">
-                        <div class="product-image bg-[#ebe7e0] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="cup-soda" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Kitchen</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Brew Set</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Brew Set">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">A compact pour-over starter kit for slower mornings and better coffee rituals.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$58</p>
-                                <p class="text-xs text-gray-400">New arrival</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                    <article class="product-card bg-white rounded-[2rem] p-5 soft-ring flex flex-col" data-product="Soft Throw" data-price="46" data-tag="new" data-search="soft throw living blanket texture comfort sofa bed">
-                        <div class="product-image bg-[#e7e0d8] rounded-[1.5rem] h-56 mb-5 flex items-center justify-center transition-transform duration-300">
-                            <i data-lucide="blend" class="w-14 h-14 text-brand-dark"></i>
-                        </div>
-                        <div class="flex items-start justify-between gap-4 mb-3">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">Living</p>
-                                <h4 class="text-2xl font-medium tracking-tight">Soft Throw</h4>
-                            </div>
-                            <button class="save-product w-10 h-10 rounded-full bg-brand-card hover:bg-gray-300 transition-colors flex items-center justify-center" aria-label="Save Soft Throw">
-                                <i data-lucide="heart" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 mb-5">Textured comfort layer designed to soften sofas, beds, and reading corners.</p>
-                        <div class="mt-auto flex items-center justify-between gap-3">
-                            <div>
-                                <p class="text-2xl font-semibold">$46</p>
-                                <p class="text-xs text-gray-400">Top rated</p>
-                            </div>
-                            <button class="add-to-cart bg-brand-dark text-white px-4 py-3 rounded-full text-sm font-medium hover:bg-black transition-colors">Add to cart</button>
-                        </div>
-                    </article>
-                </div>
-                <div id="empty-state" class="hidden mt-6 rounded-[2rem] bg-white p-6 soft-ring text-sm text-gray-500">
-                    No products matched your search. Try another keyword.
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 xl:grid-cols-[1.25fr_1fr_0.9fr] gap-4 mb-16">
-                <article class="rounded-[2rem] bg-white soft-ring p-8 md:p-10 min-h-[30rem] flex flex-col justify-between">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Featured Ad</p>
-                        <h3 class="text-5xl md:text-6xl font-medium tracking-tight leading-none mb-4">Your everyday picks, delivered with cleaner browsing.</h3>
-                        <p class="text-sm md:text-base text-gray-500 max-w-xl">This follows the large-left promo feel from the uploaded ad layout, but keeps the same restrained color system and rounded cards.</p>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-[1.1fr_0.9fr] gap-4 items-end">
-                        <div class="rounded-[1.75rem] bg-[#dbe7ef] h-56 flex items-center justify-center">
-                            <i data-lucide="package-check" class="w-16 h-16 text-brand-dark"></i>
-                        </div>
-                        <div class="flex flex-col gap-3">
-                            <div class="inline-flex w-fit items-center gap-2 rounded-full bg-brand-dark px-5 py-3 text-sm font-semibold text-white">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-brand-orange"></i>
-                                Up to 40% off this week
-                            </div>
-                            <a href="#featured-products" class="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold soft-ring hover:text-brand-orange transition-colors">
-                                Shop promoted picks
-                                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-                <div class="grid grid-cols-1 gap-4">
-                    <article class="rounded-[2rem] bg-brand-dark text-white p-8 min-h-[14.5rem] flex flex-col justify-between">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400 mb-3">Sponsored</p>
-                            <h4 class="text-4xl font-medium tracking-tight mb-3">Gift cards for design lovers</h4>
-                            <p class="text-sm text-gray-400">A compact feature tile inspired by the stacked ad treatment in the reference image.</p>
-                        </div>
-                        <a href="#featured-products" class="text-sm font-semibold text-white/90 hover:text-brand-orange transition-colors">Shop now</a>
-                    </article>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <article class="rounded-[2rem] bg-brand-card p-6 min-h-[14rem] flex flex-col justify-between">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Ad Section</p>
-                                <h4 class="text-3xl font-medium tracking-tight mb-2">Start a fresh setup</h4>
-                                <p class="text-sm text-gray-600">Workstation pieces and daily-use tools in a smaller promo card.</p>
-                            </div>
-                            <i data-lucide="monitor" class="w-10 h-10 text-brand-dark"></i>
-                        </article>
-                        <article class="rounded-[2rem] bg-[#d9e8f2] p-6 min-h-[14rem] flex flex-col justify-between">
-                            <div>
-                                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500 mb-3">Ad Section</p>
-                                <h4 class="text-3xl font-medium tracking-tight mb-2">Free room refresh ideas</h4>
-                                <p class="text-sm text-gray-600">Softer tones and home upgrades presented in an easy ad block.</p>
-                            </div>
-                            <i data-lucide="lamp-floor" class="w-10 h-10 text-brand-dark"></i>
-                        </article>
-                    </div>
-                </div>
-                <article class="rounded-[2rem] bg-white soft-ring p-8 min-h-[30rem] flex flex-col justify-between">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Side Ad</p>
-                        <h4 class="text-4xl font-medium tracking-tight mb-4">Member savings and simple rewards.</h4>
-                        <p class="text-sm text-gray-500">This keeps the tall right-hand ad structure from the uploaded layout, translated into your cleaner visual language.</p>
-                    </div>
-                    <div class="rounded-[1.75rem] bg-brand-dark text-white p-6">
-                        <div class="flex items-center justify-between mb-10">
-                            <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">ShopMinimal+</span>
-                            <i data-lucide="credit-card" class="w-6 h-6 text-brand-orange"></i>
-                        </div>
-                        <p class="text-3xl font-medium tracking-tight mb-2">Earn more on every curated drop.</p>
-                        <p class="text-sm text-gray-400">Simple rewards, clean checkout, and better savings on repeat orders.</p>
-                    </div>
-                </article>
-            </section>
-
-            <section class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-4 mb-16">
-                <div class="bg-brand-dark text-white rounded-[2rem] p-8 md:p-10">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Season Highlight</p>
-                    <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
-                        <div>
-                            <h3 class="text-5xl md:text-6xl font-medium tracking-tight leading-none mb-4">Quiet luxury for everyday rooms.</h3>
-                            <p class="text-sm md:text-base text-gray-400 max-w-xl">Neutral palettes, bold silhouettes, and tactile pieces that make the storefront feel aspirational without looking noisy.</p>
-                        </div>
-                        <a href="#featured-products" class="inline-flex items-center gap-2 rounded-full bg-white text-brand-dark px-5 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors">
-                            Shop the edit
-                            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="bg-white rounded-[2rem] p-8 soft-ring">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Basket Snapshot</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
-                            <span class="text-gray-500">Items selected</span>
-                            <span id="selected-count" class="text-3xl font-semibold">0</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
-                            <span class="text-gray-500">Estimated subtotal</span>
-                            <span id="cart-subtotal" class="text-2xl font-semibold">$0</span>
-                        </div>
-                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
-                            <span class="text-gray-500">Storewide discount</span>
-                            <span class="text-2xl font-semibold text-brand-orange">10%</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-gray-500">Shipping threshold</span>
-                            <span class="text-2xl font-semibold">$150</span>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <div class="flex items-center justify-between text-sm text-gray-500 mb-3">
-                            <span>Free shipping progress</span>
-                            <span id="shipping-remaining">$150 to unlock</span>
-                        </div>
-                        <div class="progress-track h-3 rounded-full bg-brand-card">
-                            <div id="free-shipping-progress" class="progress-bar h-full w-0 rounded-full bg-brand-orange"></div>
-                        </div>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-6">Static storefront demo with quick add-to-cart behavior, live totals, and clear order progress.</p>
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-                <article class="rounded-[2rem] bg-white p-6 soft-ring">
-                    <div class="flex items-center justify-between mb-8">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Sponsored</span>
-                        <i data-lucide="radio" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <h3 class="text-3xl font-medium tracking-tight mb-3">Streaming and sound offers</h3>
-                    <p class="text-sm text-gray-500">Simple ad card placement similar to a marketplace homepage rail.</p>
-                </article>
-                <article class="rounded-[2rem] bg-brand-card p-6">
-                    <div class="flex items-center justify-between mb-8">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-500">Ad Section</span>
-                        <i data-lucide="lamp-floor" class="w-5 h-5 text-brand-dark"></i>
-                    </div>
-                    <h3 class="text-3xl font-medium tracking-tight mb-3">Home lighting event</h3>
-                    <p class="text-sm text-gray-600">Promotional content placed between shopping blocks without changing the UI pattern.</p>
-                </article>
-                <article class="rounded-[2rem] bg-brand-dark p-6 text-white">
-                    <div class="flex items-center justify-between mb-8">
-                        <span class="text-sm font-semibold uppercase tracking-[0.2em] text-gray-400">Top Promo</span>
-                        <i data-lucide="shopping-basket" class="w-5 h-5 text-brand-orange"></i>
-                    </div>
-                    <h3 class="text-3xl font-medium tracking-tight mb-3">Daily essentials sale</h3>
-                    <p class="text-sm text-gray-400">A direct ad card for homepage traffic, keeping the presentation basic and expected.</p>
-                </article>
-            </section>
-
-            <section class="mb-16">
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
-                    <div>
-                        <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-3">Brands We Curate</p>
-                        <h3 class="text-4xl md:text-5xl font-medium tracking-tight">Trusted labels, simpler presentation</h3>
-                    </div>
-                    <a href="#" class="text-sm font-semibold hover:text-brand-orange transition-colors">See all partners</a>
-                </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">NOVA</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Tech</p>
-                    </div>
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">FORMA</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Home</p>
-                    </div>
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">CLOUD</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Living</p>
-                    </div>
-                    <div class="bg-white rounded-[2rem] p-6 soft-ring text-center">
-                        <p class="text-xl font-semibold tracking-tight">MODO</p>
-                        <p class="text-xs uppercase tracking-[0.25em] text-gray-400 mt-2">Daily Goods</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-4 mb-12">
-                <div class="bg-white rounded-[2rem] p-8 soft-ring">
-                    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-400 mb-4">Why it works</p>
-                    <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-4">A fuller storefront without the usual noise.</h3>
-                    <p class="text-sm md:text-base text-gray-500">This version adds the depth an e-commerce homepage needs: product density, category discovery, promotional storytelling, and shopping actions, while keeping the same restrained palette, oversized typography, and rounded card rhythm.</p>
-                </div>
-                <div class="bg-brand-card rounded-[2rem] p-8">
-                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                        <div>
-                            <p class="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500 mb-4">Newsletter</p>
-                            <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-3">Get weekly drops.</h3>
-                            <p class="text-sm text-gray-600 max-w-md">Fresh product edits, limited deals, and calm design inspiration delivered once a week.</p>
-                        </div>
-                        <form class="w-full md:max-w-sm">
-                            <label class="sr-only" for="email">Email address</label>
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <input id="email" type="email" placeholder="Email address" class="w-full rounded-full border border-gray-300 bg-white px-5 py-3 text-sm focus:outline-none focus:border-brand-dark">
-                                <button type="submit" class="rounded-full bg-brand-dark px-5 py-3 text-sm font-semibold text-white hover:bg-black transition-colors">Join</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-
-            <footer class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-gray-300 pt-6 text-sm text-gray-500">
-                <p>ShopMinimal Storefront Demo</p>
-                <div class="flex flex-wrap items-center gap-4">
-                    <a href="#" class="hover:text-brand-dark transition-colors">Shipping</a>
-                    <a href="#" class="hover:text-brand-dark transition-colors">Returns</a>
-                    <a href="#" class="hover:text-brand-dark transition-colors">Support</a>
-                </div>
-            </footer>
-
-        </main>
+              </div>
+            </div>
+          </div>
+          <div class="page-divider border-t">
+            <div class="mx-auto flex max-w-7xl flex-wrap gap-4 px-5 py-5 text-sm text-black/45 sm:px-8 lg:px-10">
+              <a href="#" class="transition hover:text-black">Privacy</a>
+              <a href="#" class="transition hover:text-black">Terms</a>
+              <a href="#" class="transition hover:text-black">Security</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
 
-    <!-- Initialize Lucide Icons -->
     <script>
-        lucide.createIcons();
+      const state = {
+        currentPlan: "free",
+      };
 
-        const cartCount = document.getElementById('cart-count');
-        const selectedCount = document.getElementById('selected-count');
-        const cartSubtotal = document.getElementById('cart-subtotal');
-        const freeShippingProgress = document.getElementById('free-shipping-progress');
-        const shippingRemaining = document.getElementById('shipping-remaining');
-        const productCards = document.querySelectorAll('.product-card');
-        const productFilters = document.querySelectorAll('.product-filter');
-        const saveButtons = document.querySelectorAll('.save-product');
-        const searchInput = document.querySelector('input[type="text"]');
-        const emptyState = document.getElementById('empty-state');
-        let cartItems = 0;
-        let cartTotal = 0;
-        let activeFilter = 'all';
+      const planMetrics = {
+        free: {
+          cost: "$142",
+          savings: "+20%",
+        },
+        pro: {
+          cost: "$218",
+          savings: "+34%",
+        },
+      };
 
-        function formatCurrency(value) {
-            return `$${value}`;
-        }
+      const teamMembers = [
+        {
+          initials: "A",
+          name: "Alex Chen",
+          level: "Senior",
+          specialty: "Cybersecurity specialist",
+        },
+        {
+          initials: "S",
+          name: "Sarah Kim",
+          level: "Middle",
+          specialty: "UX/UI Designer",
+        },
+      ];
 
-        function updateCartUI() {
-            const threshold = 150;
-            const progressWidth = Math.min((cartTotal / threshold) * 100, 100);
-            const remaining = Math.max(threshold - cartTotal, 0);
+      const deployItems = [
+        { title: "Web Dev Stack", rate: "$10/hour", status: "Active" },
+        { title: "API Gateway", rate: "$8/hour", status: "Active" },
+        { title: "ML Pipeline", rate: "$25/hour", status: "Pending" },
+      ];
 
-            cartCount.textContent = `(${cartItems})`;
-            selectedCount.textContent = cartItems;
-            cartSubtotal.textContent = formatCurrency(cartTotal);
-            freeShippingProgress.style.width = `${progressWidth}%`;
-            shippingRemaining.textContent = remaining === 0 ? 'Free shipping unlocked' : `${formatCurrency(remaining)} to unlock`;
-        }
+      const features = [
+        {
+          eyebrow: "AI Agent",
+          title: "Describe infrastructure in natural language.",
+          body: "Agent writes Terraform, plans changes, asks for approval, and maintains a clean audit trail across every deploy.",
+        },
+        {
+          eyebrow: "Cost Tracking",
+          title: "Real-time spend visibility and budget control.",
+          body: "Monitor spend continuously, get budget alerts, and receive AI-powered optimization suggestions before costs drift upward.",
+        },
+        {
+          eyebrow: "Human Approval",
+          title: "Every change requires explicit approval.",
+          body: "AI suggests the safest path, but your team stays in control of what actually reaches production.",
+        },
+        {
+          eyebrow: "Drift Detection",
+          title: "Continuous checks against unmanaged changes.",
+          body: "Detect console edits and manual drift automatically, then accept AI-proposed fixes or reverts on your terms.",
+        },
+      ];
 
-        function applyProductVisibility() {
-            const query = searchInput.value.toLowerCase().trim();
-            let visibleProducts = 0;
+      const resources = [
+        { name: "Compute", services: "EC2 · ECS · Lambda", count: "2.4k+" },
+        { name: "Databases", services: "RDS · DynamoDB", count: "890+" },
+        { name: "Networking", services: "VPC · CDN · DNS", count: "1.1k+" },
+        { name: "Storage", services: "S3 · EBS · EFS", count: "640+" },
+      ];
 
-            productCards.forEach((card) => {
-                const searchTerms = (card.dataset.search || card.dataset.product).toLowerCase();
-                const matchesQuery = query === '' || searchTerms.includes(query);
-                const matchesFilter = activeFilter === 'all' || card.dataset.tag === activeFilter;
-                const matches = matchesQuery && matchesFilter;
+      const steps = [
+        {
+          index: "1",
+          title: "Sign up",
+          body: "Connect your AWS account via OIDC. No access keys needed.",
+        },
+        {
+          index: "2",
+          title: "Describe",
+          body: "Tell the AI agent your infrastructure requirements in plain English.",
+        },
+        {
+          index: "3",
+          title: "Deploy",
+          body: "Review the plan, approve with one click, and watch it deploy.",
+        },
+      ];
 
-                card.style.display = matches ? 'flex' : 'none';
+      const pricing = [
+        {
+          name: "Free",
+          price: "$0",
+          cadence: "forever",
+          features: ["1 environment", "2 team members", "$5 AI credits"],
+          cta: "Get Started",
+          highlight: false,
+        },
+        {
+          name: "Standard",
+          price: "$200",
+          cadence: "/org/mo",
+          features: ["Unlimited environments", "Up to 10 users", "$10 AI credits"],
+          cta: "Start Trial",
+          highlight: true,
+        },
+        {
+          name: "Pro",
+          price: "$500",
+          cadence: "/org/mo",
+          features: ["Unlimited everything", "Unlimited users", "$50 AI credits"],
+          cta: "Contact Sales",
+          highlight: false,
+        },
+      ];
 
-                if (matches) {
-                    visibleProducts += 1;
-                }
-            });
+      const faqs = [
+        {
+          question: "How does the AI agent work?",
+          answer:
+            "You describe the target infrastructure in natural language, Stackobrite generates the Terraform plan, shows a clear diff, and only applies after a human approves the change.",
+        },
+        {
+          question: "What cloud providers do you support?",
+          answer:
+            "This concept page focuses on AWS-first workflows, with support centered around common infrastructure primitives such as compute, networking, storage, and managed databases.",
+        },
+        {
+          question: "How does billing work?",
+          answer:
+            "Billing is organization-based, with plan tiers aligned to environment scale, team size, and monthly AI credit limits for deployment conversations.",
+        },
+        {
+          question: "Is my data secure?",
+          answer:
+            "Approvals, audit trails, drift signals, and cloud account connection through OIDC reduce key sprawl and keep infrastructure actions visible to the right people.",
+        },
+      ];
 
-            emptyState.classList.toggle('hidden', visibleProducts !== 0 || (query === '' && activeFilter === 'all'));
-        }
+      const teamGrid = document.getElementById("team-grid");
+      const deployGrid = document.getElementById("deploy-grid");
+      const featureGrid = document.getElementById("feature-grid");
+      const resourceGrid = document.getElementById("resource-grid");
+      const stepsGrid = document.getElementById("steps-grid");
+      const pricingGrid = document.getElementById("pricing-grid");
+      const faqList = document.getElementById("faq-list");
+      const monthlyCost = document.getElementById("monthly-cost");
+      const savingsRate = document.getElementById("savings-rate");
+      const planToggles = document.querySelectorAll(".plan-toggle");
 
-        document.querySelectorAll('.add-to-cart').forEach((button) => {
-            button.addEventListener('click', () => {
-                const card = button.closest('.product-card');
-                const price = Number(card.dataset.price || 0);
+      function renderTeam() {
+        teamGrid.innerHTML = teamMembers
+          .map(
+            (member) => `
+              <article class="soft-tile rounded-[1.75rem] p-5 transition hover:-translate-y-1 hover:bg-white/30 ${
+                member.initials === "S" ? "lg:ml-10" : ""
+              }">
+                <div class="flex items-start gap-4">
+                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-semibold text-white">${member.initials}</div>
+                  <div>
+                    <h3 class="text-xl font-medium text-black">${member.name}</h3>
+                    <p class="mt-1 text-sm text-black/55">${member.level}</p>
+                    <p class="mt-3 text-sm leading-6 text-black/60">${member.specialty}</p>
+                  </div>
+                </div>
+              </article>
+            `
+          )
+          .join("");
+      }
 
-                cartItems += 1;
-                cartTotal += price;
-                updateCartUI();
-                button.textContent = 'Added';
-                button.classList.add('bg-brand-orange');
-                button.classList.remove('bg-brand-dark', 'bg-white', 'text-brand-dark');
-                setTimeout(() => {
-                    button.textContent = 'Add to cart';
-                    if (card.classList.contains('bg-brand-dark')) {
-                        button.classList.remove('bg-brand-orange');
-                        button.classList.add('bg-white', 'text-brand-dark');
-                    } else {
-                        button.classList.remove('bg-brand-orange');
-                        button.classList.add('bg-brand-dark');
-                    }
-                }, 900);
-            });
+      function renderDeploys() {
+        deployGrid.innerHTML = deployItems
+          .map(
+            (item, index) => `
+              <article class="rounded-[1.75rem] p-5 transition hover:-translate-y-1 ${
+                index === 1
+                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
+                  : `soft-tile text-black hover:bg-white/30 ${index === 0 ? "lg:mr-10" : "lg:ml-6"}`
+              }">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="text-lg font-medium ${index === 1 ? "text-white" : "text-black"}">${item.title}</h3>
+                    <p class="mt-3 text-sm ${index === 1 ? "text-white/60" : "text-black/55"}">${item.rate}</p>
+                  </div>
+                  <span class="rounded-full px-3 py-1 text-xs font-medium ${
+                    index === 1
+                      ? "border border-white/10 bg-white/10 text-white"
+                      : item.status === "Active"
+                        ? "border border-black/10 bg-white/40 text-black"
+                        : "border border-black/10 bg-white/50 text-black/70"
+                  }">
+                    ${item.status}
+                  </span>
+                </div>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      function renderFeatures() {
+        featureGrid.innerHTML = features
+          .map(
+            (feature, index) => `
+              <article class="rounded-[2rem] p-6 transition ${
+                index === 2
+                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
+                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : index === 1 ? "lg:-mt-8" : "lg:mt-4"}`
+              }">
+                <p class="text-sm uppercase tracking-[0.24em] ${index === 2 ? "text-white/50" : "text-black/45"}">${feature.eyebrow}</p>
+                <h3 class="mt-4 max-w-md text-2xl font-semibold tracking-[-0.04em] ${index === 2 ? "text-white" : "text-black"}">${feature.title}</h3>
+                <p class="mt-4 max-w-lg text-sm leading-7 ${index === 2 ? "text-white/65" : "text-black/62"}">${feature.body}</p>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      function renderResources() {
+        resourceGrid.innerHTML = resources
+          .map(
+            (resource, index) => `
+              <article class="rounded-[1.75rem] p-6 transition hover:-translate-y-1 ${
+                index === 2
+                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
+                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : index === 1 ? "lg:-mt-2" : index === 3 ? "lg:mt-14" : ""}`
+              }">
+                <h3 class="text-2xl font-semibold tracking-[-0.04em] ${index === 2 ? "text-white" : "text-black"}">${resource.name}</h3>
+                <p class="mt-2 text-sm ${index === 2 ? "text-white/58" : "text-black/58"}">${resource.services}</p>
+                <p class="mt-8 text-4xl font-semibold tracking-[-0.05em] ${index === 2 ? "text-white" : "text-black"}">${resource.count}</p>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      function renderSteps() {
+        stepsGrid.innerHTML = steps
+          .map(
+            (step, index) => `
+              <article class="rounded-[2rem] p-6 transition ${
+                index === 1
+                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
+                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : "lg:mt-20"}`
+              }">
+                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl ${
+                  index === 1
+                    ? "bg-white text-black"
+                    : "border border-black/10 bg-white/35 text-black"
+                } text-lg font-semibold">${step.index}</span>
+                <h3 class="mt-6 text-2xl font-semibold tracking-[-0.04em] ${index === 1 ? "text-white" : "text-black"}">${step.title}</h3>
+                <p class="mt-4 text-sm leading-7 ${index === 1 ? "text-white/62" : "text-black/62"}">${step.body}</p>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      function renderPricing() {
+        pricingGrid.innerHTML = pricing
+          .map(
+            (plan) => `
+              <article class="rounded-[2rem] p-6 transition hover:-translate-y-1 ${
+                plan.highlight
+                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)] lg:-mt-8"
+                  : `soft-tile text-black hover:bg-white/30 ${plan.name === "Free" ? "lg:mt-14" : "lg:mt-24"}`
+              }">
+                <div class="flex min-h-[280px] flex-col">
+                  <div>
+                    <p class="text-sm uppercase tracking-[0.24em] ${
+                      plan.highlight ? "text-white/45" : "text-black/45"
+                    }">${plan.name}</p>
+                    <div class="mt-6 flex items-end gap-2">
+                      <span class="text-5xl font-semibold tracking-[-0.05em] ${plan.highlight ? "text-white" : "text-black"}">${plan.price}</span>
+                      <span class="pb-1 text-sm ${plan.highlight ? "text-white/55" : "text-black/55"}">${plan.cadence}</span>
+                    </div>
+                  </div>
+                  <div class="mt-8 space-y-4 text-sm ${plan.highlight ? "text-white/72" : "text-black/72"}">
+                    ${plan.features
+                      .map(
+                        (feature) => `
+                          <div class="flex items-center gap-3">
+                            <span class="h-2 w-2 rounded-full ${plan.highlight ? "bg-white" : "bg-black"}"></span>
+                            <span>${feature}</span>
+                          </div>
+                        `
+                      )
+                      .join("")}
+                  </div>
+                  <a
+                    href="#apply"
+                    class="mt-auto inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
+                      plan.highlight
+                        ? "bg-white text-black hover:bg-white/90"
+                        : "border border-black/10 text-black hover:border-black/20 hover:bg-white/40"
+                    }"
+                  >
+                    ${plan.cta}
+                  </a>
+                </div>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      function renderFaq() {
+        faqList.innerHTML = faqs
+          .map(
+            (item, index) => `
+              <article class="overflow-hidden rounded-[1.5rem] border border-black/8 bg-white/10">
+                <button
+                  type="button"
+                  class="faq-trigger flex w-full items-center justify-between gap-4 rounded-[1.5rem] px-5 py-5 text-left transition hover:bg-white/30"
+                  aria-expanded="${index === 0 ? "true" : "false"}"
+                  aria-controls="faq-panel-${index}"
+                >
+                  <span class="text-lg font-medium text-black">${item.question}</span>
+                  <span class="text-2xl text-black">${index === 0 ? "-" : "+"}</span>
+                </button>
+                <div
+                  id="faq-panel-${index}"
+                  class="${index === 0 ? "block" : "hidden"} px-5 pb-5 text-sm leading-7 text-black/62"
+                >
+                  ${item.answer}
+                </div>
+              </article>
+            `
+          )
+          .join("");
+
+        document.querySelectorAll(".faq-trigger").forEach((button) => {
+          button.addEventListener("click", () => {
+            const expanded = button.getAttribute("aria-expanded") === "true";
+            const panelId = button.getAttribute("aria-controls");
+            const icon = button.querySelector("span:last-child");
+            const panel = document.getElementById(panelId);
+
+            button.setAttribute("aria-expanded", String(!expanded));
+            panel.classList.toggle("hidden", expanded);
+            icon.textContent = expanded ? "+" : "-";
+          });
         });
+      }
 
-        saveButtons.forEach((button) => {
-            button.addEventListener('click', () => {
-                const isSaved = button.dataset.saved === 'true';
-                const isDarkCard = button.closest('.product-card').classList.contains('bg-brand-dark');
-                const icon = button.querySelector('svg');
+      function updatePlanUI() {
+        const selected = planMetrics[state.currentPlan];
+        monthlyCost.textContent = selected.cost;
+        savingsRate.textContent = selected.savings;
 
-                button.dataset.saved = String(!isSaved);
-
-                if (!isSaved) {
-                    button.classList.remove('bg-brand-card', 'bg-white/10');
-                    button.classList.add('bg-brand-orange', 'text-white');
-                } else {
-                    button.classList.remove('bg-brand-orange', 'text-white');
-                    button.classList.add(isDarkCard ? 'bg-white/10' : 'bg-brand-card');
-                }
-
-                if (icon) {
-                    icon.setAttribute('fill', isSaved ? 'none' : 'currentColor');
-                }
-            });
+        planToggles.forEach((button) => {
+          const active = button.dataset.plan === state.currentPlan;
+          button.className = active
+            ? "plan-toggle rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition"
+            : "plan-toggle rounded-full px-4 py-2 text-sm font-medium text-black/55 transition hover:text-black";
+          button.setAttribute("aria-pressed", String(active));
         });
+      }
 
-        productFilters.forEach((button) => {
-            button.addEventListener('click', () => {
-                activeFilter = button.dataset.filter;
-                productFilters.forEach((filterButton) => {
-                    filterButton.classList.remove('bg-brand-dark', 'text-white');
-                    filterButton.classList.add('bg-white', 'soft-ring');
-                });
-                button.classList.add('bg-brand-dark', 'text-white');
-                button.classList.remove('bg-white', 'soft-ring');
-                applyProductVisibility();
-            });
+      function bindEvents() {
+        planToggles.forEach((button) => {
+          button.addEventListener("click", () => {
+            state.currentPlan = button.dataset.plan;
+            updatePlanUI();
+          });
         });
+      }
 
-        searchInput.addEventListener('input', () => {
-            applyProductVisibility();
-        });
-
-        updateCartUI();
-        applyProductVisibility();
+      renderTeam();
+      renderDeploys();
+      renderFeatures();
+      renderResources();
+      renderSteps();
+      renderPricing();
+      renderFaq();
+      bindEvents();
+      updatePlanUI();
     </script>
-</body>
+  </body>
 </html>
