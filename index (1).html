@@ -1,983 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stackobrite | AI-Powered Cloud Infrastructure</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050816'/%3E%3Ctext x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%237CFFB2'%3ESB%3C/text%3E%3C/svg%3E"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackobrite Purple Hero</title>
     <meta
-      name="description"
-      content="Stackobrite is an AI-powered cloud platform that lets teams describe infrastructure in natural language and deploy with approval-driven automation."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              ink: "#050816",
-              panel: "#0b1120",
-              muted: "#94a3b8",
-              line: "rgba(148, 163, 184, 0.14)",
-              accent: "#7CFFB2",
-              accentSoft: "rgba(124, 255, 178, 0.16)",
-              accentStrong: "#5ef0a2",
-            },
-            fontFamily: {
-              display: ["Outfit", "sans-serif"],
-              mono: ["IBM Plex Mono", "monospace"],
-            },
-            boxShadow: {
-              glow: "0 0 0 1px rgba(124,255,178,0.15), 0 30px 80px rgba(5,8,22,0.45)",
-              soft: "0 16px 40px rgba(2, 6, 23, 0.28)",
-            },
-            backgroundImage: {
-              mesh:
-                "radial-gradient(circle at top left, rgba(124,255,178,0.18), transparent 30%), radial-gradient(circle at top right, rgba(56,189,248,0.14), transparent 28%), linear-gradient(180deg, rgba(15,23,42,0.96), rgba(5,8,22,1))",
-            },
-          },
-        },
-      };
-    </script>
+        name="description"
+        content="Stackobrite is an AI-powered cloud infrastructure platform presented with a bold purple visual design."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        background:
-          radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.24), transparent 18%),
-          radial-gradient(circle at 100% 10%, rgba(255, 255, 255, 0.16), transparent 16%),
-          #ebe8e1;
-      }
-
-      .hero-surface {
-        background: #efede7;
-        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-      }
-
-      .hero-divider {
-        border-color: rgba(15, 23, 42, 0.08);
-      }
-
-      .page-surface {
-        background: rgba(255, 255, 255, 0.28);
-        color: #020617;
-        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.05);
-        backdrop-filter: blur(8px);
-      }
-
-      .page-divider {
-        border-color: rgba(15, 23, 42, 0.08);
-      }
-
-      .soft-tile {
-        border: 1px solid rgba(15, 23, 42, 0.08);
-        background: rgba(255, 255, 255, 0.34);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-      }
-
-      .orbit-line {
-        position: absolute;
-        border: 1px solid rgba(15, 23, 42, 0.16);
-        border-radius: 9999px;
-        pointer-events: none;
-      }
-
-      .platform-showcase {
-        background:
-          radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.08) 46%),
-          linear-gradient(180deg, rgba(10, 10, 10, 0.96), rgba(58, 58, 58, 0.18) 34%, rgba(255, 255, 255, 0.3) 100%);
-      }
-
-      .float-a {
-        transform: translateY(-18px);
-      }
-
-      .float-b {
-        transform: translateY(22px);
-      }
-
-      .float-c {
-        transform: translateY(-10px);
-      }
-
-      .section-overlap {
-        margin-top: -1.5rem;
-      }
-
-      .mega-kicker {
-        letter-spacing: -0.08em;
-      }
-
-      @media (max-width: 1023px) {
-        .float-a,
-        .float-b,
-        .float-c,
-        .section-overlap {
-          transform: none;
-          margin-top: 0;
+        :root {
+            color-scheme: dark;
+            --bg: #c7b6ef;
+            --bg-soft: #ddcff8;
+            --ink: #0e0b17;
+            --panel: #09070f;
+            --line: rgba(32, 22, 54, 0.28);
+            --line-soft: rgba(255, 255, 255, 0.14);
+            --accent: #c697ff;
+            --accent-2: #a978ff;
+            --card: #08070d;
+            --copy: rgba(255, 255, 255, 0.8);
+            --copy-muted: rgba(255, 255, 255, 0.58);
         }
-      }
 
-      .grid-fade {
-        background-image:
-          linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
-        background-size: 44px 44px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent);
-      }
+        * {
+            box-sizing: border-box;
+        }
 
-      .noise::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.04;
-        background-image:
-          linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%);
-        background-size: 3px 3px;
-      }
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            background:
+                radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0) 28%),
+                repeating-radial-gradient(circle at 50% 28%, transparent 0, transparent 34px, rgba(58, 37, 97, 0.28) 35px, rgba(58, 37, 97, 0.28) 37px),
+                linear-gradient(180deg, #d1c2f2 0%, #c3aff0 100%);
+            color: #fff;
+            padding: 28px;
+            overflow-x: hidden;
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            inset: -12vmax;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::before {
+            background:
+                radial-gradient(circle at 22% 68%, rgba(255, 255, 255, 0.12), transparent 32%),
+                radial-gradient(circle at 82% 18%, rgba(101, 73, 161, 0.18), transparent 30%);
+        }
+
+        body::after {
+            background:
+                linear-gradient(117deg, transparent 0 14%, rgba(34, 16, 67, 0.18) 14.3%, transparent 14.6%),
+                linear-gradient(78deg, transparent 0 79%, rgba(34, 16, 67, 0.18) 79.3%, transparent 79.6%);
+            opacity: 0.55;
+        }
+
+        .page-shell {
+            position: relative;
+            z-index: 1;
+            max-width: 1280px;
+            margin: 0 auto;
+            min-height: calc(100vh - 56px);
+            padding: 34px 38px 34px;
+            border-radius: 34px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 48%, rgba(197, 156, 255, 0.92) 0%, rgba(185, 143, 250, 0.82) 17%, rgba(127, 88, 199, 0.44) 36%, rgba(16, 11, 28, 0.96) 78%),
+                linear-gradient(180deg, #140d23 0%, #08070d 100%);
+            box-shadow:
+                inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+                0 26px 70px rgba(20, 10, 40, 0.35);
+        }
+
+        .page-shell::before,
+        .page-shell::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .page-shell::before {
+            background:
+                repeating-radial-gradient(circle at 50% 24%, transparent 0, transparent 28px, rgba(231, 213, 255, 0.16) 29px, rgba(231, 213, 255, 0.16) 31px);
+            opacity: 0.9;
+        }
+
+        .page-shell::after {
+            background:
+                radial-gradient(circle at 32% 67%, rgba(255, 255, 255, 0.9) 0%, rgba(240, 233, 255, 0.82) 20%, rgba(237, 225, 255, 0.26) 44%, rgba(255, 255, 255, 0) 55%),
+                linear-gradient(111deg, transparent 0 18%, rgba(12, 8, 20, 0.35) 18.2%, transparent 18.4%),
+                linear-gradient(80deg, transparent 0 80%, rgba(12, 8, 20, 0.35) 80.2%, transparent 80.4%);
+            mix-blend-mode: screen;
+        }
+
+        .curve,
+        .curve-right {
+            position: absolute;
+            border: 1px solid rgba(16, 10, 28, 0.38);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .curve {
+            width: 1080px;
+            height: 760px;
+            left: -230px;
+            top: 94px;
+            transform: rotate(5deg);
+        }
+
+        .curve-right {
+            width: 430px;
+            height: 980px;
+            right: 170px;
+            top: 10px;
+            transform: rotate(3deg);
+        }
+
+        .topbar,
+        .hero,
+        .stats-row,
+        .details-grid,
+        .footer-band {
+            position: relative;
+            z-index: 2;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 64px;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 13px;
+            letter-spacing: 0.03em;
+        }
+
+        .brand {
+            font-size: 18px;
+            color: #f4f0ff;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .nav a {
+            color: inherit;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav sup {
+            color: var(--copy-muted);
+            margin-left: 4px;
+            font-size: 10px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.28fr) minmax(280px, 0.72fr);
+            align-items: start;
+            gap: 56px;
+            min-height: 455px;
+            margin-bottom: 132px;
+            padding: 44px 10px 0 10px;
+        }
+
+        .headline-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brace {
+            font-size: 50px;
+            font-weight: 400;
+            line-height: 1;
+            color: rgba(255, 255, 255, 0.84);
+            text-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
+            transform: translateY(-14px);
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 690px;
+            color: #070509;
+            font-size: clamp(4.15rem, 6.6vw, 5.95rem);
+            line-height: 0.92;
+            letter-spacing: -0.06em;
+            font-weight: 700;
+        }
+
+        .hero-orbital {
+            position: absolute;
+            left: 290px;
+            top: 318px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 0, 0, 0.56);
+            background: transparent;
+            box-shadow: inset 0 0 0 10px rgba(255, 255, 255, 0.44);
+        }
+
+        .hero-orbital::before,
+        .hero-orbital::after {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.24);
+        }
+
+        .hero-orbital::after {
+            inset: -6px;
+            transform: rotate(45deg);
+            border-radius: 18px;
+        }
+
+        .side-copy {
+            padding-top: 128px;
+        }
+
+        .side-copy p {
+            margin: 0 0 32px;
+            max-width: 320px;
+            color: rgba(18, 10, 29, 0.82);
+            font-size: 1.02rem;
+            line-height: 1.65;
+        }
+
+        .side-copy .copy-mark {
+            display: inline-block;
+            margin-right: 10px;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 208px;
+            height: 76px;
+            padding: 0 34px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(5, 5, 9, 0.98);
+            color: #f4f1ff;
+            text-decoration: none;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 1rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: 0.22fr 0.38fr 0.36fr 0.18fr;
+            gap: 0;
+            align-items: end;
+            margin-bottom: 36px;
+        }
+
+        .stub,
+        .stat-card,
+        .side-panel {
+            position: relative;
+            min-height: 180px;
+            background: rgba(6, 6, 9, 0.98);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+
+        .stub {
+            border-radius: 0 0 30px 30px;
+        }
+
+        .stub.left {
+            margin-right: 18px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 30px;
+        }
+
+        .stub.right {
+            margin-left: 18px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 0;
+        }
+
+        .stat-card {
+            border-radius: 28px;
+            padding: 26px 30px 24px;
+        }
+
+        .stat-card.primary {
+            min-height: 180px;
+            transform: translateY(34px);
+        }
+
+        .stat-card.secondary {
+            min-height: 252px;
+            margin: 0 18px;
+            padding-top: 18px;
+        }
+
+        .stat-card::before,
+        .stat-card::after {
+            content: "";
+            position: absolute;
+            top: 72%;
+            width: 34px;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(164, 128, 255, 0.96), rgba(235, 228, 255, 0.88));
+        }
+
+        .stat-card.primary::before {
+            right: -46px;
+        }
+
+        .stat-card.secondary::before {
+            left: -46px;
+        }
+
+        .stat-card.secondary::after {
+            right: -46px;
+        }
+
+        .stat-card.primary::after,
+        .stub::before,
+        .side-panel::before {
+            content: "";
+            position: absolute;
+            top: calc(72% - 5px);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #b98cff;
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-card.primary::after {
+            right: 76px;
+        }
+
+        .stub.left::before {
+            right: -4px;
+        }
+
+        .side-panel::before {
+            left: -4px;
+        }
+
+        .metric {
+            margin: 0;
+            color: var(--accent);
+            font-size: clamp(4.6rem, 8.4vw, 5.9rem);
+            line-height: 0.9;
+            letter-spacing: -0.08em;
+            font-weight: 700;
+        }
+
+        .label {
+            margin: 12px 0 0;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 1.02rem;
+        }
+
+        .secondary .metric {
+            text-align: center;
+        }
+
+        .secondary .label {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .side-panel {
+            min-height: 180px;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .spark {
+            position: relative;
+            width: 64px;
+            height: 64px;
+            transform: rotate(45deg);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(214, 190, 255, 0.85) 36%, rgba(214, 190, 255, 0) 72%);
+            filter: drop-shadow(0 0 16px rgba(199, 151, 255, 0.35));
+        }
+
+        .spark::before,
+        .spark::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            background: #fff;
+            border-radius: 999px;
+        }
+
+        .spark::before {
+            width: 20px;
+            height: 64px;
+        }
+
+        .spark::after {
+            width: 64px;
+            height: 20px;
+        }
+
+        .badge-strip {
+            position: absolute;
+            left: 58%;
+            bottom: -18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(-10%);
+        }
+
+        .coin,
+        .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.24);
+        }
+
+        .coin {
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at 35% 30%, #faf6ff, #b88aff 62%, #7446d8 100%);
+            color: #14091e;
+            font-weight: 700;
+            font-size: 22px;
+        }
+
+        .avatar {
+            display: block;
+            background: radial-gradient(circle at 50% 20%, #f2d2c0, #8d5441 65%, #352121 100%);
+        }
+
+        .avatar.alt {
+            background: radial-gradient(circle at 50% 20%, #ffdede, #ae5c77 62%, #4d2637 100%);
+        }
+
+        .avatar-frame {
+            position: absolute;
+            right: 18px;
+            bottom: -20px;
+            width: 48px;
+            height: 48px;
+            padding: 3px;
+            border-radius: 50%;
+            background: rgba(229, 212, 255, 0.7);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.22);
+        }
+
+        .avatar-frame .avatar {
+            width: 100%;
+            height: 100%;
+            border: none;
+            box-shadow: none;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .detail-card {
+            min-height: 220px;
+            padding: 28px;
+            border-radius: 28px;
+            background: rgba(9, 7, 15, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+
+        .eyebrow {
+            margin: 0 0 18px;
+            color: rgba(255, 255, 255, 0.54);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.76rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .detail-card h2 {
+            margin: 0 0 18px;
+            color: #f4f0ff;
+            font-size: 1.9rem;
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        .detail-card p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        .detail-card ul {
+            margin: 22px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .detail-card li {
+            margin: 0 0 12px;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .detail-card li span {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        .footer-band {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: 18px;
+            padding: 28px 10px 6px;
+            color: rgba(255, 255, 255, 0.56);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.82rem;
+        }
+
+        .footer-band a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        @media (max-width: 1100px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 26px;
+                margin-bottom: 80px;
+            }
+
+            .side-copy {
+                padding-top: 0;
+                max-width: 460px;
+            }
+
+            .hero-orbital {
+                left: 236px;
+                top: 296px;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stub {
+                display: none;
+            }
+
+            .stat-card.primary,
+            .stat-card.secondary,
+            .side-panel {
+                margin: 0;
+                transform: none;
+            }
+
+            .stat-card::before,
+            .stat-card::after,
+            .stat-card.primary::after,
+            .side-panel::before {
+                display: none;
+            }
+
+            .badge-strip {
+                position: static;
+                margin-top: 18px;
+                transform: none;
+            }
+
+            .avatar-frame {
+                right: 20px;
+                bottom: 20px;
+            }
+
+            .footer-band {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 14px;
+            }
+
+            .page-shell {
+                min-height: auto;
+                padding: 22px 18px 22px;
+                border-radius: 24px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 28px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                gap: 14px 20px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 22px;
+                margin-bottom: 42px;
+            }
+
+            h1 {
+                font-size: clamp(3rem, 14vw, 4.5rem);
+                max-width: 100%;
+            }
+
+            .brace {
+                font-size: 38px;
+                transform: translateY(-8px);
+            }
+
+            .hero-orbital {
+                left: 50%;
+                top: auto;
+                bottom: -12px;
+                transform: translateX(-50%);
+                width: 54px;
+                height: 54px;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+
+            .metric {
+                font-size: clamp(3.4rem, 20vw, 5rem);
+            }
+        }
     </style>
-  </head>
-  <body class="font-display text-white antialiased">
-    <div class="relative isolate overflow-hidden">
-      <div class="grid-fade absolute inset-x-0 top-[820px] h-[680px] opacity-40"></div>
-      <div class="absolute inset-x-0 top-[820px] h-px bg-black/5"></div>
+</head>
+<body>
+    <main class="page-shell">
+        <div class="curve"></div>
+        <div class="curve-right"></div>
 
-      <header class="hidden relative z-10">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-          <a href="#top" class="flex items-center gap-3">
-            <span class="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white text-ink shadow-soft">
-              <span class="text-sm font-bold tracking-[0.22em]">SB</span>
-            </span>
+        <header class="topbar">
+            <a class="brand" href="#">Stackobrite</a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#">PLATFORM<sup>7</sup></a>
+                <a href="#">WORKFLOWS<sup>9</sup></a>
+                <a href="#">CLOUD MODULES<sup>35</sup></a>
+            </nav>
+        </header>
+
+        <section class="hero">
             <div>
-              <p class="text-sm font-semibold tracking-[0.22em] text-white/60">SB</p>
-              <p class="text-lg font-semibold leading-none">Stackobrite</p>
+                <div class="headline-row">
+                    <span class="brace">}</span>
+                    <h1>Stackobrite<br>Builds AI-Led<br>Cloud Infrastructure</h1>
+                </div>
+                <div class="hero-orbital" aria-hidden="true"></div>
             </div>
-          </a>
 
-          <nav class="hidden items-center gap-8 text-sm text-white/70 lg:flex">
-            <a href="#platform" class="transition hover:text-white">Platform</a>
-            <a href="#workflow" class="transition hover:text-white">How it works</a>
-            <a href="#pricing" class="transition hover:text-white">Pricing</a>
-            <a href="#docs" class="transition hover:text-white">Docs</a>
-          </nav>
-
-          <div class="flex items-center gap-3">
-            <a
-              href="#"
-              class="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-white/20 hover:text-white"
-            >
-              Log in
-            </a>
-            <a
-              href="#apply"
-              class="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-accentStrong"
-            >
-              Apply now
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <main id="top" class="relative z-10">
-        <section class="px-4 pb-16 pt-4 sm:px-6 lg:px-8 lg:pb-20 lg:pt-6">
-          <div class="mx-auto max-w-7xl">
-            <div class="hero-surface overflow-hidden rounded-[2rem] text-slate-950 lg:rounded-[2.25rem]">
-              <div class="px-5 py-5 sm:px-8 sm:py-7 lg:px-10 lg:py-9">
-                <div class="flex flex-wrap items-center justify-between gap-4 text-[15px]">
-                  <a href="#top" class="flex items-center gap-3">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-black text-xs font-semibold tracking-[0.18em] text-white">
-                      SB
-                    </span>
-                    <span class="text-base font-medium tracking-[-0.02em] text-black">Stackobrite</span>
-                  </a>
-
-                  <div class="hidden min-w-[180px] items-center justify-center gap-2 rounded-full text-sm text-black/45 lg:flex">
-                    <span class="text-base">⌕</span>
-                    <span>Search</span>
-                  </div>
-
-                  <div class="flex items-center gap-3 text-sm">
-                    <a href="#" class="px-3 py-2 text-black/75 transition hover:text-black">Log In</a>
-                    <a href="#apply" class="rounded-full bg-black px-5 py-3 font-medium text-white transition hover:bg-black/90">
-                      Get the App
-                    </a>
-                  </div>
-                </div>
-
-                <div class="mt-7 lg:mt-10">
-                  <div class="overflow-hidden">
-                    <div class="text-center font-display text-[4.4rem] font-semibold leading-none tracking-[-0.12em] text-black sm:text-[6.6rem] md:text-[8.5rem] lg:text-[11rem] xl:text-[14rem]">
-                      05:24:12
-                    </div>
-                  </div>
-
-                  <div class="mt-4 grid gap-4 text-sm text-black/55 lg:grid-cols-[1fr_1.1fr_0.7fr] lg:items-end">
-                    <div>
-                      <p>Current</p>
-                    </div>
-                    <div class="justify-self-start lg:justify-self-center">
-                      <p class="font-medium text-black/75">Apply window · 07:12 - 17:17 (10h 06m)</p>
-                      <p class="mt-1">Monday, Mar 24 2026</p>
-                    </div>
-                    <div class="justify-self-start lg:justify-self-end">
-                      <div class="inline-flex rounded-full bg-white/70 p-1 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.05)]">
-                        <button
-                          type="button"
-                          data-plan="free"
-                          class="plan-toggle rounded-full px-4 py-2 text-sm font-medium transition"
-                        >
-                          Free
-                        </button>
-                        <button
-                          type="button"
-                          data-plan="pro"
-                          class="plan-toggle rounded-full px-4 py-2 text-sm font-medium transition"
-                        >
-                          Pro
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="hero-divider border-t"></div>
-
-              <div class="px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-9">
-                <div class="grid gap-8 lg:grid-cols-[1.15fr_0.8fr_0.72fr] lg:items-start">
-                  <div class="float-a">
-                    <h1 class="mega-kicker max-w-xl text-4xl font-medium leading-[1.04] text-black sm:text-5xl lg:text-[4.4rem]">
-                      Cloud,
-                      <br />
-                      without drift.
-                    </h1>
-                  </div>
-                  <div class="pt-8 text-base leading-7 text-black/45 lg:pt-14">
-                    <p>Life moves fast. Deploy with approval, track cost in real time, and keep your infrastructure healthy without operational guesswork.</p>
-                  </div>
-                  <div class="pt-2 text-left text-[15px] text-black/70 lg:pt-24 lg:text-right">
-                    <a href="#platform" class="inline-flex items-center gap-2 transition hover:text-black">
-                      Browse Platform
-                      <span class="text-lg leading-none">⊕</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="mt-10 grid gap-4 lg:grid-cols-[0.92fr_0.92fr_1.2fr_0.96fr]">
-                  <article class="soft-tile float-a rounded-[1.4rem] px-5 py-4">
-                    <div class="flex items-center justify-between text-[15px] text-black/70">
-                      <p>Compute</p>
-                      <p>EC2</p>
-                    </div>
-                    <div class="mt-10 flex items-end justify-between gap-3">
-                      <p class="text-5xl font-medium tracking-[-0.08em] text-black">64</p>
-                      <p class="pb-2 text-sm text-black/45">Healthy</p>
-                    </div>
-                  </article>
-                  <article class="soft-tile float-b rounded-[1.4rem] px-5 py-4">
-                    <div class="flex items-center justify-between text-[15px] text-black/70">
-                      <p>Database</p>
-                      <p>RDS</p>
-                    </div>
-                    <div class="mt-10 flex items-end justify-between gap-3">
-                      <p id="monthly-cost" class="text-5xl font-medium tracking-[-0.08em] text-black">$142</p>
-                      <p class="pb-2 text-sm text-black/45">Monthly</p>
-                    </div>
-                  </article>
-                  <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)]">
-                    <div class="flex items-center justify-between text-[15px] text-white/72">
-                      <p>Approvals</p>
-                      <p>Live</p>
-                    </div>
-                    <div class="mt-14 flex items-end justify-between gap-3">
-                      <p class="text-6xl font-medium tracking-[-0.08em]">12</p>
-                      <p class="pb-2 text-sm text-white/55">Today</p>
-                    </div>
-                  </article>
-                  <article class="soft-tile float-c rounded-[1.4rem] px-5 py-4">
-                    <div class="flex items-center justify-between text-[15px] text-black/70">
-                      <p>Savings</p>
-                      <p>AI Ops</p>
-                    </div>
-                    <div class="mt-10 flex items-end justify-between gap-3">
-                      <p id="savings-rate" class="text-5xl font-medium tracking-[-0.08em] text-black">+20%</p>
-                      <p class="pb-2 text-sm text-black/45">Optimized</p>
-                    </div>
-                  </article>
-                </div>
-              </div>
+            <div class="side-copy">
+                <p><span class="copy-mark">}</span>Approval-driven deployment workflows, real-time cost signals, and human-reviewed automation for modern infrastructure teams.</p>
+                <a class="cta" href="#">Start Deployment</a>
             </div>
-          </div>
         </section>
 
-        <section class="section-overlap px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto grid max-w-7xl gap-10 rounded-[2rem] px-5 py-10 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-12">
-            <div class="relative">
-              <p class="text-sm uppercase tracking-[0.28em] text-black/45">Team</p>
-              <h2 class="mega-kicker mt-5 max-w-sm text-4xl font-medium leading-[0.96] text-black sm:text-5xl">
-                People,
-                <br />
-                patterns,
-                <br />
-                approvals.
-              </h2>
-              <p class="mt-8 max-w-xs text-sm leading-7 text-black/55">
-                Human specialists and reusable deploy patterns sit in the same visual system, so the section feels curated rather than merely listed.
-              </p>
-              <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm text-black/65 transition hover:text-black">
-                See all
-                <span class="text-lg">⊕</span>
-              </a>
-            </div>
+        <section class="stats-row" aria-label="Highlights">
+            <div class="stub left" aria-hidden="true"></div>
 
-            <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-              <div id="team-grid" class="grid gap-4 md:grid-cols-2 lg:block lg:space-y-4"></div>
-              <div>
-                <div class="mb-8 flex items-center justify-between">
-                  <h2 class="text-sm uppercase tracking-[0.28em] text-black/45">Quick Deploy</h2>
-                  <a href="#" class="text-sm text-black/55 transition hover:text-black">See all</a>
+            <article class="stat-card primary">
+                <p class="metric">192k</p>
+                <p class="label">Terraform actions under management</p>
+            </article>
+
+            <article class="stat-card secondary">
+                <p class="metric">34</p>
+                <p class="label">Critical policy checks on each release path</p>
+                <div class="badge-strip" aria-hidden="true">
+                    <div class="coin">A</div>
+                    <div class="coin" style="background: radial-gradient(circle at 35% 30%, #f3ecff, #a482ff 60%, #3c236e 100%);">C</div>
+                    <div class="avatar"></div>
+                    <div class="coin" style="background: radial-gradient(circle at 35% 30%, #fff4f6, #f8dce2 35%, #ea5471 78%, #8d1231 100%);">P</div>
                 </div>
-                <div id="deploy-grid" class="space-y-4"></div>
-              </div>
-            </div>
-          </div>
+            </article>
+
+            <aside class="side-panel">
+                <div class="spark" aria-hidden="true"></div>
+                <div class="avatar-frame" aria-hidden="true">
+                    <div class="avatar alt"></div>
+                </div>
+            </aside>
         </section>
 
-        <section class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div class="max-w-2xl">
-                <p class="text-sm uppercase tracking-[0.26em] text-black/45">Unlock Premium Features</p>
-                <h2 class="mt-4 text-3xl font-semibold tracking-[-0.04em] text-black sm:text-4xl">
-                  Get access to exclusive benefits and expand your infrastructure capabilities.
-                </h2>
-              </div>
-              <a
-                href="#pricing"
-                class="inline-flex w-fit items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/90"
-              >
-                Upgrade now
-              </a>
-            </div>
-          </div>
+        <section class="details-grid" aria-label="Platform Details">
+            <article class="detail-card">
+                <p class="eyebrow">Agent</p>
+                <h2>Describe infra in plain English.</h2>
+                <p>Stackobrite turns natural-language requests into reviewed infrastructure plans so teams move quickly without skipping control.</p>
+            </article>
+
+            <article class="detail-card">
+                <p class="eyebrow">Control</p>
+                <h2>Keep humans in the approval loop.</h2>
+                <p>Every deployment passes through visible change review, audit trails, and guardrails that reduce drift and accidental spend.</p>
+            </article>
+
+            <article class="detail-card">
+                <p class="eyebrow">Signals</p>
+                <h2>Track the metrics that matter.</h2>
+                <ul>
+                    <li><span>+</span>Live cost awareness</li>
+                    <li><span>+</span>Drift detection</li>
+                    <li><span>+</span>Approval-backed delivery</li>
+                </ul>
+            </article>
         </section>
 
-        <section id="platform" class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="platform-showcase relative overflow-hidden rounded-[2rem] px-5 py-6 text-black sm:px-8 lg:px-8 lg:pb-28 lg:pt-8">
-              <div class="orbit-line left-[-16%] top-[20%] h-[470px] w-[92%] lg:h-[640px] lg:w-[86%]"></div>
-              <div class="orbit-line right-[8%] top-[-18%] h-[640px] w-[340px] lg:h-[860px] lg:w-[460px]"></div>
-              <div class="orbit-line left-[28%] top-[52%] h-[220px] w-[220px] lg:h-[280px] lg:w-[280px]"></div>
-
-              <div class="relative z-10 flex flex-wrap items-center justify-between gap-4 text-[11px] font-medium uppercase tracking-[0.18em] text-white/72">
-                <p>Platform</p>
-                <div class="flex flex-wrap items-center gap-4 lg:gap-6">
-                  <span>Agent</span>
-                  <span>Approval</span>
-                  <span>Cost</span>
-                  <span>Drift</span>
-                </div>
-              </div>
-
-              <div class="relative z-10 mt-10 grid gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:items-center">
-                <div class="max-w-3xl">
-                  <p class="text-5xl leading-none text-black/65 lg:text-6xl">}</p>
-                  <h2 class="mega-kicker mt-2 max-w-2xl text-5xl font-medium leading-[0.92] text-black sm:text-6xl lg:text-[5.3rem]">
-                    Stackobrite
-                    <br />
-                    Is a Premier Cloud
-                    <br />
-                    Infrastructure
-                    <br />
-                    Platform
-                  </h2>
-                </div>
-
-                <div class="lg:pl-6">
-                  <p class="max-w-sm text-sm leading-7 text-black/68">
-                    Renowned for powering approval-led cloud operations with natural-language planning, human oversight, drift controls, and cost-aware deployment workflows.
-                  </p>
-                  <a
-                    href="#apply"
-                    class="mt-8 inline-flex rounded-full bg-black px-8 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-black/90"
-                  >
-                    Get in touch
-                  </a>
-                </div>
-              </div>
-
-              <div class="relative z-10 mt-12 grid gap-4 lg:grid-cols-[0.32fr_0.44fr_0.42fr_0.26fr] lg:items-end">
-                <div class="hidden h-[132px] rounded-[1.6rem] bg-black lg:block"></div>
-                <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)]">
-                  <p class="text-6xl font-medium tracking-[-0.08em] lg:text-[5.5rem]">192k</p>
-                  <p class="mt-3 text-sm text-white/62">Terraform actions under management</p>
-                </article>
-                <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)] lg:-mb-5">
-                  <p class="text-6xl font-medium tracking-[-0.08em] lg:text-[5.5rem]">34</p>
-                  <p class="mt-3 text-sm text-white/62">Policy checks in every critical deployment path</p>
-                </article>
-                <div class="hidden h-[148px] rounded-[1.6rem] bg-black lg:block"></div>
-              </div>
-            </div>
-            <div id="feature-grid" class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr]"></div>
-          </div>
-        </section>
-
-        <section class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-              <div class="float-a">
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Browse Resources</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Explore
-                  <br />
-                  by category
-                </h2>
-                <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm text-black/65 transition hover:text-black">
-                  View all
-                  <span class="text-lg">⊕</span>
-                </a>
-              </div>
-              <div id="resource-grid" class="grid gap-4 md:grid-cols-2 xl:grid-cols-4"></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="workflow" class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div class="max-w-3xl">
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">How it works</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Three moves
-                  <br />
-                  to deploy
-                </h2>
-              </div>
-              <p class="max-w-md text-sm leading-7 text-black/55">
-                The cards are intentionally staggered to create a left-to-right sense of progression instead of a neutral even row.
-              </p>
-            </div>
-            <div id="steps-grid" class="grid gap-4 lg:grid-cols-3"></div>
-          </div>
-        </section>
-
-        <section id="pricing" class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="mb-12 grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
-              <div>
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Pricing</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Simple,
-                  <br />
-                  but staged.
-                </h2>
-              </div>
-              <p class="max-w-xl text-sm leading-7 text-black/56">
-                Pricing now uses one dominant anchor plan with two quieter companions so the page has a more designed reading order.
-              </p>
-            </div>
-            <div id="pricing-grid" class="grid gap-4 lg:grid-cols-[0.88fr_1.12fr_0.88fr]"></div>
-          </div>
-        </section>
-
-        <section class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-              <div>
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">FAQ</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Friction,
-                  <br />
-                  resolved.
-                </h2>
-              </div>
-              <div id="faq-list" class="rounded-[2rem] border border-black/8 bg-white/18 p-3"></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="apply" class="px-4 pb-6 pt-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-              <div class="float-a">
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Your infrastructure, managed by AI.</p>
-                <h2 class="mega-kicker mt-4 max-w-2xl text-4xl font-medium text-black sm:text-5xl">
-                  Start your
-                  <br />
-                  application
-                </h2>
-              </div>
-              <div class="soft-tile rounded-[1.8rem] p-6 lg:justify-self-end">
-                <p class="max-w-md text-sm leading-7 text-black/55">
-                  Final call-to-action now feels like a designed panel inside the canvas, not just another generic footer CTA block.
-                </p>
-                <div class="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href="#"
-                    class="rounded-full border border-black/10 px-5 py-3 text-sm font-medium text-black/70 transition hover:border-black/20 hover:text-black"
-                  >
-                    Documentation
-                  </a>
-                  <a
-                    href="#"
-                    class="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/90"
-                  >
-                    Apply now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer id="docs" class="px-4 pb-8 pt-3 sm:px-6 lg:px-8">
-        <div class="page-surface mx-auto max-w-7xl rounded-[2rem]">
-          <div class="grid gap-12 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_0.72fr] lg:px-10">
-            <div class="max-w-md">
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-white">
-                  <span class="text-sm font-bold tracking-[0.22em]">SB</span>
-                </span>
-                <div>
-                  <p class="text-lg font-semibold text-black">Stackobrite</p>
-                  <p class="text-sm text-black/55">AI-powered cloud infrastructure for modern teams.</p>
-                </div>
-              </div>
-              <p class="mt-8 text-sm text-black/45">
-                © 2026 Stackobrite. All rights reserved.
-              </p>
-            </div>
-
-            <div class="grid gap-8 sm:grid-cols-3">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Product</p>
-                <div class="mt-4 space-y-3 text-sm text-black/65">
-                  <a href="#platform" class="block transition hover:text-black">Platform</a>
-                  <a href="#" class="block transition hover:text-black">AI Agent</a>
-                  <a href="#pricing" class="block transition hover:text-black">Pricing</a>
-                  <a href="#" class="block transition hover:text-black">Changelog</a>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Resources</p>
-                <div class="mt-4 space-y-3 text-sm text-black/65">
-                  <a href="#" class="block transition hover:text-black">Documentation</a>
-                  <a href="#" class="block transition hover:text-black">API Reference</a>
-                  <a href="#" class="block transition hover:text-black">Terraform Modules</a>
-                  <a href="#" class="block transition hover:text-black">Blog</a>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Company</p>
-                <div class="mt-4 space-y-3 text-sm text-black/65">
-                  <a href="#" class="block transition hover:text-black">About</a>
-                  <a href="#" class="block transition hover:text-black">Careers</a>
-                  <a href="#" class="block transition hover:text-black">Security</a>
-                  <a href="#" class="block transition hover:text-black">Privacy</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="page-divider border-t">
-            <div class="mx-auto flex max-w-7xl flex-wrap gap-4 px-5 py-5 text-sm text-black/45 sm:px-8 lg:px-10">
-              <a href="#" class="transition hover:text-black">Privacy</a>
-              <a href="#" class="transition hover:text-black">Terms</a>
-              <a href="#" class="transition hover:text-black">Security</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-
-    <script>
-      const state = {
-        currentPlan: "free",
-      };
-
-      const planMetrics = {
-        free: {
-          cost: "$142",
-          savings: "+20%",
-        },
-        pro: {
-          cost: "$218",
-          savings: "+34%",
-        },
-      };
-
-      const teamMembers = [
-        {
-          initials: "A",
-          name: "Alex Chen",
-          level: "Senior",
-          specialty: "Cybersecurity specialist",
-        },
-        {
-          initials: "S",
-          name: "Sarah Kim",
-          level: "Middle",
-          specialty: "UX/UI Designer",
-        },
-      ];
-
-      const deployItems = [
-        { title: "Web Dev Stack", rate: "$10/hour", status: "Active" },
-        { title: "API Gateway", rate: "$8/hour", status: "Active" },
-        { title: "ML Pipeline", rate: "$25/hour", status: "Pending" },
-      ];
-
-      const features = [
-        {
-          eyebrow: "AI Agent",
-          title: "Describe infrastructure in natural language.",
-          body: "Agent writes Terraform, plans changes, asks for approval, and maintains a clean audit trail across every deploy.",
-        },
-        {
-          eyebrow: "Cost Tracking",
-          title: "Real-time spend visibility and budget control.",
-          body: "Monitor spend continuously, get budget alerts, and receive AI-powered optimization suggestions before costs drift upward.",
-        },
-        {
-          eyebrow: "Human Approval",
-          title: "Every change requires explicit approval.",
-          body: "AI suggests the safest path, but your team stays in control of what actually reaches production.",
-        },
-        {
-          eyebrow: "Drift Detection",
-          title: "Continuous checks against unmanaged changes.",
-          body: "Detect console edits and manual drift automatically, then accept AI-proposed fixes or reverts on your terms.",
-        },
-      ];
-
-      const resources = [
-        { name: "Compute", services: "EC2 · ECS · Lambda", count: "2.4k+" },
-        { name: "Databases", services: "RDS · DynamoDB", count: "890+" },
-        { name: "Networking", services: "VPC · CDN · DNS", count: "1.1k+" },
-        { name: "Storage", services: "S3 · EBS · EFS", count: "640+" },
-      ];
-
-      const steps = [
-        {
-          index: "1",
-          title: "Sign up",
-          body: "Connect your AWS account via OIDC. No access keys needed.",
-        },
-        {
-          index: "2",
-          title: "Describe",
-          body: "Tell the AI agent your infrastructure requirements in plain English.",
-        },
-        {
-          index: "3",
-          title: "Deploy",
-          body: "Review the plan, approve with one click, and watch it deploy.",
-        },
-      ];
-
-      const pricing = [
-        {
-          name: "Free",
-          price: "$0",
-          cadence: "forever",
-          features: ["1 environment", "2 team members", "$5 AI credits"],
-          cta: "Get Started",
-          highlight: false,
-        },
-        {
-          name: "Standard",
-          price: "$200",
-          cadence: "/org/mo",
-          features: ["Unlimited environments", "Up to 10 users", "$10 AI credits"],
-          cta: "Start Trial",
-          highlight: true,
-        },
-        {
-          name: "Pro",
-          price: "$500",
-          cadence: "/org/mo",
-          features: ["Unlimited everything", "Unlimited users", "$50 AI credits"],
-          cta: "Contact Sales",
-          highlight: false,
-        },
-      ];
-
-      const faqs = [
-        {
-          question: "How does the AI agent work?",
-          answer:
-            "You describe the target infrastructure in natural language, Stackobrite generates the Terraform plan, shows a clear diff, and only applies after a human approves the change.",
-        },
-        {
-          question: "What cloud providers do you support?",
-          answer:
-            "This concept page focuses on AWS-first workflows, with support centered around common infrastructure primitives such as compute, networking, storage, and managed databases.",
-        },
-        {
-          question: "How does billing work?",
-          answer:
-            "Billing is organization-based, with plan tiers aligned to environment scale, team size, and monthly AI credit limits for deployment conversations.",
-        },
-        {
-          question: "Is my data secure?",
-          answer:
-            "Approvals, audit trails, drift signals, and cloud account connection through OIDC reduce key sprawl and keep infrastructure actions visible to the right people.",
-        },
-      ];
-
-      const teamGrid = document.getElementById("team-grid");
-      const deployGrid = document.getElementById("deploy-grid");
-      const featureGrid = document.getElementById("feature-grid");
-      const resourceGrid = document.getElementById("resource-grid");
-      const stepsGrid = document.getElementById("steps-grid");
-      const pricingGrid = document.getElementById("pricing-grid");
-      const faqList = document.getElementById("faq-list");
-      const monthlyCost = document.getElementById("monthly-cost");
-      const savingsRate = document.getElementById("savings-rate");
-      const planToggles = document.querySelectorAll(".plan-toggle");
-
-      function renderTeam() {
-        teamGrid.innerHTML = teamMembers
-          .map(
-            (member) => `
-              <article class="soft-tile rounded-[1.75rem] p-5 transition hover:-translate-y-1 hover:bg-white/30 ${
-                member.initials === "S" ? "lg:ml-10" : ""
-              }">
-                <div class="flex items-start gap-4">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-semibold text-white">${member.initials}</div>
-                  <div>
-                    <h3 class="text-xl font-medium text-black">${member.name}</h3>
-                    <p class="mt-1 text-sm text-black/55">${member.level}</p>
-                    <p class="mt-3 text-sm leading-6 text-black/60">${member.specialty}</p>
-                  </div>
-                </div>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderDeploys() {
-        deployGrid.innerHTML = deployItems
-          .map(
-            (item, index) => `
-              <article class="rounded-[1.75rem] p-5 transition hover:-translate-y-1 ${
-                index === 1
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile text-black hover:bg-white/30 ${index === 0 ? "lg:mr-10" : "lg:ml-6"}`
-              }">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="text-lg font-medium ${index === 1 ? "text-white" : "text-black"}">${item.title}</h3>
-                    <p class="mt-3 text-sm ${index === 1 ? "text-white/60" : "text-black/55"}">${item.rate}</p>
-                  </div>
-                  <span class="rounded-full px-3 py-1 text-xs font-medium ${
-                    index === 1
-                      ? "border border-white/10 bg-white/10 text-white"
-                      : item.status === "Active"
-                        ? "border border-black/10 bg-white/40 text-black"
-                        : "border border-black/10 bg-white/50 text-black/70"
-                  }">
-                    ${item.status}
-                  </span>
-                </div>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderFeatures() {
-        featureGrid.innerHTML = features
-          .map(
-            (feature, index) => `
-              <article class="rounded-[2rem] p-6 transition ${
-                index === 2
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : index === 1 ? "lg:-mt-8" : "lg:mt-4"}`
-              }">
-                <p class="text-sm uppercase tracking-[0.24em] ${index === 2 ? "text-white/50" : "text-black/45"}">${feature.eyebrow}</p>
-                <h3 class="mt-4 max-w-md text-2xl font-semibold tracking-[-0.04em] ${index === 2 ? "text-white" : "text-black"}">${feature.title}</h3>
-                <p class="mt-4 max-w-lg text-sm leading-7 ${index === 2 ? "text-white/65" : "text-black/62"}">${feature.body}</p>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderResources() {
-        resourceGrid.innerHTML = resources
-          .map(
-            (resource, index) => `
-              <article class="rounded-[1.75rem] p-6 transition hover:-translate-y-1 ${
-                index === 2
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : index === 1 ? "lg:-mt-2" : index === 3 ? "lg:mt-14" : ""}`
-              }">
-                <h3 class="text-2xl font-semibold tracking-[-0.04em] ${index === 2 ? "text-white" : "text-black"}">${resource.name}</h3>
-                <p class="mt-2 text-sm ${index === 2 ? "text-white/58" : "text-black/58"}">${resource.services}</p>
-                <p class="mt-8 text-4xl font-semibold tracking-[-0.05em] ${index === 2 ? "text-white" : "text-black"}">${resource.count}</p>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderSteps() {
-        stepsGrid.innerHTML = steps
-          .map(
-            (step, index) => `
-              <article class="rounded-[2rem] p-6 transition ${
-                index === 1
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : "lg:mt-20"}`
-              }">
-                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl ${
-                  index === 1
-                    ? "bg-white text-black"
-                    : "border border-black/10 bg-white/35 text-black"
-                } text-lg font-semibold">${step.index}</span>
-                <h3 class="mt-6 text-2xl font-semibold tracking-[-0.04em] ${index === 1 ? "text-white" : "text-black"}">${step.title}</h3>
-                <p class="mt-4 text-sm leading-7 ${index === 1 ? "text-white/62" : "text-black/62"}">${step.body}</p>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderPricing() {
-        pricingGrid.innerHTML = pricing
-          .map(
-            (plan) => `
-              <article class="rounded-[2rem] p-6 transition hover:-translate-y-1 ${
-                plan.highlight
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)] lg:-mt-8"
-                  : `soft-tile text-black hover:bg-white/30 ${plan.name === "Free" ? "lg:mt-14" : "lg:mt-24"}`
-              }">
-                <div class="flex min-h-[280px] flex-col">
-                  <div>
-                    <p class="text-sm uppercase tracking-[0.24em] ${
-                      plan.highlight ? "text-white/45" : "text-black/45"
-                    }">${plan.name}</p>
-                    <div class="mt-6 flex items-end gap-2">
-                      <span class="text-5xl font-semibold tracking-[-0.05em] ${plan.highlight ? "text-white" : "text-black"}">${plan.price}</span>
-                      <span class="pb-1 text-sm ${plan.highlight ? "text-white/55" : "text-black/55"}">${plan.cadence}</span>
-                    </div>
-                  </div>
-                  <div class="mt-8 space-y-4 text-sm ${plan.highlight ? "text-white/72" : "text-black/72"}">
-                    ${plan.features
-                      .map(
-                        (feature) => `
-                          <div class="flex items-center gap-3">
-                            <span class="h-2 w-2 rounded-full ${plan.highlight ? "bg-white" : "bg-black"}"></span>
-                            <span>${feature}</span>
-                          </div>
-                        `
-                      )
-                      .join("")}
-                  </div>
-                  <a
-                    href="#apply"
-                    class="mt-auto inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
-                      plan.highlight
-                        ? "bg-white text-black hover:bg-white/90"
-                        : "border border-black/10 text-black hover:border-black/20 hover:bg-white/40"
-                    }"
-                  >
-                    ${plan.cta}
-                  </a>
-                </div>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderFaq() {
-        faqList.innerHTML = faqs
-          .map(
-            (item, index) => `
-              <article class="overflow-hidden rounded-[1.5rem] border border-black/8 bg-white/10">
-                <button
-                  type="button"
-                  class="faq-trigger flex w-full items-center justify-between gap-4 rounded-[1.5rem] px-5 py-5 text-left transition hover:bg-white/30"
-                  aria-expanded="${index === 0 ? "true" : "false"}"
-                  aria-controls="faq-panel-${index}"
-                >
-                  <span class="text-lg font-medium text-black">${item.question}</span>
-                  <span class="text-2xl text-black">${index === 0 ? "-" : "+"}</span>
-                </button>
-                <div
-                  id="faq-panel-${index}"
-                  class="${index === 0 ? "block" : "hidden"} px-5 pb-5 text-sm leading-7 text-black/62"
-                >
-                  ${item.answer}
-                </div>
-              </article>
-            `
-          )
-          .join("");
-
-        document.querySelectorAll(".faq-trigger").forEach((button) => {
-          button.addEventListener("click", () => {
-            const expanded = button.getAttribute("aria-expanded") === "true";
-            const panelId = button.getAttribute("aria-controls");
-            const icon = button.querySelector("span:last-child");
-            const panel = document.getElementById(panelId);
-
-            button.setAttribute("aria-expanded", String(!expanded));
-            panel.classList.toggle("hidden", expanded);
-            icon.textContent = expanded ? "+" : "-";
-          });
-        });
-      }
-
-      function updatePlanUI() {
-        const selected = planMetrics[state.currentPlan];
-        monthlyCost.textContent = selected.cost;
-        savingsRate.textContent = selected.savings;
-
-        planToggles.forEach((button) => {
-          const active = button.dataset.plan === state.currentPlan;
-          button.className = active
-            ? "plan-toggle rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition"
-            : "plan-toggle rounded-full px-4 py-2 text-sm font-medium text-black/55 transition hover:text-black";
-          button.setAttribute("aria-pressed", String(active));
-        });
-      }
-
-      function bindEvents() {
-        planToggles.forEach((button) => {
-          button.addEventListener("click", () => {
-            state.currentPlan = button.dataset.plan;
-            updatePlanUI();
-          });
-        });
-      }
-
-      renderTeam();
-      renderDeploys();
-      renderFeatures();
-      renderResources();
-      renderSteps();
-      renderPricing();
-      renderFaq();
-      bindEvents();
-      updatePlanUI();
-    </script>
-  </body>
+        <footer class="footer-band">
+            <span>© 2026 Stackobrite</span>
+            <a href="#">AI-powered cloud infrastructure for modern teams.</a>
+        </footer>
+    </main>
+</body>
 </html>
