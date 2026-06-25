@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saro Foods Nigeria | Nutrition for Every Home</title>
+    <meta
+      name="description"
+      content="Saro Foods Nigeria homepage concept with an editorial full-page design inspired by the current green-and-orange UI."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --page-bg: #edf6ea;
+        --surface: #f6fbf4;
+        --surface-strong: #dff1dc;
+        --surface-soft: #c5e6bf;
+        --green-900: #064916;
+        --green-800: #0a5b19;
+        --green-700: #17722b;
+        --green-500: #3f9656;
+        --green-200: #d3ebcf;
+        --orange-500: #ff7300;
+        --orange-400: #ff9642;
+        --orange-100: #ffe5cf;
+        --text-main: #073d12;
+        --text-muted: #4a6f54;
+        --white: #ffffff;
+        --shadow-soft: 0 18px 50px rgba(7, 61, 18, 0.09);
+        --shadow-card: 0 10px 32px rgba(7, 61, 18, 0.08);
+        --radius-xl: 34px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
+        --max-width: 1280px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        color: var(--text-main);
+        background:
+          radial-gradient(circle at top left, rgba(255, 150, 66, 0.15), transparent 28%),
+          radial-gradient(circle at 90% 14%, rgba(63, 150, 86, 0.16), transparent 22%),
+          var(--page-bg);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page-shell {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        filter: blur(6px);
+        opacity: 0.55;
+      }
+
+      .orb-a {
+        top: 88px;
+        left: -90px;
+        width: 260px;
+        height: 260px;
+        background: rgba(255, 115, 0, 0.18);
+      }
+
+      .orb-b {
+        top: 520px;
+        right: -100px;
+        width: 260px;
+        height: 260px;
+        background: rgba(23, 114, 43, 0.2);
+      }
+
+      .orb-c {
+        bottom: 280px;
+        left: -120px;
+        width: 320px;
+        height: 320px;
+        background: rgba(255, 150, 66, 0.12);
+      }
+
+      .container {
+        width: min(calc(100% - 40px), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        padding: 20px 0 0;
+      }
+
+      .header-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 14px 18px;
+        background: rgba(246, 251, 244, 0.82);
+        border: 1px solid rgba(10, 91, 25, 0.08);
+        border-radius: 999px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 6px 24px rgba(7, 61, 18, 0.06);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: fit-content;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        background: linear-gradient(145deg, var(--orange-500), var(--orange-400));
+        display: grid;
+        place-items: center;
+        box-shadow: 0 12px 18px rgba(255, 115, 0, 0.22);
+      }
+
+      .brand-copy strong,
+      .section-kicker,
+      .pill,
+      .mini-kicker {
+        letter-spacing: -0.03em;
+      }
+
+      .brand-copy strong {
+        display: block;
+        font-size: 1rem;
+      }
+
+      .brand-copy span {
+        display: block;
+        font-size: 0.77rem;
+        color: var(--text-muted);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav a {
+        font-size: 0.92rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: rgba(7, 61, 18, 0.86);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .icon-pill,
+      .cta-primary,
+      .cta-secondary,
+      .mini-button {
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .icon-pill {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        background: var(--white);
+        box-shadow: var(--shadow-card);
+      }
+
+      .cta-primary,
+      .cta-secondary,
+      .mini-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .cta-primary:hover,
+      .cta-secondary:hover,
+      .mini-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .cta-primary {
+        padding: 14px 20px;
+        background: var(--orange-500);
+        color: var(--white);
+        box-shadow: 0 16px 30px rgba(255, 115, 0, 0.2);
+      }
+
+      .cta-secondary {
+        padding: 14px 20px;
+        background: rgba(10, 91, 25, 0.08);
+        color: var(--green-900);
+      }
+
+      .mini-button {
+        padding: 11px 16px;
+        background: var(--green-900);
+        color: var(--white);
+      }
+
+      .hero {
+        position: relative;
+        padding: 42px 0 28px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(390px, 0.9fr);
+        gap: 34px;
+        align-items: center;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+      }
+
+      .pill,
+      .section-kicker,
+      .mini-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        font-weight: 800;
+      }
+
+      .pill {
+        margin-bottom: 18px;
+        padding: 10px 14px;
+        background: rgba(255, 115, 0, 0.12);
+        color: #c95e00;
+        font-size: 0.84rem;
+      }
+
+      .hero-copy h1 {
+        margin: 0;
+        font-size: clamp(3.7rem, 9vw, 7.8rem);
+        line-height: 0.9;
+        letter-spacing: -0.08em;
+        font-weight: 700;
+        max-width: 760px;
+      }
+
+      .hero-copy h1 span {
+        display: block;
+      }
+
+      .hero-copy p {
+        max-width: 620px;
+        margin: 20px 0 0;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--text-muted);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 34px;
+        max-width: 720px;
+      }
+
+      .stat-card,
+      .floating-card,
+      .panel,
+      .product-card,
+      .feature-card,
+      .process-card,
+      .audience-card,
+      .contact-card,
+      .footer-card {
+        background: rgba(246, 251, 244, 0.9);
+        border: 1px solid rgba(7, 61, 18, 0.07);
+        box-shadow: var(--shadow-card);
+      }
+
+      .stat-card {
+        padding: 18px 18px 16px;
+        border-radius: 24px;
+      }
+
+      .stat-card strong {
+        display: block;
+        font-size: 1.55rem;
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .stat-card span {
+        display: block;
+        margin-top: 8px;
+        font-size: 0.92rem;
+        line-height: 1.45;
+        color: var(--text-muted);
+      }
+
+      .hero-visual {
+        position: relative;
+        min-height: 760px;
+      }
+
+      .hero-stage {
+        position: absolute;
+        inset: 42px 0 0;
+        border-radius: 40px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(223, 241, 220, 0.86)),
+          linear-gradient(145deg, rgba(255, 115, 0, 0.1), transparent 50%);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+      }
+
+      .hero-stage::before,
+      .hero-stage::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.55);
+      }
+
+      .hero-stage::before {
+        top: -110px;
+        right: -60px;
+        width: 240px;
+        height: 240px;
+      }
+
+      .hero-stage::after {
+        left: -50px;
+        bottom: -90px;
+        width: 220px;
+        height: 220px;
+      }
+
+      .floating-card {
+        position: absolute;
+        border-radius: 26px;
+        padding: 18px;
+        backdrop-filter: blur(10px);
+      }
+
+      .floating-card h3,
+      .panel h2,
+      .section-title,
+      .product-card h3,
+      .feature-card h3,
+      .process-card h3,
+      .audience-card h3,
+      .contact-card h3 {
+        margin: 0;
+        letter-spacing: -0.05em;
+      }
+
+      .product-highlight {
+        top: 34px;
+        left: 22px;
+        width: 220px;
+        z-index: 3;
+      }
+
+      .product-highlight p,
+      .rep-card p,
+      .hero-note p,
+      .panel p,
+      .product-card p,
+      .feature-card p,
+      .process-card p,
+      .audience-card p,
+      .contact-card p,
+      .footer-meta {
+        margin: 0;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+
+      .product-highlight .price {
+        margin-top: 12px;
+        font-size: 1.65rem;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+
+      .rep-card {
+        right: 22px;
+        top: 80px;
+        width: 240px;
+        z-index: 4;
+      }
+
+      .rep-row,
+      .quality-grid,
+      .feature-tags,
+      .footer-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .avatar-dot,
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .avatar-dot {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffd5b1, #8ad190);
+        color: var(--green-900);
+        font-weight: 800;
+      }
+
+      .rep-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .rep-title strong {
+        display: block;
+        font-size: 0.98rem;
+      }
+
+      .rep-title span,
+      .eyebrow {
+        color: var(--text-muted);
+        font-size: 0.82rem;
+      }
+
+      .order-status {
+        margin-top: 14px;
+        padding: 12px 14px;
+        border-radius: 18px;
+        background: var(--green-200);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .hero-note {
+        left: 26px;
+        bottom: 30px;
+        width: 220px;
+        z-index: 4;
+      }
+
+      .hero-note strong,
+      .mini-kicker {
+        font-size: 0.82rem;
+      }
+
+      .mini-kicker {
+        padding: 7px 11px;
+        background: var(--green-900);
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+
+      .main-pack {
+        position: absolute;
+        left: 50%;
+        top: 52%;
+        transform: translate(-50%, -46%);
+        width: 350px;
+        z-index: 5;
+        filter: drop-shadow(0 28px 34px rgba(7, 61, 18, 0.18));
+      }
+
+      .support-pack {
+        position: absolute;
+        filter: drop-shadow(0 18px 24px rgba(7, 61, 18, 0.12));
+        z-index: 2;
+      }
+
+      .support-pack.left {
+        left: 28px;
+        bottom: 164px;
+        width: 180px;
+      }
+
+      .support-pack.right {
+        right: 34px;
+        bottom: 90px;
+        width: 190px;
+      }
+
+      .scroll-cue {
+        position: absolute;
+        right: 30px;
+        bottom: 26px;
+        z-index: 4;
+        text-align: right;
+        font-size: 0.85rem;
+        color: var(--green-800);
+        font-weight: 700;
+      }
+
+      .section {
+        padding: 36px 0;
+      }
+
+      .section-kicker {
+        padding: 9px 14px;
+        background: rgba(10, 91, 25, 0.08);
+        color: var(--green-900);
+        font-size: 0.82rem;
+      }
+
+      .section-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 5vw, 3.8rem);
+        line-height: 0.94;
+        font-weight: 700;
+        max-width: 620px;
+      }
+
+      .section-copy {
+        max-width: 480px;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .panel-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        gap: 22px;
+      }
+
+      .panel {
+        border-radius: var(--radius-xl);
+        padding: 28px;
+      }
+
+      .panel h2 {
+        font-size: 2.1rem;
+        line-height: 1;
+        font-weight: 700;
+      }
+
+      .quality-grid {
+        margin-top: 22px;
+      }
+
+      .quality-item {
+        flex: 1 1 180px;
+        min-height: 148px;
+        padding: 18px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, #ffffff, #eef7eb);
+      }
+
+      .quality-item strong,
+      .process-step strong,
+      .contact-line strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 1.05rem;
+      }
+
+      .score-card {
+        display: grid;
+        gap: 16px;
+        align-content: space-between;
+        min-height: 100%;
+        background:
+          linear-gradient(180deg, rgba(255, 115, 0, 0.06), rgba(255, 255, 255, 0.72)),
+          var(--surface);
+      }
+
+      .score-card .score {
+        font-size: 3.2rem;
+        line-height: 0.9;
+        font-weight: 800;
+        letter-spacing: -0.08em;
+      }
+
+      .score-card .score span {
+        font-size: 1.1rem;
+        color: var(--orange-500);
+      }
+
+      .product-grid,
+      .features-grid,
+      .audience-grid,
+      .contact-grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .product-card {
+        border-radius: 30px;
+        padding: 20px;
+      }
+
+      .product-visual {
+        display: grid;
+        place-items: center;
+        min-height: 240px;
+        margin-bottom: 18px;
+        border-radius: 24px;
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.8), transparent 55%),
+          linear-gradient(180deg, rgba(197, 230, 191, 0.5), rgba(255, 255, 255, 0.85));
+      }
+
+      .product-card h3 {
+        font-size: 1.55rem;
+        line-height: 1;
+        font-weight: 800;
+      }
+
+      .price-row {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 18px;
+        margin-top: 16px;
+      }
+
+      .price-row strong {
+        font-size: 1.32rem;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      .tag {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(10, 91, 25, 0.08);
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--green-800);
+      }
+
+      .distribution-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 22px;
+      }
+
+      .map-panel {
+        min-height: 420px;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(223, 241, 220, 0.9)),
+          var(--surface);
+      }
+
+      .map-shell {
+        position: relative;
+        margin-top: 28px;
+        min-height: 250px;
+        border-radius: 28px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(211, 235, 207, 0.95));
+        overflow: hidden;
+      }
+
+      .map-shell::before,
+      .map-shell::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(10, 91, 25, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(10, 91, 25, 0.05) 1px, transparent 1px);
+        background-size: 38px 38px;
+      }
+
+      .map-node {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--orange-500);
+        border: 4px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 18px rgba(255, 115, 0, 0.2);
+      }
+
+      .map-node::after {
+        content: attr(data-label);
+        position: absolute;
+        top: -34px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--green-900);
+        color: var(--white);
+        font-size: 0.75rem;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .route {
+        position: absolute;
+        height: 3px;
+        background: linear-gradient(90deg, rgba(255, 115, 0, 0.4), rgba(10, 91, 25, 0.5));
+        transform-origin: left center;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .feature-card,
+      .process-card,
+      .audience-card,
+      .contact-card,
+      .footer-card {
+        border-radius: 28px;
+        padding: 24px;
+      }
+
+      .feature-card h3,
+      .process-card h3,
+      .audience-card h3 {
+        font-size: 1.35rem;
+        line-height: 1.05;
+        font-weight: 800;
+      }
+
+      .feature-card .metric {
+        margin-top: 14px;
+        font-size: 2.5rem;
+        line-height: 0.9;
+        font-weight: 800;
+        letter-spacing: -0.08em;
+      }
+
+      .feature-card .metric span {
+        font-size: 1rem;
+        color: var(--orange-500);
+      }
+
+      .feature-tags {
+        margin-top: 16px;
+      }
+
+      .process-layout {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .process-card {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(211, 235, 207, 0.72)),
+          var(--surface);
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        margin-bottom: 18px;
+        background: var(--green-900);
+        color: var(--white);
+        font-weight: 800;
+      }
+
+      .audience-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .audience-card {
+        min-height: 220px;
+        background:
+          radial-gradient(circle at top right, rgba(255, 150, 66, 0.14), transparent 40%),
+          var(--surface);
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        align-items: stretch;
+      }
+
+      .contact-card.primary {
+        background:
+          linear-gradient(145deg, rgba(10, 91, 25, 0.97), rgba(23, 114, 43, 0.95));
+        color: var(--white);
+      }
+
+      .contact-card.primary p,
+      .contact-card.primary .eyebrow,
+      .contact-card.primary .contact-line span {
+        color: rgba(255, 255, 255, 0.76);
+      }
+
+      .contact-card.primary .cta-secondary {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+      }
+
+      .contact-line {
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(7, 61, 18, 0.08);
+      }
+
+      .contact-card.primary .contact-line {
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .contact-line span {
+        color: var(--text-muted);
+      }
+
+      .footer {
+        padding: 0 0 36px;
+      }
+
+      .footer-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-weight: 700;
+      }
+
+      .footer-meta {
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 1120px) {
+        .hero-grid,
+        .panel-grid,
+        .distribution-grid,
+        .contact-grid,
+        .product-grid,
+        .process-layout,
+        .audience-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 680px;
+        }
+
+        .section-head,
+        .footer-card {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .section-copy {
+          max-width: none;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .site-header {
+          position: relative;
+        }
+
+        .header-bar,
+        .nav {
+          flex-direction: column;
+        }
+
+        .hero {
+          padding-top: 28px;
+        }
+
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          min-height: 620px;
+        }
+
+        .main-pack {
+          width: 280px;
+          top: 54%;
+        }
+
+        .product-highlight,
+        .rep-card,
+        .hero-note {
+          position: absolute;
+          width: 190px;
+          padding: 14px;
+        }
+
+        .product-highlight {
+          top: 18px;
+          left: 18px;
+        }
+
+        .rep-card {
+          right: 18px;
+          top: 64px;
+        }
+
+        .hero-note {
+          left: 18px;
+          bottom: 24px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(calc(100% - 24px), var(--max-width));
+        }
+
+        .header-actions {
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(3.1rem, 17vw, 4.8rem);
+        }
+
+        .hero-copy p,
+        .section-copy {
+          font-size: 0.98rem;
+        }
+
+        .hero-visual {
+          min-height: 760px;
+        }
+
+        .hero-stage {
+          inset: 18px 0 0;
+        }
+
+        .product-highlight,
+        .rep-card,
+        .hero-note,
+        .support-pack.right,
+        .scroll-cue {
+          display: none;
+        }
+
+        .support-pack.left {
+          left: 50%;
+          bottom: 42px;
+          transform: translateX(-50%);
+          width: 165px;
+        }
+
+        .main-pack {
+          width: 250px;
+          top: 46%;
+        }
+
+        .panel,
+        .product-card,
+        .feature-card,
+        .process-card,
+        .audience-card,
+        .contact-card,
+        .footer-card {
+          padding: 20px;
+          border-radius: 24px;
+        }
+
+        .section-title {
+          font-size: 2.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-shell">
+      <span class="orb orb-a" aria-hidden="true"></span>
+      <span class="orb orb-b" aria-hidden="true"></span>
+      <span class="orb orb-c" aria-hidden="true"></span>
+
+      <header class="site-header">
+        <div class="container">
+          <div class="header-bar">
+            <a class="brand" href="#top" aria-label="Saro Foods Nigeria home">
+              <span class="brand-mark" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 3c2.7 3.6 4.9 5.7 6.6 6.5 1.6.8 2.4 2.4 2.4 4.2 0 3.8-3.2 7.3-9 7.3S3 17.5 3 13.7c0-1.8.8-3.4 2.4-4.2C7.1 8.7 9.3 6.6 12 3Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M12 7c1.9 2.4 3.4 3.9 4.7 4.5.9.4 1.3 1.2 1.3 2.1 0 2.4-2.2 4.6-6 4.6s-6-2.2-6-4.6c0-.9.4-1.7 1.3-2.1C8.6 10.9 10.1 9.4 12 7Z"
+                    fill="#FFDDBF"
+                  />
+                </svg>
+              </span>
+              <span class="brand-copy">
+                <strong>Saro Foods Nigeria</strong>
+                <span>Premium nutrition for every home</span>
+              </span>
+            </a>
+
+            <nav class="nav" aria-label="Primary">
+              <a href="#products">Products</a>
+              <a href="#quality">Quality</a>
+              <a href="#distribution">Distribution</a>
+              <a href="#why-upgo">Why UPGO</a>
+              <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+              <a class="icon-pill" href="https://www.sarofoodsnigeria.com/shop" aria-label="Shop">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#073d12" stroke-width="1.9">
+                  <circle cx="9" cy="20" r="1.4"></circle>
+                  <circle cx="18" cy="20" r="1.4"></circle>
+                  <path d="M3 4h2l2.2 10.3a1 1 0 0 0 .98.8h9.85a1 1 0 0 0 .98-.78L21 8H7.2"></path>
+                </svg>
+              </a>
+              <a class="cta-primary" href="https://www.sarofoodsnigeria.com/shop">Shop Now</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <span class="pill">UPGO. Fueling a healthier Nigeria</span>
+              <h1>
+                <span>Nutrition</span>
+                <span>for Every</span>
+                <span>Nigerian Home.</span>
+              </h1>
+              <p>
+                A full-page editorial homepage concept for Saro Foods Nigeria, built from the current
+                green-and-orange UI language and expanded into a richer brand story around quality,
+                convenience, trusted products, and scalable distribution.
+              </p>
+
+              <div class="hero-actions">
+                <a class="cta-primary" href="https://www.sarofoodsnigeria.com/shop">
+                  Explore Collection
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a class="cta-secondary" href="https://www.sarofoodsnigeria.com/about">View Story</a>
+              </div>
+
+              <div class="hero-stats">
+                <article class="stat-card">
+                  <strong>4+ Products</strong>
+                  <span>From instant creamer and soy milk to oat-based meal solutions.</span>
+                </article>
+                <article class="stat-card">
+                  <strong>99.9% Purity</strong>
+                  <span>Verified quality with controlled processing and consistent freshness.</span>
+                </article>
+                <article class="stat-card">
+                  <strong>24/7 Support</strong>
+                  <span>Built for distributors, wholesalers, retailers, and everyday households.</span>
+                </article>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <div class="hero-stage"></div>
+
+              <article class="floating-card product-highlight">
+                <span class="mini-kicker">Bestseller</span>
+                <h3>Instant Creamer</h3>
+                <p>Rich, creamy taste for tea, coffee, and direct drinking.</p>
+                <div class="price">Market Demand 95%</div>
+              </article>
+
+              <article class="floating-card rep-card">
+                <div class="rep-title">
+                  <span class="avatar-dot">S</span>
+                  <div>
+                    <strong>Sarah</strong>
+                    <span>Sales Rep · Distributor Hub</span>
+                  </div>
+                </div>
+                <p>Order for 500 cartons confirmed. Invoice generated and logistics scheduled.</p>
+                <div class="order-status">Order #8821 · Warehouse verified</div>
+              </article>
+
+              <svg class="main-pack" viewBox="0 0 280 420" role="img" aria-label="UPGO product pack illustration">
+                <defs>
+                  <linearGradient id="packGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#0b5f1c"></stop>
+                    <stop offset="100%" stop-color="#178430"></stop>
+                  </linearGradient>
+                  <linearGradient id="packOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ff8a24"></stop>
+                    <stop offset="100%" stop-color="#ff6a00"></stop>
+                  </linearGradient>
+                  <linearGradient id="creamCup" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#fff6ef"></stop>
+                    <stop offset="100%" stop-color="#ffe1c9"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M46 14h188l26 43v288c0 34-28 61-62 61H82c-34 0-62-27-62-61V57l26-43Z" fill="url(#packGreen)"></path>
+                <path d="M68 14h144l11 20H57l11-20Z" fill="#2d9545"></path>
+                <path d="M46 70h214v78H46z" fill="url(#packOrange)"></path>
+                <path d="M46 148h214v198c0 34-28 60-62 60H108c-34 0-62-26-62-60V148Z" fill="#f6fbf4"></path>
+                <circle cx="140" cy="104" r="34" fill="#fff0e2"></circle>
+                <path d="M128 93h24c20 0 36 16 36 36v2h-96v-2c0-20 16-36 36-36Z" fill="#ffffff" opacity="0.32"></path>
+                <path d="M98 246c10-40 35-66 78-66 43 0 68 26 78 66v78H98v-78Z" fill="#d4ecd1"></path>
+                <path d="M98 246c10-40 35-66 78-66 43 0 68 26 78 66" fill="none" stroke="#8cbf86" stroke-width="8" stroke-linecap="round"></path>
+                <ellipse cx="140" cy="234" rx="64" ry="52" fill="url(#creamCup)"></ellipse>
+                <ellipse cx="140" cy="229" rx="48" ry="18" fill="#ffffff"></ellipse>
+                <path d="M110 228c6-10 17-16 30-16 18 0 33 11 38 27-15 7-27 10-42 10-16 0-29-7-26-21Z" fill="#f7c76a"></path>
+                <path d="M78 340h124" stroke="#d9e8d5" stroke-width="12" stroke-linecap="round"></path>
+                <path d="M86 366h108" stroke="#d9e8d5" stroke-width="12" stroke-linecap="round"></path>
+                <text x="140" y="106" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#0b5f1c">UPGO</text>
+                <text x="140" y="178" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#0b5f1c">MILK</text>
+                <text x="140" y="202" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#0b5f1c">CREAMER</text>
+              </svg>
+
+              <svg class="support-pack left" viewBox="0 0 180 240" role="img" aria-label="Soy milk pack illustration">
+                <defs>
+                  <linearGradient id="soyPack" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f8fff7"></stop>
+                    <stop offset="100%" stop-color="#d4ebd1"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M28 10h124l18 30v160c0 17-14 30-31 30H41c-17 0-31-13-31-30V40l18-30Z" fill="url(#soyPack)"></path>
+                <path d="M28 64h142v44H28z" fill="#0b5f1c"></path>
+                <circle cx="90" cy="145" r="34" fill="#f0ffe7"></circle>
+                <path d="M70 154c5-17 18-28 35-28 18 0 31 11 36 28" fill="none" stroke="#6aaf53" stroke-width="8" stroke-linecap="round"></path>
+                <circle cx="90" cy="145" r="13" fill="#9dd674"></circle>
+                <text x="99" y="90" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#ffffff">SOY</text>
+                <text x="99" y="112" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#ffffff">MILK</text>
+              </svg>
+
+              <svg class="support-pack right" viewBox="0 0 210 250" role="img" aria-label="Milky oats pack illustration">
+                <defs>
+                  <linearGradient id="oatsPack" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#fff3e5"></stop>
+                    <stop offset="100%" stop-color="#ffe3bb"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M32 10h146l20 34v164c0 18-15 32-33 32H45c-18 0-33-14-33-32V44l20-34Z" fill="url(#oatsPack)"></path>
+                <path d="M32 64h166v52H32z" fill="#ff7300"></path>
+                <ellipse cx="105" cy="161" rx="56" ry="38" fill="#fff7ef"></ellipse>
+                <ellipse cx="105" cy="153" rx="46" ry="14" fill="#f4dd8f"></ellipse>
+                <path d="M75 154c8 8 18 12 30 12s23-4 34-12" fill="none" stroke="#d6b25b" stroke-width="7" stroke-linecap="round"></path>
+                <text x="115" y="95" text-anchor="middle" font-family="Manrope, sans-serif" font-size="19" font-weight="800" fill="#ffffff">MILKY</text>
+                <text x="115" y="118" text-anchor="middle" font-family="Manrope, sans-serif" font-size="19" font-weight="800" fill="#ffffff">OATS</text>
+              </svg>
+
+              <article class="floating-card hero-note">
+                <span class="mini-kicker">Quality</span>
+                <p>Better ingredients. Better taste. Better value. Built for the Nigerian lifestyle.</p>
+              </article>
+
+              <div class="scroll-cue">Scroll to explore</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="quality">
+          <div class="container">
+            <div class="panel-grid">
+              <article class="panel">
+                <span class="section-kicker">Verified Quality</span>
+                <h2>Balanced nutrition with tighter process control at every step.</h2>
+                <p>
+                  This section translates the current Saro Foods messaging into a richer editorial layout:
+                  clean sourcing, sterile automated handling, product consistency, and nutrient retention
+                  designed for busy homes and trusted retail shelves.
+                </p>
+
+                <div class="quality-grid">
+                  <div class="quality-item">
+                    <strong>Premium Sourcing</strong>
+                    <p>Locally verified ingredients selected for freshness, safety, and everyday value.</p>
+                  </div>
+                  <div class="quality-item">
+                    <strong>Automated Processing</strong>
+                    <p>Controlled production flow with reduced handling for a cleaner food environment.</p>
+                  </div>
+                  <div class="quality-item">
+                    <strong>Nutrient Retention</strong>
+                    <p>Processing choices that protect taste, texture, and usable nutrition.</p>
+                  </div>
+                </div>
+              </article>
+
+              <article class="panel score-card">
+                <div>
+                  <span class="section-kicker">Purity Score</span>
+                  <div class="score">99.9<span>%</span></div>
+                  <p>
+                    Quality-first positioning for households, modern retailers, and large distributor networks.
+                  </p>
+                </div>
+                <a class="mini-button" href="https://www.sarofoodsnigeria.com/about">View Full Story</a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="products">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Premium Selection</span>
+                <h2 class="section-title">Featured products for mornings, meals, and everyday energy.</h2>
+              </div>
+              <p class="section-copy">
+                The homepage now expands beyond a hero and introduces a proper merchandising layer for
+                top products, using the same soft surfaces, oversized type, and floating-card feel from the
+                original UI.
+              </p>
+            </div>
+
+            <div class="product-grid">
+              <article class="product-card">
+                <div class="product-visual" aria-hidden="true">
+                  <svg width="220" height="220" viewBox="0 0 220 220">
+                    <ellipse cx="110" cy="190" rx="68" ry="14" fill="rgba(7,61,18,0.1)"></ellipse>
+                    <path d="M56 24h108l20 32v104c0 22-18 40-40 40H76c-22 0-40-18-40-40V56l20-32Z" fill="#ff7e17"></path>
+                    <path d="M56 70h128v42H56z" fill="#0a5b19"></path>
+                    <ellipse cx="110" cy="146" rx="42" ry="28" fill="#fff5eb"></ellipse>
+                    <ellipse cx="110" cy="138" rx="36" ry="10" fill="#e9cd72"></ellipse>
+                    <path d="M85 138c7 7 15 10 25 10 11 0 21-3 30-10" fill="none" stroke="#d2ac4d" stroke-width="6" stroke-linecap="round"></path>
+                    <text x="120" y="96" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#ffffff">MILKY OATS</text>
+                  </svg>
+                </div>
+                <span class="tag">3-in-1 sachet meal</span>
+                <h3>Milky Oats</h3>
+                <p>
+                  A quick drink or light meal in just two minutes. Whole-grain convenience for breakfast,
+                  school runs, and on-the-go mornings.
+                </p>
+                <div class="price-row">
+                  <strong>₦29,250</strong>
+                  <a class="mini-button" href="https://www.sarofoodsnigeria.com/shop/product/milky-oats">View Product</a>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <div class="product-visual" aria-hidden="true">
+                  <svg width="220" height="220" viewBox="0 0 220 220">
+                    <ellipse cx="110" cy="190" rx="66" ry="14" fill="rgba(7,61,18,0.1)"></ellipse>
+                    <path d="M54 24h112l18 30v110c0 20-17 36-37 36H73c-20 0-37-16-37-36V54l18-30Z" fill="#0b5f1c"></path>
+                    <path d="M54 68h130v44H54z" fill="#ff7e17"></path>
+                    <ellipse cx="110" cy="148" rx="46" ry="30" fill="#fff8f1"></ellipse>
+                    <ellipse cx="110" cy="142" rx="34" ry="11" fill="#ffffff"></ellipse>
+                    <path d="M88 143c8-8 17-12 27-12 14 0 27 8 35 21-11 7-26 11-41 11-16 0-28-6-21-20Z" fill="#f2c36b"></path>
+                    <text x="118" y="95" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#ffffff">CREAMER</text>
+                  </svg>
+                </div>
+                <span class="tag">Tea, coffee, direct drink</span>
+                <h3>Milk Creamer</h3>
+                <p>
+                  Rich, creamy taste with familiar everyday appeal. Designed for affordability without
+                  losing a premium finish in cup.
+                </p>
+                <div class="price-row">
+                  <strong>₦13,000 - ₦14,325</strong>
+                  <a class="mini-button" href="https://www.sarofoodsnigeria.com/shop/product/milk-creamer">View Product</a>
+                </div>
+              </article>
+
+              <article class="product-card">
+                <div class="product-visual" aria-hidden="true">
+                  <svg width="220" height="220" viewBox="0 0 220 220">
+                    <ellipse cx="110" cy="190" rx="66" ry="14" fill="rgba(7,61,18,0.1)"></ellipse>
+                    <path d="M56 24h108l18 30v110c0 20-16 36-36 36H74c-20 0-36-16-36-36V54l18-30Z" fill="#edf7ea"></path>
+                    <path d="M56 68h126v44H56z" fill="#0a5b19"></path>
+                    <circle cx="110" cy="145" r="36" fill="#f4ffe9"></circle>
+                    <path d="M92 154c4-16 15-27 31-27s27 11 31 27" fill="none" stroke="#7cbb64" stroke-width="7" stroke-linecap="round"></path>
+                    <circle cx="110" cy="145" r="12" fill="#a4d86e"></circle>
+                    <text x="118" y="95" text-anchor="middle" font-family="Manrope, sans-serif" font-size="18" font-weight="800" fill="#ffffff">SOY MILK</text>
+                  </svg>
+                </div>
+                <span class="tag">High-protein dairy-free</span>
+                <h3>Soy Milk</h3>
+                <p>
+                  Plant-based protein from quality soybeans, packaged as a nutritious alternative for
+                  modern Nigerian families.
+                </p>
+                <div class="price-row">
+                  <strong>₦19,500</strong>
+                  <a class="mini-button" href="https://www.sarofoodsnigeria.com/shop/product/soy-milk">View Product</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="distribution">
+          <div class="container">
+            <div class="distribution-grid">
+              <article class="panel map-panel">
+                <span class="section-kicker">Scalable Distribution</span>
+                <h2>From production to shelf with a system built for reach.</h2>
+                <p>
+                  The page now gives Saro Foods a dedicated logistics story, mirroring the distributor
+                  support messaging on the live site with a visual, full-width presentation.
+                </p>
+
+                <div class="map-shell" aria-hidden="true">
+                  <span class="map-node" data-label="Lagos" style="left: 20%; top: 62%;"></span>
+                  <span class="map-node" data-label="Abuja" style="left: 46%; top: 35%;"></span>
+                  <span class="map-node" data-label="Kano" style="left: 66%; top: 18%;"></span>
+                  <span class="map-node" data-label="Port Harcourt" style="left: 38%; top: 76%;"></span>
+                  <span class="route" style="left: 22%; top: 61%; width: 122px; transform: rotate(-22deg);"></span>
+                  <span class="route" style="left: 48%; top: 36%; width: 110px; transform: rotate(-25deg);"></span>
+                  <span class="route" style="left: 29%; top: 69%; width: 98px; transform: rotate(14deg);"></span>
+                </div>
+              </article>
+
+              <div class="features-grid" id="why-upgo">
+                <article class="feature-card">
+                  <span class="section-kicker">Advantage 01</span>
+                  <h3>Nigerian heart, local understanding, practical daily value.</h3>
+                  <p>
+                    Products shaped around familiar taste preferences, family budgets, and real local routines.
+                  </p>
+                  <div class="feature-tags">
+                    <span class="tag">Taste-tested locally</span>
+                    <span class="tag">Nationwide reach</span>
+                    <span class="tag">Lifestyle fit</span>
+                  </div>
+                </article>
+
+                <article class="feature-card">
+                  <span class="section-kicker">Advantage 02</span>
+                  <h3>Quality-first manufacturing with measurable confidence.</h3>
+                  <p>Processing standards designed to support food safety, consistency, and shelf trust.</p>
+                  <div class="metric">100<span>% lab tested</span></div>
+                </article>
+
+                <article class="feature-card">
+                  <span class="section-kicker">Advantage 03</span>
+                  <h3>Nutritional balance that supports a healthier future.</h3>
+                  <p>
+                    Fortification, protein variety, and smarter product formulations that do more than fill shelves.
+                  </p>
+                  <div class="feature-tags">
+                    <span class="tag">Vitamin support</span>
+                    <span class="tag">Protein options</span>
+                    <span class="tag">Balanced calcium</span>
+                  </div>
+                </article>
+
+                <article class="feature-card">
+                  <span class="section-kicker">Advantage 04</span>
+                  <h3>Innovation and value kept in balance for mass accessibility.</h3>
+                  <p>
+                    Packaging and production improvements help keep quality high while remaining affordable.
+                  </p>
+                  <div class="metric">#1<span> value-led positioning</span></div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Quality Journey</span>
+                <h2 class="section-title">A six-step process from sourcing to consumer trust.</h2>
+              </div>
+              <p class="section-copy">
+                This gives the homepage a strong mid-page narrative and turns the current brand claims into a
+                structured, scannable system.
+              </p>
+            </div>
+
+            <div class="process-layout">
+              <article class="process-card">
+                <span class="step-number">01</span>
+                <h3>Premium sourcing</h3>
+                <p>Choosing ingredients from trusted suppliers with quality and consistency in view.</p>
+              </article>
+              <article class="process-card">
+                <span class="step-number">02</span>
+                <h3>Quality lab checks</h3>
+                <p>Inputs are verified before production, helping reduce variation and risk.</p>
+              </article>
+              <article class="process-card">
+                <span class="step-number">03</span>
+                <h3>Automated production</h3>
+                <p>Efficient manufacturing designed for hygiene, speed, and product stability.</p>
+              </article>
+              <article class="process-card">
+                <span class="step-number">04</span>
+                <h3>Secure packaging</h3>
+                <p>Packs are built to preserve freshness while staying practical for retail and home use.</p>
+              </article>
+              <article class="process-card">
+                <span class="step-number">05</span>
+                <h3>Logistics coordination</h3>
+                <p>Distributor-friendly systems support warehousing, invoicing, and delivery scheduling.</p>
+              </article>
+              <article class="process-card">
+                <span class="step-number">06</span>
+                <h3>Consumer experience</h3>
+                <p>Reliable quality, familiar taste, and accessible nutrition strengthen repeat trust.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="container">
+            <div class="section-head">
+              <div>
+                <span class="section-kicker">Nutrition For Every Journey</span>
+                <h2 class="section-title">A homepage built around the people Saro Foods actually serves.</h2>
+              </div>
+              <p class="section-copy">
+                The audience layer creates depth beyond commerce, helping the brand speak to families,
+                professionals, youth, and distribution partners in one clear system.
+              </p>
+            </div>
+
+            <div class="audience-grid">
+              <article class="audience-card">
+                <span class="section-kicker">For Households</span>
+                <h3>Daily nutrition</h3>
+                <p>Affordable, healthy, and delicious options designed for everyday family routines.</p>
+              </article>
+              <article class="audience-card">
+                <span class="section-kicker">For Professionals</span>
+                <h3>Quick convenience</h3>
+                <p>Instant mixes that match early mornings, fast commutes, and limited prep time.</p>
+              </article>
+              <article class="audience-card">
+                <span class="section-kicker">For Distributors</span>
+                <h3>Business growth</h3>
+                <p>High-demand products supported by communication, logistics, and sales coordination.</p>
+              </article>
+              <article class="audience-card">
+                <span class="section-kicker">For The Youth</span>
+                <h3>Modern lifestyle</h3>
+                <p>Nutritious, accessible products presented with a fresher and more contemporary brand feel.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="container contact-grid">
+            <article class="contact-card primary">
+              <span class="section-kicker" style="background: rgba(255,255,255,0.12); color: #ffffff;">Let&apos;s Connect</span>
+              <h3 style="font-size: 2.7rem; line-height: 0.95; margin-top: 16px;">Bring trusted nutrition closer to more Nigerian communities.</h3>
+              <p style="margin-top: 16px;">
+                Use this area as the closing conversion block for inquiries, wholesale requests, retailer
+                onboarding, or partnership conversations.
+              </p>
+              <div class="hero-actions" style="margin-top: 28px;">
+                <a class="cta-primary" href="https://www.sarofoodsnigeria.com/contact">Send Message</a>
+                <a class="cta-secondary" href="https://www.sarofoodsnigeria.com/shop">Shop Now</a>
+              </div>
+            </article>
+
+            <article class="contact-card">
+              <span class="section-kicker">Contact</span>
+              <div class="contact-line">
+                <strong>Email Us</strong>
+                <span>sarofoodsnigeria@gmail.com</span>
+              </div>
+              <div class="contact-line">
+                <strong>Call Us</strong>
+                <span>+234 81 4882 2341</span>
+              </div>
+              <div class="contact-line">
+                <strong>Office</strong>
+                <span>Lagos, Nigeria</span>
+              </div>
+              <div class="contact-line" style="border-bottom: 0; padding-bottom: 0;">
+                <strong>Built For</strong>
+                <span>Households, retailers, distributors, and nutrition-driven growth.</span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-card">
+            <div>
+              <strong style="display: block; font-size: 1.08rem;">Saro Foods Nigeria</strong>
+              <div class="footer-meta">Homepage concept keeping the existing UI vibe while expanding it into a full brand experience.</div>
+            </div>
+            <div class="footer-links">
+              <a href="https://www.sarofoodsnigeria.com/shop">Shop</a>
+              <a href="https://www.sarofoodsnigeria.com/about">About</a>
+              <a href="https://www.sarofoodsnigeria.com/contact">Contact</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
