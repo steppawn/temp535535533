@@ -37,23 +37,20 @@
       }
 
       body {
-        display: grid;
-        place-items: center;
-        padding: 56px;
-        overflow-x: auto;
-        background: var(--page-green);
+        overflow: hidden;
+        background: var(--panel-bg);
         font-family: "Manrope", sans-serif;
         color: var(--text-green);
       }
 
       .canvas {
         position: relative;
-        width: min(910px, calc(100vw - 112px));
-        min-width: 910px;
-        height: 640px;
+        width: 100vw;
+        min-width: 0;
+        height: 100vh;
+        min-height: 680px;
         overflow: hidden;
         background: var(--panel-bg);
-        box-shadow: 0 18px 0 rgba(0, 0, 0, 0.03), 0 36px 80px rgba(0, 28, 7, 0.36);
       }
 
       .topbar {
@@ -205,6 +202,7 @@
       .avatar svg {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
 
       .headline {
@@ -243,6 +241,7 @@
       .product-image svg {
         width: 100%;
         height: 100%;
+        object-fit: cover;
         filter: drop-shadow(0 18px 12px rgba(94, 73, 13, 0.18));
       }
 
@@ -302,6 +301,7 @@
       .review-thumbnail svg {
         width: 100%;
         height: 100%;
+        object-fit: cover;
       }
 
       .play-button {
@@ -419,6 +419,7 @@
       .dog-main svg {
         width: 100%;
         height: auto;
+        object-fit: contain;
         filter: drop-shadow(0 24px 20px rgba(102, 68, 23, 0.2));
       }
 
@@ -438,6 +439,7 @@
         bottom: -18px;
         width: 100%;
         height: auto;
+        object-fit: cover;
         filter: drop-shadow(0 12px 15px rgba(58, 37, 14, 0.18));
       }
 
@@ -452,6 +454,7 @@
       .cat-main svg {
         width: 100%;
         height: auto;
+        object-fit: contain;
         filter: drop-shadow(0 14px 18px rgba(113, 74, 16, 0.16));
       }
 
@@ -502,12 +505,13 @@
       }
 
       .mini-avatar {
-        display: grid;
-        place-items: center;
-        background: linear-gradient(145deg, #ffeedf, #d8b496);
-        color: #20552b;
-        font-size: 12px;
-        font-weight: 800;
+        background: #d9d9d9;
+      }
+
+      .mini-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .plus-pill {
@@ -606,47 +610,17 @@
           </a>
 
           <a class="avatar" href="#" aria-label="Profile">
-            <svg viewBox="0 0 100 100" role="img" aria-label="Profile avatar">
-              <defs>
-                <linearGradient id="avatarBg" x1="0%" x2="100%" y1="0%" y2="100%">
-                  <stop offset="0%" stop-color="#f3d6bd"></stop>
-                  <stop offset="100%" stop-color="#8cc186"></stop>
-                </linearGradient>
-              </defs>
-              <circle cx="50" cy="50" r="50" fill="url(#avatarBg)"></circle>
-              <circle cx="50" cy="40" r="16" fill="#f4c6a8"></circle>
-              <path d="M28 87c4-18 18-28 22-28s18 10 22 28" fill="#fff5eb"></path>
-              <path d="M34 30c3-10 11-16 17-16 10 0 17 8 17 20-8-2-15-7-18-14-3 6-9 12-16 14z" fill="#6b3d1f"></path>
-              <path d="M27 88c5-13 15-24 23-24 8 0 18 11 23 24" fill="#2d8241"></path>
-            </svg>
+            <img src="https://i.pravatar.cc/80?img=32" alt="Profile avatar" />
           </a>
         </div>
       </header>
 
       <section class="product-card" aria-label="Featured product">
         <div class="product-image">
-          <svg viewBox="0 0 220 220" role="img" aria-label="Orange cat house">
-            <defs>
-              <linearGradient id="carpet" x1="0%" x2="100%" y1="0%" y2="100%">
-                <stop offset="0%" stop-color="#ffa142"></stop>
-                <stop offset="100%" stop-color="#e56d00"></stop>
-              </linearGradient>
-              <linearGradient id="wood" x1="0%" x2="0%" y1="0%" y2="100%">
-                <stop offset="0%" stop-color="#efdcc1"></stop>
-                <stop offset="100%" stop-color="#d9bf95"></stop>
-              </linearGradient>
-            </defs>
-            <ellipse cx="112" cy="196" rx="62" ry="12" fill="rgba(90,69,17,0.15)"></ellipse>
-            <rect x="33" y="40" width="84" height="22" rx="10" fill="url(#carpet)"></rect>
-            <rect x="39" y="54" width="72" height="12" rx="6" fill="#d65d00" opacity="0.6"></rect>
-            <rect x="122" y="90" width="56" height="18" rx="9" fill="url(#carpet)"></rect>
-            <rect x="34" y="154" width="120" height="22" rx="10" fill="url(#carpet)"></rect>
-            <rect x="48" y="70" width="14" height="84" rx="7" fill="url(#wood)"></rect>
-            <rect x="95" y="70" width="14" height="84" rx="7" fill="url(#wood)"></rect>
-            <rect x="141" y="107" width="14" height="47" rx="7" fill="url(#wood)"></rect>
-            <rect x="70" y="115" width="70" height="55" rx="10" fill="#bc5d12"></rect>
-            <circle cx="104" cy="142" r="22" fill="#402010"></circle>
-          </svg>
+          <img
+            src="https://images.pexels.com/photos/16450226/pexels-photo-16450226.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="Cozy pet product"
+          />
           <a class="launch-button" href="#" aria-label="View product">↗</a>
         </div>
 
@@ -663,23 +637,10 @@
 
       <section class="review-card" aria-label="Product review">
         <div class="review-thumbnail">
-          <svg viewBox="0 0 113 137" role="img" aria-label="Dog review thumbnail">
-            <defs>
-              <linearGradient id="room" x1="0%" x2="100%" y1="0%" y2="100%">
-                <stop offset="0%" stop-color="#f0ddc3"></stop>
-                <stop offset="100%" stop-color="#d6c3ab"></stop>
-              </linearGradient>
-            </defs>
-            <rect width="113" height="137" fill="url(#room)"></rect>
-            <rect x="0" y="89" width="113" height="48" fill="#dce7db"></rect>
-            <rect x="64" y="18" width="28" height="54" fill="#d2af8c"></rect>
-            <path d="M84 86c6-17 17-31 24-32-1 13-1 26 0 39l-14 12z" fill="#f0d6bf"></path>
-            <ellipse cx="37" cy="84" rx="25" ry="19" fill="#cb823c"></ellipse>
-            <circle cx="42" cy="65" r="15" fill="#d79147"></circle>
-            <path d="M30 57l-8-10 12 3zM51 57l11-9-3 13z" fill="#9d581f"></path>
-            <circle cx="38" cy="66" r="2" fill="#2d1a12"></circle>
-            <path d="M43 72c5 2 8 6 9 11-7 2-18 3-28 1 2-6 9-11 19-12z" fill="#fff4e7"></path>
-          </svg>
+          <img
+            src="https://images.pexels.com/photos/5255252/pexels-photo-5255252.jpeg?auto=compress&cs=tinysrgb&w=500"
+            alt="Dog review thumbnail"
+          />
           <span class="play-button" aria-hidden="true"></span>
         </div>
 
@@ -689,52 +650,24 @@
       </section>
 
       <div class="pet dog-main" aria-hidden="true">
-        <svg viewBox="0 0 320 310">
-          <ellipse cx="160" cy="292" rx="88" ry="15" fill="rgba(110,77,30,0.12)"></ellipse>
-          <path d="M103 130c-30-25-44-69-10-92 21-13 46-9 63 13-10 26-22 61-53 79z" fill="#bb7a3a"></path>
-          <path d="M217 130c30-25 44-69 10-92-21-13-46-9-63 13 10 26 22 61 53 79z" fill="#bb7a3a"></path>
-          <ellipse cx="160" cy="162" rx="74" ry="80" fill="#d9a96d"></ellipse>
-          <ellipse cx="160" cy="176" rx="54" ry="56" fill="#f0d1ae"></ellipse>
-          <circle cx="132" cy="157" r="7" fill="#2e1d12"></circle>
-          <circle cx="188" cy="157" r="7" fill="#2e1d12"></circle>
-          <ellipse cx="160" cy="188" rx="15" ry="12" fill="#5f3820"></ellipse>
-          <path d="M147 205c8 9 18 9 26 0" fill="none" stroke="#6b4222" stroke-width="4" stroke-linecap="round"></path>
-          <path d="M83 224c4-20 25-38 48-38s44 18 48 38v66H83z" fill="#dfb17a"></path>
-          <path d="M141 224c4-20 25-38 48-38s44 18 48 38v66h-96z" fill="#ddb07b"></path>
-          <rect x="91" y="248" width="52" height="54" rx="21" fill="#f1d8b7"></rect>
-          <rect x="177" y="248" width="52" height="54" rx="21" fill="#f1d8b7"></rect>
-          <rect x="93" y="282" width="48" height="10" rx="5" fill="#e2b991"></rect>
-          <rect x="179" y="282" width="48" height="10" rx="5" fill="#e2b991"></rect>
-        </svg>
+        <img
+          src="https://images.pexels.com/photos/840326/pexels-photo-840326.jpeg?auto=compress&cs=tinysrgb&w=900"
+          alt=""
+        />
       </div>
 
       <div class="pet dog-side" aria-hidden="true">
-        <svg viewBox="0 0 250 170">
-          <path d="M58 88c-8-26 16-52 41-52 19 0 37 11 45 31-14 8-25 21-33 39z" fill="#6f4831"></path>
-          <ellipse cx="107" cy="104" rx="59" ry="46" fill="#7e5537"></ellipse>
-          <circle cx="145" cy="105" r="7" fill="#2c1e15"></circle>
-          <rect x="50" y="114" width="48" height="42" rx="20" fill="#cb9a73"></rect>
-          <rect x="136" y="114" width="48" height="42" rx="20" fill="#cb9a73"></rect>
-          <rect x="54" y="142" width="40" height="8" rx="4" fill="#b37a54"></rect>
-          <rect x="140" y="142" width="40" height="8" rx="4" fill="#b37a54"></rect>
-        </svg>
+        <img
+          src="https://images.pexels.com/photos/11182173/pexels-photo-11182173.jpeg?auto=compress&cs=tinysrgb&w=700"
+          alt=""
+        />
       </div>
 
       <div class="pet cat-main" aria-hidden="true">
-        <svg viewBox="0 0 250 185">
-          <path d="M73 82L90 33l27 29z" fill="#cf7d1a"></path>
-          <path d="M176 82l-17-49-27 29z" fill="#cf7d1a"></path>
-          <ellipse cx="125" cy="98" rx="74" ry="56" fill="#ea9b2d"></ellipse>
-          <ellipse cx="125" cy="108" rx="45" ry="35" fill="#fff1e2"></ellipse>
-          <circle cx="99" cy="96" r="15" fill="#9cd2d2"></circle>
-          <circle cx="151" cy="96" r="15" fill="#9cd2d2"></circle>
-          <circle cx="99" cy="96" r="7" fill="#1e1b16"></circle>
-          <circle cx="151" cy="96" r="7" fill="#1e1b16"></circle>
-          <path d="M118 122h14l-7 9z" fill="#c76136"></path>
-          <path d="M52 110c19 7 32 11 48 12M150 122c18-1 33-5 48-12M71 132c16 4 32 6 44 6M135 138c12 0 28-2 44-6" fill="none" stroke="#c5771d" stroke-width="3" stroke-linecap="round"></path>
-          <rect x="63" y="132" width="44" height="40" rx="19" fill="#f6d6af"></rect>
-          <rect x="143" y="132" width="44" height="40" rx="19" fill="#f6d6af"></rect>
-        </svg>
+        <img
+          src="https://images.pexels.com/photos/18540624/pexels-photo-18540624.jpeg?auto=compress&cs=tinysrgb&w=700"
+          alt=""
+        />
       </div>
 
       <div class="image-fade" aria-hidden="true"></div>
@@ -745,8 +678,8 @@
             <div class="clients-row">
               <div class="clients-value">98K+</div>
               <div class="avatars" aria-hidden="true">
-                <div class="mini-avatar">A</div>
-                <div class="mini-avatar">J</div>
+                <div class="mini-avatar"><img src="https://i.pravatar.cc/40?img=12" alt="" /></div>
+                <div class="mini-avatar"><img src="https://i.pravatar.cc/40?img=22" alt="" /></div>
                 <div class="plus-pill">+</div>
               </div>
             </div>
