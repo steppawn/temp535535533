@@ -3,981 +3,770 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stackobrite | AI-Powered Cloud Infrastructure</title>
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23050816'/%3E%3Ctext x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%237CFFB2'%3ESB%3C/text%3E%3C/svg%3E"
-    />
+    <title>CozyPaws Hero Recreation</title>
     <meta
       name="description"
-      content="Stackobrite is an AI-powered cloud platform that lets teams describe infrastructure in natural language and deploy with approval-driven automation."
+      content="Detailed HTML recreation of a pet shop hero section with large editorial typography, floating cards, and pet imagery."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              ink: "#050816",
-              panel: "#0b1120",
-              muted: "#94a3b8",
-              line: "rgba(148, 163, 184, 0.14)",
-              accent: "#7CFFB2",
-              accentSoft: "rgba(124, 255, 178, 0.16)",
-              accentStrong: "#5ef0a2",
-            },
-            fontFamily: {
-              display: ["Outfit", "sans-serif"],
-              mono: ["IBM Plex Mono", "monospace"],
-            },
-            boxShadow: {
-              glow: "0 0 0 1px rgba(124,255,178,0.15), 0 30px 80px rgba(5,8,22,0.45)",
-              soft: "0 16px 40px rgba(2, 6, 23, 0.28)",
-            },
-            backgroundImage: {
-              mesh:
-                "radial-gradient(circle at top left, rgba(124,255,178,0.18), transparent 30%), radial-gradient(circle at top right, rgba(56,189,248,0.14), transparent 28%), linear-gradient(180deg, rgba(15,23,42,0.96), rgba(5,8,22,1))",
-            },
-          },
-        },
-      };
-    </script>
     <style>
-      html {
-        scroll-behavior: smooth;
+      :root {
+        --page-green: #005b12;
+        --panel-bg: #edf6ea;
+        --soft-green: #b8ebb5;
+        --deep-green: #005a14;
+        --text-green: #004c10;
+        --muted-green: #356144;
+        --orange: #ff7300;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        margin: 0;
       }
 
       body {
-        background:
-          radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.24), transparent 18%),
-          radial-gradient(circle at 100% 10%, rgba(255, 255, 255, 0.16), transparent 16%),
-          #ebe8e1;
+        margin: 0;
+        background: var(--panel-bg);
+        font-family: "Manrope", sans-serif;
+        color: var(--text-green);
       }
 
-      .hero-surface {
-        background: #efede7;
-        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      .canvas {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: var(--panel-bg);
       }
 
-      .hero-divider {
-        border-color: rgba(15, 23, 42, 0.08);
-      }
-
-      .page-surface {
-        background: rgba(255, 255, 255, 0.28);
-        color: #020617;
-        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.05);
-        backdrop-filter: blur(8px);
-      }
-
-      .page-divider {
-        border-color: rgba(15, 23, 42, 0.08);
-      }
-
-      .soft-tile {
-        border: 1px solid rgba(15, 23, 42, 0.08);
-        background: rgba(255, 255, 255, 0.34);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-      }
-
-      .orbit-line {
+      .topbar {
         position: absolute;
-        border: 1px solid rgba(15, 23, 42, 0.16);
-        border-radius: 9999px;
-        pointer-events: none;
+        top: 26px;
+        left: 28px;
+        right: 24px;
+        z-index: 6;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
-      .platform-showcase {
-        background:
-          radial-gradient(circle at 50% 26%, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.08) 46%),
-          linear-gradient(180deg, rgba(10, 10, 10, 0.96), rgba(58, 58, 58, 0.18) 34%, rgba(255, 255, 255, 0.3) 100%);
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
-      .float-a {
-        transform: translateY(-18px);
+      .brand-name {
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        color: #081c0d;
       }
 
-      .float-b {
-        transform: translateY(22px);
+      .paw-mark {
+        position: relative;
+        width: 22px;
+        height: 20px;
       }
 
-      .float-c {
-        transform: translateY(-10px);
-      }
-
-      .section-overlap {
-        margin-top: -1.5rem;
-      }
-
-      .mega-kicker {
-        letter-spacing: -0.08em;
-      }
-
-      @media (max-width: 1023px) {
-        .float-a,
-        .float-b,
-        .float-c,
-        .section-overlap {
-          transform: none;
-          margin-top: 0;
-        }
-      }
-
-      .grid-fade {
-        background-image:
-          linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
-        background-size: 44px 44px;
-        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent);
-      }
-
-      .noise::before {
+      .paw-mark span,
+      .paw-mark::before,
+      .paw-mark::after {
+        position: absolute;
+        display: block;
+        background: var(--orange);
         content: "";
+      }
+
+      .paw-mark span {
+        left: 5px;
+        bottom: 0;
+        width: 12px;
+        height: 10px;
+        border-radius: 52% 52% 46% 46%;
+        transform: rotate(14deg);
+      }
+
+      .paw-mark::before {
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 8px;
+        border-radius: 50%;
+        box-shadow: 7px -1px 0 var(--orange), 14px 1px 0 var(--orange), 17px 8px 0 var(--orange);
+        transform: rotate(-18deg);
+      }
+
+      .paw-mark::after {
+        display: none;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 34px;
+        margin-left: 38px;
+        font-size: 13px;
+        font-weight: 500;
+      }
+
+      .nav a,
+      .icon-pill,
+      .money-chip {
+        color: #132d17;
+        text-decoration: none;
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .circle-button,
+      .money-chip,
+      .avatar {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 2px 6px rgba(0, 55, 16, 0.06);
+      }
+
+      .money-chip {
+        gap: 8px;
+        width: auto;
+        padding: 0 12px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .money-chip svg,
+      .circle-button svg {
+        width: 18px;
+        height: 18px;
+        stroke: #0a3011;
+        stroke-width: 1.8;
+        fill: none;
+      }
+
+      .badge-wrap {
+        position: relative;
+      }
+
+      .count-badge {
         position: absolute;
-        inset: 0;
+        top: -4px;
+        right: -3px;
+        display: grid;
+        place-items: center;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--deep-green);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .favorite-star {
+        color: var(--orange);
+        font-size: 19px;
+        line-height: 1;
+      }
+
+      .avatar {
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+      }
+
+      .avatar img,
+      .avatar svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .headline {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        margin: 0;
+        font-size: 147px;
+        line-height: 0.92;
+        font-weight: 600;
+        letter-spacing: -0.08em;
+        color: var(--text-green);
+        text-align: center;
+      }
+
+      .headline span {
+        display: block;
+      }
+
+      .product-card {
+        position: absolute;
+        top: 130px;
+        left: 28px;
+        z-index: 4;
+        width: 246px;
+      }
+
+      .product-image {
+        position: relative;
+        width: 219px;
+        height: 225px;
+        margin-left: 6px;
+      }
+
+      .product-image img,
+      .product-image svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 18px 12px rgba(94, 73, 13, 0.18));
+      }
+
+      .launch-button {
+        position: absolute;
+        right: -2px;
+        bottom: 6px;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--deep-green);
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+      }
+
+      .product-copy {
+        margin-top: 8px;
+        padding-left: 0;
+      }
+
+      .product-copy h2,
+      .review-copy h2 {
+        margin: 0;
+        font-size: 22px;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .product-copy p {
+        margin: 0 0 8px;
+        font-size: 13px;
+        line-height: 1.25;
+        color: #112d18;
+      }
+
+      .review-card {
+        position: absolute;
+        top: 128px;
+        right: 48px;
+        z-index: 4;
+        width: 170px;
+      }
+
+      .review-thumbnail {
+        position: relative;
+        width: 170px;
+        height: 206px;
+        overflow: hidden;
+        background: #e7dfd4;
+      }
+
+      .review-thumbnail img,
+      .review-thumbnail svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .play-button {
+        position: absolute;
+        left: 50%;
+        bottom: 12px;
+        display: grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--deep-green);
+        transform: translateX(-50%);
+        box-shadow: 0 8px 18px rgba(0, 65, 13, 0.15);
+      }
+
+      .play-button::before {
+        margin-left: 2px;
+        color: #fff;
+        font-size: 13px;
+        content: "▶";
+      }
+
+      .review-copy {
+        margin-top: 12px;
+        text-align: center;
+      }
+
+      .review-copy p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.35;
+        color: #153319;
+      }
+
+      .bottom-strip {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 31% 38% 31%;
+        height: 150px;
+      }
+
+      .strip-panel {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .strip-left,
+      .strip-right {
+        background: var(--soft-green);
+      }
+
+      .strip-center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        padding-bottom: 24px;
+        background: var(--deep-green);
+        color: #fff;
+      }
+
+      .strip-center h3 {
+        margin: 0;
+        text-align: center;
+        font-size: 20px;
+        line-height: 1.08;
+        font-weight: 500;
+        letter-spacing: -0.05em;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 10px 10px 10px 18px;
+        border-radius: 999px;
+        background: var(--orange);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .cta-button span:last-child {
+        display: grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #f2f2ea;
+        color: #d96a00;
+        font-size: 18px;
+      }
+
+      .pet {
+        position: absolute;
         pointer-events: none;
-        opacity: 0.04;
-        background-image:
-          linear-gradient(0deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.2) 50%, transparent 50%);
-        background-size: 3px 3px;
+        user-select: none;
+      }
+
+      .dog-main {
+        left: 50%;
+        top: 59%;
+        transform: translate(-50%, -50%);
+        z-index: 20;
+        width: 434px;
+      }
+
+      .dog-main img,
+      .dog-main svg {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 24px 20px rgba(102, 68, 23, 0.2));
+      }
+
+      .dog-side {
+        left: 12px;
+        bottom: 126px;
+        z-index: 3;
+        width: 375px;
+        height: 219px;
+        overflow: hidden;
+      }
+
+      .dog-side img,
+      .dog-side svg {
+        position: absolute;
+        left: 0;
+        bottom: -18px;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 12px 15px rgba(58, 37, 14, 0.18));
+      }
+
+      .cat-main {
+        right: 18px;
+        bottom: 103px;
+        z-index: 3;
+        width: 366px;
+      }
+
+      .cat-main img,
+      .cat-main svg {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 14px 18px rgba(113, 74, 16, 0.16));
+      }
+
+      .clients-block {
+        position: absolute;
+        left: 34px;
+        bottom: 38px;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+      }
+
+      .clients-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .clients-value {
+        font-size: 23px;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+
+      .avatars {
+        display: flex;
+        align-items: center;
+      }
+
+      .mini-avatar,
+      .plus-pill {
+        width: 28px;
+        height: 28px;
+        border: 2px solid rgba(237, 246, 234, 0.9);
+        border-radius: 50%;
+      }
+
+      .mini-avatar {
+        overflow: hidden;
+        margin-left: -8px;
+      }
+
+      .mini-avatar:first-child {
+        margin-left: 0;
+      }
+
+      .mini-avatar {
+        display: grid;
+        place-items: center;
+        background: linear-gradient(145deg, #ffeedf, #d8b496);
+        color: #20552b;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .plus-pill {
+        display: grid;
+        place-items: center;
+        margin-left: -8px;
+        background: var(--deep-green);
+        color: #fff;
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .clients-caption,
+      .rating-caption {
+        font-size: 13px;
+        line-height: 1.25;
+        color: var(--muted-green);
+      }
+
+      .rating-block {
+        position: absolute;
+        right: 36px;
+        bottom: 38px;
+        z-index: 5;
+        width: 180px;
+        text-align: center;
+      }
+
+      .rating-value {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 33px;
+        line-height: 1;
+        font-weight: 800;
+        letter-spacing: -0.05em;
+      }
+
+      .rating-value span {
+        color: var(--orange);
+        font-size: 28px;
+      }
+
+      .image-fade {
+        position: absolute;
+        inset: auto 0 149px 0;
+        z-index: 1;
+        height: 66px;
+        background: linear-gradient(180deg, rgba(237, 246, 234, 0) 0%, rgba(237, 246, 234, 0.72) 76%, rgba(237, 246, 234, 0.9) 100%);
       }
     </style>
   </head>
-  <body class="font-display text-white antialiased">
-    <div class="relative isolate overflow-hidden">
-      <div class="grid-fade absolute inset-x-0 top-[820px] h-[680px] opacity-40"></div>
-      <div class="absolute inset-x-0 top-[820px] h-px bg-black/5"></div>
+  <body>
+    <main class="canvas" aria-label="CozyPaws hero design">
+      <header class="topbar">
+        <div style="display: flex; align-items: center;">
+          <div class="brand">
+            <div class="paw-mark"><span></span></div>
+            <div class="brand-name">CozyPaws</div>
+          </div>
 
-      <header class="hidden relative z-10">
-        <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-10">
-          <a href="#top" class="flex items-center gap-3">
-            <span class="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white text-ink shadow-soft">
-              <span class="text-sm font-bold tracking-[0.22em]">SB</span>
-            </span>
-            <div>
-              <p class="text-sm font-semibold tracking-[0.22em] text-white/60">SB</p>
-              <p class="text-lg font-semibold leading-none">Stackobrite</p>
-            </div>
+          <nav class="nav" aria-label="Primary">
+            <a href="#">Home</a>
+            <a href="#">Shop</a>
+            <a href="#">Delivery and payment</a>
+            <a href="#">Brands</a>
+            <a href="#">Blog</a>
+          </nav>
+        </div>
+
+        <div class="actions">
+          <a class="circle-button" href="#" aria-label="Search">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6"></circle>
+              <path d="M16 16l4 4"></path>
+            </svg>
           </a>
 
-          <nav class="hidden items-center gap-8 text-sm text-white/70 lg:flex">
-            <a href="#platform" class="transition hover:text-white">Platform</a>
-            <a href="#workflow" class="transition hover:text-white">How it works</a>
-            <a href="#pricing" class="transition hover:text-white">Pricing</a>
-            <a href="#docs" class="transition hover:text-white">Docs</a>
-          </nav>
-
-          <div class="flex items-center gap-3">
-            <a
-              href="#"
-              class="rounded-full border border-white/10 px-4 py-2 text-sm font-medium text-white/80 transition hover:border-white/20 hover:text-white"
-            >
-              Log in
+          <div class="badge-wrap">
+            <a class="circle-button" href="#" aria-label="Favorites">
+              <span class="favorite-star">★</span>
             </a>
-            <a
-              href="#apply"
-              class="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-ink transition hover:bg-accentStrong"
-            >
-              Apply now
-            </a>
+            <span class="count-badge">4</span>
           </div>
+
+          <a class="money-chip" href="#" aria-label="Cart total twenty one dollars">
+            <span class="badge-wrap" style="display: inline-flex;">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="20" r="1.5"></circle>
+                <circle cx="18" cy="20" r="1.5"></circle>
+                <path d="M3 4h2l2.1 10.2a1 1 0 0 0 1 .8h9.8a1 1 0 0 0 1-.8l1.3-6.2H7.1"></path>
+              </svg>
+              <span class="count-badge">1</span>
+            </span>
+            <span>$21</span>
+          </a>
+
+          <a class="avatar" href="#" aria-label="Profile">
+            <svg viewBox="0 0 100 100" role="img" aria-label="Profile avatar">
+              <defs>
+                <linearGradient id="avatarBg" x1="0%" x2="100%" y1="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f3d6bd"></stop>
+                  <stop offset="100%" stop-color="#8cc186"></stop>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="50" fill="url(#avatarBg)"></circle>
+              <circle cx="50" cy="40" r="16" fill="#f4c6a8"></circle>
+              <path d="M28 87c4-18 18-28 22-28s18 10 22 28" fill="#fff5eb"></path>
+              <path d="M34 30c3-10 11-16 17-16 10 0 17 8 17 20-8-2-15-7-18-14-3 6-9 12-16 14z" fill="#6b3d1f"></path>
+              <path d="M27 88c5-13 15-24 23-24 8 0 18 11 23 24" fill="#2d8241"></path>
+            </svg>
+          </a>
         </div>
       </header>
 
-      <main id="top" class="relative z-10">
-        <section class="px-4 pb-16 pt-4 sm:px-6 lg:px-8 lg:pb-20 lg:pt-6">
-          <div class="mx-auto max-w-7xl">
-            <div class="hero-surface overflow-hidden rounded-[2rem] text-slate-950 lg:rounded-[2.25rem]">
-              <div class="px-5 py-5 sm:px-8 sm:py-7 lg:px-10 lg:py-9">
-                <div class="flex flex-wrap items-center justify-between gap-4 text-[15px]">
-                  <a href="#top" class="flex items-center gap-3">
-                    <span class="flex h-9 w-9 items-center justify-center rounded-full bg-black text-xs font-semibold tracking-[0.18em] text-white">
-                      SB
-                    </span>
-                    <span class="text-base font-medium tracking-[-0.02em] text-black">Stackobrite</span>
-                  </a>
+      <section class="product-card" aria-label="Featured product">
+        <div class="product-image">
+          <svg viewBox="0 0 220 220" role="img" aria-label="Orange cat house">
+            <defs>
+              <linearGradient id="carpet" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffa142"></stop>
+                <stop offset="100%" stop-color="#e56d00"></stop>
+              </linearGradient>
+              <linearGradient id="wood" x1="0%" x2="0%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#efdcc1"></stop>
+                <stop offset="100%" stop-color="#d9bf95"></stop>
+              </linearGradient>
+            </defs>
+            <ellipse cx="112" cy="196" rx="62" ry="12" fill="rgba(90,69,17,0.15)"></ellipse>
+            <rect x="33" y="40" width="84" height="22" rx="10" fill="url(#carpet)"></rect>
+            <rect x="39" y="54" width="72" height="12" rx="6" fill="#d65d00" opacity="0.6"></rect>
+            <rect x="122" y="90" width="56" height="18" rx="9" fill="url(#carpet)"></rect>
+            <rect x="34" y="154" width="120" height="22" rx="10" fill="url(#carpet)"></rect>
+            <rect x="48" y="70" width="14" height="84" rx="7" fill="url(#wood)"></rect>
+            <rect x="95" y="70" width="14" height="84" rx="7" fill="url(#wood)"></rect>
+            <rect x="141" y="107" width="14" height="47" rx="7" fill="url(#wood)"></rect>
+            <rect x="70" y="115" width="70" height="55" rx="10" fill="#bc5d12"></rect>
+            <circle cx="104" cy="142" r="22" fill="#402010"></circle>
+          </svg>
+          <a class="launch-button" href="#" aria-label="View product">↗</a>
+        </div>
 
-                  <div class="hidden min-w-[180px] items-center justify-center gap-2 rounded-full text-sm text-black/45 lg:flex">
-                    <span class="text-base">⌕</span>
-                    <span>Search</span>
-                  </div>
+        <div class="product-copy">
+          <p>Cozy Cat House</p>
+          <h2>$49.99</h2>
+        </div>
+      </section>
 
-                  <div class="flex items-center gap-3 text-sm">
-                    <a href="#" class="px-3 py-2 text-black/75 transition hover:text-black">Log In</a>
-                    <a href="#apply" class="rounded-full bg-black px-5 py-3 font-medium text-white transition hover:bg-black/90">
-                      Get the App
-                    </a>
-                  </div>
-                </div>
+      <h1 class="headline">
+        <span>Everything</span>
+        <span>Your Pets Love</span>
+      </h1>
 
-                <div class="mt-7 lg:mt-10">
-                  <div class="overflow-hidden">
-                    <div class="text-center font-display text-[4.4rem] font-semibold leading-none tracking-[-0.12em] text-black sm:text-[6.6rem] md:text-[8.5rem] lg:text-[11rem] xl:text-[14rem]">
-                      05:24:12
-                    </div>
-                  </div>
+      <section class="review-card" aria-label="Product review">
+        <div class="review-thumbnail">
+          <svg viewBox="0 0 113 137" role="img" aria-label="Dog review thumbnail">
+            <defs>
+              <linearGradient id="room" x1="0%" x2="100%" y1="0%" y2="100%">
+                <stop offset="0%" stop-color="#f0ddc3"></stop>
+                <stop offset="100%" stop-color="#d6c3ab"></stop>
+              </linearGradient>
+            </defs>
+            <rect width="113" height="137" fill="url(#room)"></rect>
+            <rect x="0" y="89" width="113" height="48" fill="#dce7db"></rect>
+            <rect x="64" y="18" width="28" height="54" fill="#d2af8c"></rect>
+            <path d="M84 86c6-17 17-31 24-32-1 13-1 26 0 39l-14 12z" fill="#f0d6bf"></path>
+            <ellipse cx="37" cy="84" rx="25" ry="19" fill="#cb823c"></ellipse>
+            <circle cx="42" cy="65" r="15" fill="#d79147"></circle>
+            <path d="M30 57l-8-10 12 3zM51 57l11-9-3 13z" fill="#9d581f"></path>
+            <circle cx="38" cy="66" r="2" fill="#2d1a12"></circle>
+            <path d="M43 72c5 2 8 6 9 11-7 2-18 3-28 1 2-6 9-11 19-12z" fill="#fff4e7"></path>
+          </svg>
+          <span class="play-button" aria-hidden="true"></span>
+        </div>
 
-                  <div class="mt-4 grid gap-4 text-sm text-black/55 lg:grid-cols-[1fr_1.1fr_0.7fr] lg:items-end">
-                    <div>
-                      <p>Current</p>
-                    </div>
-                    <div class="justify-self-start lg:justify-self-center">
-                      <p class="font-medium text-black/75">Apply window · 07:12 - 17:17 (10h 06m)</p>
-                      <p class="mt-1">Monday, Mar 24 2026</p>
-                    </div>
-                    <div class="justify-self-start lg:justify-self-end">
-                      <div class="inline-flex rounded-full bg-white/70 p-1 shadow-[inset_0_0_0_1px_rgba(15,23,42,0.05)]">
-                        <button
-                          type="button"
-                          data-plan="free"
-                          class="plan-toggle rounded-full px-4 py-2 text-sm font-medium transition"
-                        >
-                          Free
-                        </button>
-                        <button
-                          type="button"
-                          data-plan="pro"
-                          class="plan-toggle rounded-full px-4 py-2 text-sm font-medium transition"
-                        >
-                          Pro
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        <div class="review-copy">
+          <p>Watch Product Reviews on TikTok and YouTube</p>
+        </div>
+      </section>
 
-              <div class="hero-divider border-t"></div>
+      <div class="pet dog-main" aria-hidden="true">
+        <svg viewBox="0 0 320 310">
+          <ellipse cx="160" cy="292" rx="88" ry="15" fill="rgba(110,77,30,0.12)"></ellipse>
+          <path d="M103 130c-30-25-44-69-10-92 21-13 46-9 63 13-10 26-22 61-53 79z" fill="#bb7a3a"></path>
+          <path d="M217 130c30-25 44-69 10-92-21-13-46-9-63 13 10 26 22 61 53 79z" fill="#bb7a3a"></path>
+          <ellipse cx="160" cy="162" rx="74" ry="80" fill="#d9a96d"></ellipse>
+          <ellipse cx="160" cy="176" rx="54" ry="56" fill="#f0d1ae"></ellipse>
+          <circle cx="132" cy="157" r="7" fill="#2e1d12"></circle>
+          <circle cx="188" cy="157" r="7" fill="#2e1d12"></circle>
+          <ellipse cx="160" cy="188" rx="15" ry="12" fill="#5f3820"></ellipse>
+          <path d="M147 205c8 9 18 9 26 0" fill="none" stroke="#6b4222" stroke-width="4" stroke-linecap="round"></path>
+          <path d="M83 224c4-20 25-38 48-38s44 18 48 38v66H83z" fill="#dfb17a"></path>
+          <path d="M141 224c4-20 25-38 48-38s44 18 48 38v66h-96z" fill="#ddb07b"></path>
+          <rect x="91" y="248" width="52" height="54" rx="21" fill="#f1d8b7"></rect>
+          <rect x="177" y="248" width="52" height="54" rx="21" fill="#f1d8b7"></rect>
+          <rect x="93" y="282" width="48" height="10" rx="5" fill="#e2b991"></rect>
+          <rect x="179" y="282" width="48" height="10" rx="5" fill="#e2b991"></rect>
+        </svg>
+      </div>
 
-              <div class="px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-9">
-                <div class="grid gap-8 lg:grid-cols-[1.15fr_0.8fr_0.72fr] lg:items-start">
-                  <div class="float-a">
-                    <h1 class="mega-kicker max-w-xl text-4xl font-medium leading-[1.04] text-black sm:text-5xl lg:text-[4.4rem]">
-                      Cloud,
-                      <br />
-                      without drift.
-                    </h1>
-                  </div>
-                  <div class="pt-8 text-base leading-7 text-black/45 lg:pt-14">
-                    <p>Life moves fast. Deploy with approval, track cost in real time, and keep your infrastructure healthy without operational guesswork.</p>
-                  </div>
-                  <div class="pt-2 text-left text-[15px] text-black/70 lg:pt-24 lg:text-right">
-                    <a href="#platform" class="inline-flex items-center gap-2 transition hover:text-black">
-                      Browse Platform
-                      <span class="text-lg leading-none">⊕</span>
-                    </a>
-                  </div>
-                </div>
+      <div class="pet dog-side" aria-hidden="true">
+        <svg viewBox="0 0 250 170">
+          <path d="M58 88c-8-26 16-52 41-52 19 0 37 11 45 31-14 8-25 21-33 39z" fill="#6f4831"></path>
+          <ellipse cx="107" cy="104" rx="59" ry="46" fill="#7e5537"></ellipse>
+          <circle cx="145" cy="105" r="7" fill="#2c1e15"></circle>
+          <rect x="50" y="114" width="48" height="42" rx="20" fill="#cb9a73"></rect>
+          <rect x="136" y="114" width="48" height="42" rx="20" fill="#cb9a73"></rect>
+          <rect x="54" y="142" width="40" height="8" rx="4" fill="#b37a54"></rect>
+          <rect x="140" y="142" width="40" height="8" rx="4" fill="#b37a54"></rect>
+        </svg>
+      </div>
 
-                <div class="mt-10 grid gap-4 lg:grid-cols-[0.92fr_0.92fr_1.2fr_0.96fr]">
-                  <article class="soft-tile float-a rounded-[1.4rem] px-5 py-4">
-                    <div class="flex items-center justify-between text-[15px] text-black/70">
-                      <p>Compute</p>
-                      <p>EC2</p>
-                    </div>
-                    <div class="mt-10 flex items-end justify-between gap-3">
-                      <p class="text-5xl font-medium tracking-[-0.08em] text-black">64</p>
-                      <p class="pb-2 text-sm text-black/45">Healthy</p>
-                    </div>
-                  </article>
-                  <article class="soft-tile float-b rounded-[1.4rem] px-5 py-4">
-                    <div class="flex items-center justify-between text-[15px] text-black/70">
-                      <p>Database</p>
-                      <p>RDS</p>
-                    </div>
-                    <div class="mt-10 flex items-end justify-between gap-3">
-                      <p id="monthly-cost" class="text-5xl font-medium tracking-[-0.08em] text-black">$142</p>
-                      <p class="pb-2 text-sm text-black/45">Monthly</p>
-                    </div>
-                  </article>
-                  <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)]">
-                    <div class="flex items-center justify-between text-[15px] text-white/72">
-                      <p>Approvals</p>
-                      <p>Live</p>
-                    </div>
-                    <div class="mt-14 flex items-end justify-between gap-3">
-                      <p class="text-6xl font-medium tracking-[-0.08em]">12</p>
-                      <p class="pb-2 text-sm text-white/55">Today</p>
-                    </div>
-                  </article>
-                  <article class="soft-tile float-c rounded-[1.4rem] px-5 py-4">
-                    <div class="flex items-center justify-between text-[15px] text-black/70">
-                      <p>Savings</p>
-                      <p>AI Ops</p>
-                    </div>
-                    <div class="mt-10 flex items-end justify-between gap-3">
-                      <p id="savings-rate" class="text-5xl font-medium tracking-[-0.08em] text-black">+20%</p>
-                      <p class="pb-2 text-sm text-black/45">Optimized</p>
-                    </div>
-                  </article>
-                </div>
+      <div class="pet cat-main" aria-hidden="true">
+        <svg viewBox="0 0 250 185">
+          <path d="M73 82L90 33l27 29z" fill="#cf7d1a"></path>
+          <path d="M176 82l-17-49-27 29z" fill="#cf7d1a"></path>
+          <ellipse cx="125" cy="98" rx="74" ry="56" fill="#ea9b2d"></ellipse>
+          <ellipse cx="125" cy="108" rx="45" ry="35" fill="#fff1e2"></ellipse>
+          <circle cx="99" cy="96" r="15" fill="#9cd2d2"></circle>
+          <circle cx="151" cy="96" r="15" fill="#9cd2d2"></circle>
+          <circle cx="99" cy="96" r="7" fill="#1e1b16"></circle>
+          <circle cx="151" cy="96" r="7" fill="#1e1b16"></circle>
+          <path d="M118 122h14l-7 9z" fill="#c76136"></path>
+          <path d="M52 110c19 7 32 11 48 12M150 122c18-1 33-5 48-12M71 132c16 4 32 6 44 6M135 138c12 0 28-2 44-6" fill="none" stroke="#c5771d" stroke-width="3" stroke-linecap="round"></path>
+          <rect x="63" y="132" width="44" height="40" rx="19" fill="#f6d6af"></rect>
+          <rect x="143" y="132" width="44" height="40" rx="19" fill="#f6d6af"></rect>
+        </svg>
+      </div>
+
+      <div class="image-fade" aria-hidden="true"></div>
+
+      <section class="bottom-strip" aria-label="Hero highlights">
+        <div class="strip-panel strip-left">
+          <div class="clients-block">
+            <div class="clients-row">
+              <div class="clients-value">98K+</div>
+              <div class="avatars" aria-hidden="true">
+                <div class="mini-avatar">A</div>
+                <div class="mini-avatar">J</div>
+                <div class="plus-pill">+</div>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section class="section-overlap px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto grid max-w-7xl gap-10 rounded-[2rem] px-5 py-10 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:px-10 lg:py-12">
-            <div class="relative">
-              <p class="text-sm uppercase tracking-[0.28em] text-black/45">Team</p>
-              <h2 class="mega-kicker mt-5 max-w-sm text-4xl font-medium leading-[0.96] text-black sm:text-5xl">
-                People,
-                <br />
-                patterns,
-                <br />
-                approvals.
-              </h2>
-              <p class="mt-8 max-w-xs text-sm leading-7 text-black/55">
-                Human specialists and reusable deploy patterns sit in the same visual system, so the section feels curated rather than merely listed.
-              </p>
-              <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm text-black/65 transition hover:text-black">
-                See all
-                <span class="text-lg">⊕</span>
-              </a>
-            </div>
-
-            <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-              <div id="team-grid" class="grid gap-4 md:grid-cols-2 lg:block lg:space-y-4"></div>
-              <div>
-                <div class="mb-8 flex items-center justify-between">
-                  <h2 class="text-sm uppercase tracking-[0.28em] text-black/45">Quick Deploy</h2>
-                  <a href="#" class="text-sm text-black/55 transition hover:text-black">See all</a>
-                </div>
-                <div id="deploy-grid" class="space-y-4"></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-5 py-8 sm:px-8 lg:px-10 lg:py-10">
-            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-              <div class="max-w-2xl">
-                <p class="text-sm uppercase tracking-[0.26em] text-black/45">Unlock Premium Features</p>
-                <h2 class="mt-4 text-3xl font-semibold tracking-[-0.04em] text-black sm:text-4xl">
-                  Get access to exclusive benefits and expand your infrastructure capabilities.
-                </h2>
-              </div>
-              <a
-                href="#pricing"
-                class="inline-flex w-fit items-center justify-center rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/90"
-              >
-                Upgrade now
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section id="platform" class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="platform-showcase relative overflow-hidden rounded-[2rem] px-5 py-6 text-black sm:px-8 lg:px-8 lg:pb-28 lg:pt-8">
-              <div class="orbit-line left-[-16%] top-[20%] h-[470px] w-[92%] lg:h-[640px] lg:w-[86%]"></div>
-              <div class="orbit-line right-[8%] top-[-18%] h-[640px] w-[340px] lg:h-[860px] lg:w-[460px]"></div>
-              <div class="orbit-line left-[28%] top-[52%] h-[220px] w-[220px] lg:h-[280px] lg:w-[280px]"></div>
-
-              <div class="relative z-10 flex flex-wrap items-center justify-between gap-4 text-[11px] font-medium uppercase tracking-[0.18em] text-white/72">
-                <p>Platform</p>
-                <div class="flex flex-wrap items-center gap-4 lg:gap-6">
-                  <span>Agent</span>
-                  <span>Approval</span>
-                  <span>Cost</span>
-                  <span>Drift</span>
-                </div>
-              </div>
-
-              <div class="relative z-10 mt-10 grid gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:items-center">
-                <div class="max-w-3xl">
-                  <p class="text-5xl leading-none text-black/65 lg:text-6xl">}</p>
-                  <h2 class="mega-kicker mt-2 max-w-2xl text-5xl font-medium leading-[0.92] text-black sm:text-6xl lg:text-[5.3rem]">
-                    Stackobrite
-                    <br />
-                    Is a Premier Cloud
-                    <br />
-                    Infrastructure
-                    <br />
-                    Platform
-                  </h2>
-                </div>
-
-                <div class="lg:pl-6">
-                  <p class="max-w-sm text-sm leading-7 text-black/68">
-                    Renowned for powering approval-led cloud operations with natural-language planning, human oversight, drift controls, and cost-aware deployment workflows.
-                  </p>
-                  <a
-                    href="#apply"
-                    class="mt-8 inline-flex rounded-full bg-black px-8 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-black/90"
-                  >
-                    Get in touch
-                  </a>
-                </div>
-              </div>
-
-              <div class="relative z-10 mt-12 grid gap-4 lg:grid-cols-[0.32fr_0.44fr_0.42fr_0.26fr] lg:items-end">
-                <div class="hidden h-[132px] rounded-[1.6rem] bg-black lg:block"></div>
-                <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)]">
-                  <p class="text-6xl font-medium tracking-[-0.08em] lg:text-[5.5rem]">192k</p>
-                  <p class="mt-3 text-sm text-white/62">Terraform actions under management</p>
-                </article>
-                <article class="rounded-[1.8rem] bg-black px-6 py-6 text-white shadow-[0_18px_38px_rgba(15,23,42,0.18)] lg:-mb-5">
-                  <p class="text-6xl font-medium tracking-[-0.08em] lg:text-[5.5rem]">34</p>
-                  <p class="mt-3 text-sm text-white/62">Policy checks in every critical deployment path</p>
-                </article>
-                <div class="hidden h-[148px] rounded-[1.6rem] bg-black lg:block"></div>
-              </div>
-            </div>
-            <div id="feature-grid" class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr]"></div>
-          </div>
-        </section>
-
-        <section class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-              <div class="float-a">
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Browse Resources</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Explore
-                  <br />
-                  by category
-                </h2>
-                <a href="#" class="mt-8 inline-flex items-center gap-2 text-sm text-black/65 transition hover:text-black">
-                  View all
-                  <span class="text-lg">⊕</span>
-                </a>
-              </div>
-              <div id="resource-grid" class="grid gap-4 md:grid-cols-2 xl:grid-cols-4"></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="workflow" class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div class="max-w-3xl">
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">How it works</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Three moves
-                  <br />
-                  to deploy
-                </h2>
-              </div>
-              <p class="max-w-md text-sm leading-7 text-black/55">
-                The cards are intentionally staggered to create a left-to-right sense of progression instead of a neutral even row.
-              </p>
-            </div>
-            <div id="steps-grid" class="grid gap-4 lg:grid-cols-3"></div>
-          </div>
-        </section>
-
-        <section id="pricing" class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="mb-12 grid gap-8 lg:grid-cols-[0.78fr_1.22fr]">
-              <div>
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Pricing</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Simple,
-                  <br />
-                  but staged.
-                </h2>
-              </div>
-              <p class="max-w-xl text-sm leading-7 text-black/56">
-                Pricing now uses one dominant anchor plan with two quieter companions so the page has a more designed reading order.
-              </p>
-            </div>
-            <div id="pricing-grid" class="grid gap-4 lg:grid-cols-[0.88fr_1.12fr_0.88fr]"></div>
-          </div>
-        </section>
-
-        <section class="px-4 py-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
-              <div>
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">FAQ</p>
-                <h2 class="mega-kicker mt-4 text-4xl font-medium text-black sm:text-5xl">
-                  Friction,
-                  <br />
-                  resolved.
-                </h2>
-              </div>
-              <div id="faq-list" class="rounded-[2rem] border border-black/8 bg-white/18 p-3"></div>
-            </div>
-          </div>
-        </section>
-
-        <section id="apply" class="px-4 pb-6 pt-3 sm:px-6 lg:px-8">
-          <div class="page-surface mx-auto max-w-7xl overflow-hidden rounded-[2rem] px-5 py-10 sm:px-8 lg:px-10 lg:py-12">
-            <div class="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-              <div class="float-a">
-                <p class="text-sm uppercase tracking-[0.28em] text-black/45">Your infrastructure, managed by AI.</p>
-                <h2 class="mega-kicker mt-4 max-w-2xl text-4xl font-medium text-black sm:text-5xl">
-                  Start your
-                  <br />
-                  application
-                </h2>
-              </div>
-              <div class="soft-tile rounded-[1.8rem] p-6 lg:justify-self-end">
-                <p class="max-w-md text-sm leading-7 text-black/55">
-                  Final call-to-action now feels like a designed panel inside the canvas, not just another generic footer CTA block.
-                </p>
-                <div class="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href="#"
-                    class="rounded-full border border-black/10 px-5 py-3 text-sm font-medium text-black/70 transition hover:border-black/20 hover:text-black"
-                  >
-                    Documentation
-                  </a>
-                  <a
-                    href="#"
-                    class="rounded-full bg-black px-6 py-3 text-sm font-semibold text-white transition hover:bg-black/90"
-                  >
-                    Apply now
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <footer id="docs" class="px-4 pb-8 pt-3 sm:px-6 lg:px-8">
-        <div class="page-surface mx-auto max-w-7xl rounded-[2rem]">
-          <div class="grid gap-12 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_0.72fr] lg:px-10">
-            <div class="max-w-md">
-              <div class="flex items-center gap-3">
-                <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-black text-white">
-                  <span class="text-sm font-bold tracking-[0.22em]">SB</span>
-                </span>
-                <div>
-                  <p class="text-lg font-semibold text-black">Stackobrite</p>
-                  <p class="text-sm text-black/55">AI-powered cloud infrastructure for modern teams.</p>
-                </div>
-              </div>
-              <p class="mt-8 text-sm text-black/45">
-                © 2026 Stackobrite. All rights reserved.
-              </p>
-            </div>
-
-            <div class="grid gap-8 sm:grid-cols-3">
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Product</p>
-                <div class="mt-4 space-y-3 text-sm text-black/65">
-                  <a href="#platform" class="block transition hover:text-black">Platform</a>
-                  <a href="#" class="block transition hover:text-black">AI Agent</a>
-                  <a href="#pricing" class="block transition hover:text-black">Pricing</a>
-                  <a href="#" class="block transition hover:text-black">Changelog</a>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Resources</p>
-                <div class="mt-4 space-y-3 text-sm text-black/65">
-                  <a href="#" class="block transition hover:text-black">Documentation</a>
-                  <a href="#" class="block transition hover:text-black">API Reference</a>
-                  <a href="#" class="block transition hover:text-black">Terraform Modules</a>
-                  <a href="#" class="block transition hover:text-black">Blog</a>
-                </div>
-              </div>
-              <div>
-                <p class="text-sm font-semibold uppercase tracking-[0.2em] text-black/45">Company</p>
-                <div class="mt-4 space-y-3 text-sm text-black/65">
-                  <a href="#" class="block transition hover:text-black">About</a>
-                  <a href="#" class="block transition hover:text-black">Careers</a>
-                  <a href="#" class="block transition hover:text-black">Security</a>
-                  <a href="#" class="block transition hover:text-black">Privacy</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="page-divider border-t">
-            <div class="mx-auto flex max-w-7xl flex-wrap gap-4 px-5 py-5 text-sm text-black/45 sm:px-8 lg:px-10">
-              <a href="#" class="transition hover:text-black">Privacy</a>
-              <a href="#" class="transition hover:text-black">Terms</a>
-              <a href="#" class="transition hover:text-black">Security</a>
-            </div>
+            <div class="clients-caption">Happy Clients and Their Pets Who Love Our Products</div>
           </div>
         </div>
-      </footer>
-    </div>
 
-    <script>
-      const state = {
-        currentPlan: "free",
-      };
+        <div class="strip-panel strip-center">
+          <h3>Best Products<br />for Your Pet</h3>
+          <a class="cta-button" href="#">
+            <span>Explore Products</span>
+            <span>→</span>
+          </a>
+        </div>
 
-      const planMetrics = {
-        free: {
-          cost: "$142",
-          savings: "+20%",
-        },
-        pro: {
-          cost: "$218",
-          savings: "+34%",
-        },
-      };
-
-      const teamMembers = [
-        {
-          initials: "A",
-          name: "Alex Chen",
-          level: "Senior",
-          specialty: "Cybersecurity specialist",
-        },
-        {
-          initials: "S",
-          name: "Sarah Kim",
-          level: "Middle",
-          specialty: "UX/UI Designer",
-        },
-      ];
-
-      const deployItems = [
-        { title: "Web Dev Stack", rate: "$10/hour", status: "Active" },
-        { title: "API Gateway", rate: "$8/hour", status: "Active" },
-        { title: "ML Pipeline", rate: "$25/hour", status: "Pending" },
-      ];
-
-      const features = [
-        {
-          eyebrow: "AI Agent",
-          title: "Describe infrastructure in natural language.",
-          body: "Agent writes Terraform, plans changes, asks for approval, and maintains a clean audit trail across every deploy.",
-        },
-        {
-          eyebrow: "Cost Tracking",
-          title: "Real-time spend visibility and budget control.",
-          body: "Monitor spend continuously, get budget alerts, and receive AI-powered optimization suggestions before costs drift upward.",
-        },
-        {
-          eyebrow: "Human Approval",
-          title: "Every change requires explicit approval.",
-          body: "AI suggests the safest path, but your team stays in control of what actually reaches production.",
-        },
-        {
-          eyebrow: "Drift Detection",
-          title: "Continuous checks against unmanaged changes.",
-          body: "Detect console edits and manual drift automatically, then accept AI-proposed fixes or reverts on your terms.",
-        },
-      ];
-
-      const resources = [
-        { name: "Compute", services: "EC2 · ECS · Lambda", count: "2.4k+" },
-        { name: "Databases", services: "RDS · DynamoDB", count: "890+" },
-        { name: "Networking", services: "VPC · CDN · DNS", count: "1.1k+" },
-        { name: "Storage", services: "S3 · EBS · EFS", count: "640+" },
-      ];
-
-      const steps = [
-        {
-          index: "1",
-          title: "Sign up",
-          body: "Connect your AWS account via OIDC. No access keys needed.",
-        },
-        {
-          index: "2",
-          title: "Describe",
-          body: "Tell the AI agent your infrastructure requirements in plain English.",
-        },
-        {
-          index: "3",
-          title: "Deploy",
-          body: "Review the plan, approve with one click, and watch it deploy.",
-        },
-      ];
-
-      const pricing = [
-        {
-          name: "Free",
-          price: "$0",
-          cadence: "forever",
-          features: ["1 environment", "2 team members", "$5 AI credits"],
-          cta: "Get Started",
-          highlight: false,
-        },
-        {
-          name: "Standard",
-          price: "$200",
-          cadence: "/org/mo",
-          features: ["Unlimited environments", "Up to 10 users", "$10 AI credits"],
-          cta: "Start Trial",
-          highlight: true,
-        },
-        {
-          name: "Pro",
-          price: "$500",
-          cadence: "/org/mo",
-          features: ["Unlimited everything", "Unlimited users", "$50 AI credits"],
-          cta: "Contact Sales",
-          highlight: false,
-        },
-      ];
-
-      const faqs = [
-        {
-          question: "How does the AI agent work?",
-          answer:
-            "You describe the target infrastructure in natural language, Stackobrite generates the Terraform plan, shows a clear diff, and only applies after a human approves the change.",
-        },
-        {
-          question: "What cloud providers do you support?",
-          answer:
-            "This concept page focuses on AWS-first workflows, with support centered around common infrastructure primitives such as compute, networking, storage, and managed databases.",
-        },
-        {
-          question: "How does billing work?",
-          answer:
-            "Billing is organization-based, with plan tiers aligned to environment scale, team size, and monthly AI credit limits for deployment conversations.",
-        },
-        {
-          question: "Is my data secure?",
-          answer:
-            "Approvals, audit trails, drift signals, and cloud account connection through OIDC reduce key sprawl and keep infrastructure actions visible to the right people.",
-        },
-      ];
-
-      const teamGrid = document.getElementById("team-grid");
-      const deployGrid = document.getElementById("deploy-grid");
-      const featureGrid = document.getElementById("feature-grid");
-      const resourceGrid = document.getElementById("resource-grid");
-      const stepsGrid = document.getElementById("steps-grid");
-      const pricingGrid = document.getElementById("pricing-grid");
-      const faqList = document.getElementById("faq-list");
-      const monthlyCost = document.getElementById("monthly-cost");
-      const savingsRate = document.getElementById("savings-rate");
-      const planToggles = document.querySelectorAll(".plan-toggle");
-
-      function renderTeam() {
-        teamGrid.innerHTML = teamMembers
-          .map(
-            (member) => `
-              <article class="soft-tile rounded-[1.75rem] p-5 transition hover:-translate-y-1 hover:bg-white/30 ${
-                member.initials === "S" ? "lg:ml-10" : ""
-              }">
-                <div class="flex items-start gap-4">
-                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-black text-lg font-semibold text-white">${member.initials}</div>
-                  <div>
-                    <h3 class="text-xl font-medium text-black">${member.name}</h3>
-                    <p class="mt-1 text-sm text-black/55">${member.level}</p>
-                    <p class="mt-3 text-sm leading-6 text-black/60">${member.specialty}</p>
-                  </div>
-                </div>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderDeploys() {
-        deployGrid.innerHTML = deployItems
-          .map(
-            (item, index) => `
-              <article class="rounded-[1.75rem] p-5 transition hover:-translate-y-1 ${
-                index === 1
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile text-black hover:bg-white/30 ${index === 0 ? "lg:mr-10" : "lg:ml-6"}`
-              }">
-                <div class="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 class="text-lg font-medium ${index === 1 ? "text-white" : "text-black"}">${item.title}</h3>
-                    <p class="mt-3 text-sm ${index === 1 ? "text-white/60" : "text-black/55"}">${item.rate}</p>
-                  </div>
-                  <span class="rounded-full px-3 py-1 text-xs font-medium ${
-                    index === 1
-                      ? "border border-white/10 bg-white/10 text-white"
-                      : item.status === "Active"
-                        ? "border border-black/10 bg-white/40 text-black"
-                        : "border border-black/10 bg-white/50 text-black/70"
-                  }">
-                    ${item.status}
-                  </span>
-                </div>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderFeatures() {
-        featureGrid.innerHTML = features
-          .map(
-            (feature, index) => `
-              <article class="rounded-[2rem] p-6 transition ${
-                index === 2
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : index === 1 ? "lg:-mt-8" : "lg:mt-4"}`
-              }">
-                <p class="text-sm uppercase tracking-[0.24em] ${index === 2 ? "text-white/50" : "text-black/45"}">${feature.eyebrow}</p>
-                <h3 class="mt-4 max-w-md text-2xl font-semibold tracking-[-0.04em] ${index === 2 ? "text-white" : "text-black"}">${feature.title}</h3>
-                <p class="mt-4 max-w-lg text-sm leading-7 ${index === 2 ? "text-white/65" : "text-black/62"}">${feature.body}</p>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderResources() {
-        resourceGrid.innerHTML = resources
-          .map(
-            (resource, index) => `
-              <article class="rounded-[1.75rem] p-6 transition hover:-translate-y-1 ${
-                index === 2
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : index === 1 ? "lg:-mt-2" : index === 3 ? "lg:mt-14" : ""}`
-              }">
-                <h3 class="text-2xl font-semibold tracking-[-0.04em] ${index === 2 ? "text-white" : "text-black"}">${resource.name}</h3>
-                <p class="mt-2 text-sm ${index === 2 ? "text-white/58" : "text-black/58"}">${resource.services}</p>
-                <p class="mt-8 text-4xl font-semibold tracking-[-0.05em] ${index === 2 ? "text-white" : "text-black"}">${resource.count}</p>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderSteps() {
-        stepsGrid.innerHTML = steps
-          .map(
-            (step, index) => `
-              <article class="rounded-[2rem] p-6 transition ${
-                index === 1
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)]"
-                  : `soft-tile hover:bg-white/30 ${index === 0 ? "lg:mt-10" : "lg:mt-20"}`
-              }">
-                <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl ${
-                  index === 1
-                    ? "bg-white text-black"
-                    : "border border-black/10 bg-white/35 text-black"
-                } text-lg font-semibold">${step.index}</span>
-                <h3 class="mt-6 text-2xl font-semibold tracking-[-0.04em] ${index === 1 ? "text-white" : "text-black"}">${step.title}</h3>
-                <p class="mt-4 text-sm leading-7 ${index === 1 ? "text-white/62" : "text-black/62"}">${step.body}</p>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderPricing() {
-        pricingGrid.innerHTML = pricing
-          .map(
-            (plan) => `
-              <article class="rounded-[2rem] p-6 transition hover:-translate-y-1 ${
-                plan.highlight
-                  ? "bg-black text-white shadow-[0_12px_28px_rgba(15,23,42,0.18)] lg:-mt-8"
-                  : `soft-tile text-black hover:bg-white/30 ${plan.name === "Free" ? "lg:mt-14" : "lg:mt-24"}`
-              }">
-                <div class="flex min-h-[280px] flex-col">
-                  <div>
-                    <p class="text-sm uppercase tracking-[0.24em] ${
-                      plan.highlight ? "text-white/45" : "text-black/45"
-                    }">${plan.name}</p>
-                    <div class="mt-6 flex items-end gap-2">
-                      <span class="text-5xl font-semibold tracking-[-0.05em] ${plan.highlight ? "text-white" : "text-black"}">${plan.price}</span>
-                      <span class="pb-1 text-sm ${plan.highlight ? "text-white/55" : "text-black/55"}">${plan.cadence}</span>
-                    </div>
-                  </div>
-                  <div class="mt-8 space-y-4 text-sm ${plan.highlight ? "text-white/72" : "text-black/72"}">
-                    ${plan.features
-                      .map(
-                        (feature) => `
-                          <div class="flex items-center gap-3">
-                            <span class="h-2 w-2 rounded-full ${plan.highlight ? "bg-white" : "bg-black"}"></span>
-                            <span>${feature}</span>
-                          </div>
-                        `
-                      )
-                      .join("")}
-                  </div>
-                  <a
-                    href="#apply"
-                    class="mt-auto inline-flex justify-center rounded-full px-5 py-3 text-sm font-semibold transition ${
-                      plan.highlight
-                        ? "bg-white text-black hover:bg-white/90"
-                        : "border border-black/10 text-black hover:border-black/20 hover:bg-white/40"
-                    }"
-                  >
-                    ${plan.cta}
-                  </a>
-                </div>
-              </article>
-            `
-          )
-          .join("");
-      }
-
-      function renderFaq() {
-        faqList.innerHTML = faqs
-          .map(
-            (item, index) => `
-              <article class="overflow-hidden rounded-[1.5rem] border border-black/8 bg-white/10">
-                <button
-                  type="button"
-                  class="faq-trigger flex w-full items-center justify-between gap-4 rounded-[1.5rem] px-5 py-5 text-left transition hover:bg-white/30"
-                  aria-expanded="${index === 0 ? "true" : "false"}"
-                  aria-controls="faq-panel-${index}"
-                >
-                  <span class="text-lg font-medium text-black">${item.question}</span>
-                  <span class="text-2xl text-black">${index === 0 ? "-" : "+"}</span>
-                </button>
-                <div
-                  id="faq-panel-${index}"
-                  class="${index === 0 ? "block" : "hidden"} px-5 pb-5 text-sm leading-7 text-black/62"
-                >
-                  ${item.answer}
-                </div>
-              </article>
-            `
-          )
-          .join("");
-
-        document.querySelectorAll(".faq-trigger").forEach((button) => {
-          button.addEventListener("click", () => {
-            const expanded = button.getAttribute("aria-expanded") === "true";
-            const panelId = button.getAttribute("aria-controls");
-            const icon = button.querySelector("span:last-child");
-            const panel = document.getElementById(panelId);
-
-            button.setAttribute("aria-expanded", String(!expanded));
-            panel.classList.toggle("hidden", expanded);
-            icon.textContent = expanded ? "+" : "-";
-          });
-        });
-      }
-
-      function updatePlanUI() {
-        const selected = planMetrics[state.currentPlan];
-        monthlyCost.textContent = selected.cost;
-        savingsRate.textContent = selected.savings;
-
-        planToggles.forEach((button) => {
-          const active = button.dataset.plan === state.currentPlan;
-          button.className = active
-            ? "plan-toggle rounded-full bg-black px-4 py-2 text-sm font-semibold text-white transition"
-            : "plan-toggle rounded-full px-4 py-2 text-sm font-medium text-black/55 transition hover:text-black";
-          button.setAttribute("aria-pressed", String(active));
-        });
-      }
-
-      function bindEvents() {
-        planToggles.forEach((button) => {
-          button.addEventListener("click", () => {
-            state.currentPlan = button.dataset.plan;
-            updatePlanUI();
-          });
-        });
-      }
-
-      renderTeam();
-      renderDeploys();
-      renderFeatures();
-      renderResources();
-      renderSteps();
-      renderPricing();
-      renderFaq();
-      bindEvents();
-      updatePlanUI();
-    </script>
+        <div class="strip-panel strip-right">
+          <div class="rating-block">
+            <div class="rating-value">4.6 <span>★</span></div>
+            <div class="rating-caption">Based on Reviews from Happy Pet Owners Worldwide</div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
